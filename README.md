@@ -1,3 +1,3 @@
 # Proschool
 Proyecto Escolar
-https://prschool.herokuapp.com/
+https://proschool.herokuapp.com/
