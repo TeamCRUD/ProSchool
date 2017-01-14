@@ -55,7 +55,7 @@ gulp.task('scss:w' , ['sass'])
 // BrowserSync =========================
 gulp.task('browser-sync' , ['nodemon'], () =>{
   browserSync.init(null, {
-    proxy: "http://localhost:5000",
+    proxy: "http://localhost:3000",
     files: ["./**/*.js","views/**/*.jade"],
     browser: "",
     port: 7000,
@@ -74,7 +74,7 @@ gulp.task('all:w',['jade' , 'babel' , 'sass'], () => {
 gulp.task('nodemon', function (cb) {
   var started = false;
   return nodemon({
-    script: 'app.js'
+    script: 'bin/www'
   }).on('start', function () {
     // to avoid nodemon being started multiple times
     // thanks @matthisk
