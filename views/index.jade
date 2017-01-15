@@ -2,4 +2,12 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  form(action="/sessions", method="POST")
+    div
+      input(type="text", name="username", placeholder="Usuario", id="username")
+    div
+      input(type="password", name="password", placeholder="Contraseña", id="password")
+    div
+      input(type="submit" value="Iniciar sesión")  
+    div
+      a(href="/signup") No tengo cuenta
