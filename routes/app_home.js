@@ -21,7 +21,7 @@ router.get('/notas/:id/edit',function(req,res){
 router.route("/notas/:id")
     .get(function(req,res){
        Nota.findById(req.params.id,function(err, nota){
-           res.render('app/notas/show',{nota: nota})
+           res.render('app/notas/show',{title: 'Proschool - Notas', nota: nota})
        })
     })
     .put(function(req,res){
