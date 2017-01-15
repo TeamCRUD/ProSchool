@@ -15,10 +15,15 @@ router.post('/', function(req, res, next) {
       lastname: req.body.lastname,
       email: req.body.email,
       username: req.body.username,
-      password: req.body.password
+      password: req.body.password,
+      password_confirmation: req.body.password_confirmation
   });
-  user.save(function(){
-      res.redirect('/')
+  user.save(function(err){
+      if(err){
+        res.send(String(err))
+      }else{
+        res.redirect('/')
+      }
   })
 });
 
