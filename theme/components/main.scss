@@ -1,0 +1,114 @@
+// Index =================
+main{
+    .main-content{
+        @include edContainer;
+        text-align: center
+    }
+    .main-title{
+        @include edItem;
+        @include from(m){
+            font-size: 30px
+        }
+    }
+    .main-button{
+        @include edItem;
+        a{
+            margin: 0 5px;
+            @include from(m){
+                font-size: 18px
+            }
+        }
+        .button-1{
+            border: 1px solid $secondary;
+            @include button($primary, $secondary, radius);
+        }
+        .button-2{
+            border: 1px solid $secondary;
+            @include button($secondary, $primary, radius)
+        }
+    }
+}
+// Login ==================
+.login-content{
+    text-align: center;
+    @include edContainer;
+    .login-title{
+        @include edItem;
+        h1{
+            font-size: 40px;
+            font-size: 42px
+        }
+    }
+    .login-form{
+        @include edItem
+    }
+    .login-input{
+        input{
+            margin: 3px 0;
+            padding: 9px 11px;
+            width: 13.5em;
+            font-size: 20px;
+            border: 1px solid $favorite;
+            border-radius: 4px
+        }
+    }
+    .login-button-1{
+        font-size: 16px;
+        margin: 2px;
+        width: 9.5em;
+        @include button($secondary, $primary, radius)
+    }
+    .login-button-2{
+        font-size: 16px;
+        margin: 2px;
+        border: 1px solid $secondary;
+        @include button($primary, $secondary, radius)
+    }
+    .login-button-3{
+        font-size: 15px;
+        margin: 10px 0;
+        @include button($primary, $secondary, radius);
+    }
+}
+
+// Login ==================
+.signup-content{
+    text-align: center;
+    @include edContainer;
+    .signup-title{
+        @include edItem;
+        h1{
+            font-size: 40px;
+            font-size: 42px
+        }
+    }
+    .signup-form{
+        @include edItem
+    }
+    .signup-input{
+        input{
+            margin: 3px 0;
+            padding: 9px 11px;
+            width: 13.5em;
+            font-size: 20px;
+            border: 1px solid $favorite;
+            border-radius: 4px
+        }
+    }
+    .signup-button-1{
+        font-size: 16px;
+        margin: 2px;
+        width: 9.5em;
+        @include button($secondary, $primary, radius)
+    }
+    .signup-button-2{
+        font-size: 16px;
+        margin: 2px;
+        border: 1px solid $secondary;
+        @include button($primary, $secondary, radius)
+    }
+    .signup-button-3{
+        margin: 10px;
+        @include button($primary, $secondary, radius);
+    }
+}

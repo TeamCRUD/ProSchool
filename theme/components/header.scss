@@ -1,0 +1,48 @@
+.main-header{
+    &__content{
+        @include edContainer
+    }
+    &__logo{
+        @include edItem(90,20,60)
+    }
+    &__toggle{
+        margin: 15px 0;
+        @include navToggle(16px,black);
+        @include showTo(m);
+    }
+    &__nav{
+        @include edItem(100,80,40);
+        .main-nav{
+            @include to(m){ 
+                margin-top: 1px;
+            }
+            @include edNav(right,m);
+            background: $primary;
+            &__menu{
+                @include edMenu(m);
+                text-align: center;
+                &__item{
+                    a{
+                        color: $favorite
+                    }
+                    &:hover{
+                        background: $secondary;
+                        transition: .3s all;
+                        a{
+                            color: $primary
+                        }
+                    }
+                }
+            }
+           
+        }
+
+        @include to(m){
+            font-size: 25px
+        }
+
+        @include from(m){
+            font-size: 17px
+        }
+    }
+}

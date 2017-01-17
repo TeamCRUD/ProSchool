@@ -40,12 +40,12 @@ gulp.task('sass',  () => {
     let processors = [
         autoprefixer({browsers: ['last 2 versions']})
     ];
-    return gulp.src('./theme/styles.scss')
+    return gulp.src('./theme/style.scss')
         .pipe(sass({outputStyle: 'compressed', includePaths: ["node_modules"]})
         .on('error', sass.logError))
         .pipe(plumber())
         .pipe(postcss(processors))
-        .pipe(gulp.dest('public/css'))
+        .pipe(gulp.dest('public/stylesheets'))
         .pipe(browserSync.stream());
 });
 

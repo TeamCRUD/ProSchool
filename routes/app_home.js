@@ -57,7 +57,7 @@ router.route("/notas")
         })
     })
     .post(function(req,res){
-        console.log(res.locals.user._id)
+        
         var data = {
             periodo: req.body.periodo,
             nota: req.body.nota,

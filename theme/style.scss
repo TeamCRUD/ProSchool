@@ -1,0 +1,38 @@
+// Import ED-Grid ===========
+$cssCore: false;
+$cssHelpers: false;
+$devMode: false;
+@import 'ed-grid/ed-grid';
+
+// Import Fonts =============
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+// Fonts Weight =============
+$light      : 300;
+$normal     : 400;
+$semi-bold  : 600;
+$bold       : 700;
+$extra-bold : 800;
+
+// Colors ===================
+$primary:    #0E4C73;
+$secondary:  #038A72;
+$danger:     #f53d3d;
+$light:      #35AFBD;
+$dark:       #0B4357;
+$favorite:   #66757F;
+
+//PALETA PARA NOTAS
+$low:        $danger;
+$medium:     #E99804;
+$high:       $secondary ;
+
+
+// Import Default Styles ======
+@import 'components/default';
+
+// Import Layout ==============
+@import 'components/layout';
+
+// Import Pages Styles ========
