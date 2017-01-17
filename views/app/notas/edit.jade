@@ -1,0 +1,13 @@
+extends ../layout_app
+
+block content_app
+    h1 Subir nueva nota
+    form(action="/app/notas/#{nota._id}?_method=PUT", method="POST")
+        div
+            input(type="text", name="periodo", placeholder="Periodo", id="periodo", value="#{nota.periodo}")
+        div
+            input(type="text", name="nota", placeholder="Escribir nota", id="nota", value="#{nota.nota}")
+        div
+            input(type="submit" value="Cambiar")
+        div
+            a(href="/app") Cancelar

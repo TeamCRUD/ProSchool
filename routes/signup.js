@@ -20,9 +20,11 @@ router.post('/', function(req, res, next) {
   });
   user.save(function(err){
       if(err){
-        res.send(String(err))
+        console.log(err)
+        return res.status(500).send()
       }else{
         res.redirect('/')
+        return res.status(200).send()
       }
   })
 });

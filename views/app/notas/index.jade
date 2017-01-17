@@ -1,0 +1,10 @@
+extends ../layout_app
+
+block content_app
+    a(href="/app/notas/new") Nueva nota
+    h1 Lista de Notas
+    for nota in notas
+        h1= nota.periodo + ' : ' + nota.nota
+        a(href="/app/notas/#{nota._id}/edit") Editar 
+        form(action="/app/notas/#{nota._id}?_method=DELETE", method="POST")
+            input(type="submit", value="Eliminar")

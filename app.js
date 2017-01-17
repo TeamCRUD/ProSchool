@@ -6,6 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 var session_middleware = require('./middlewares/session')
+var methodOverride = require("method-override")
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://jairperezs:D1e560*9c@ds157078.mlab.com:57078/proschool')
+mongoose.Promise = global.Promise;
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -27,6 +32,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(methodOverride("_method"))
 
 app.use(cookieSession({
   name: "session",

@@ -15,7 +15,9 @@ router.get('/notas/new',function(req,res){
 })
 
 router.get('/notas/:id/edit',function(req,res){
-
+    Nota.findById(req.params.id,function(err, nota){
+        res.render('app/notas/edit',{title: 'Proschool - Editar nota', nota: nota})
+    })
 })
 
 router.route("/notas/:id")
@@ -25,15 +27,37 @@ router.route("/notas/:id")
        })
     })
     .put(function(req,res){
-
+        Nota.findById(req.params.id,function(err, nota){
+            nota.periodo = req.body.periodo
+            nota.nota = req.body.nota
+            nota.save(function(err){
+                if(!err){
+                    res.render('app/notas/show',{nota: nota})
+                }else{
+                    res.render('app/notas/'+nota.id+'/edit',{nota: nota})
+                }
+            })
+        })
     })
     .delete(function(req,res){
-
+        Nota.findByIdAndRemove({_id: req.params.id}, function(err){
+            if(!err){
+                res.redirect('/app/notas')
+            }else{
+                console.log(err)
+                res.redirect('/app/notas/'+req.params.id)
+            }
+        })
     })
 
 router.route("/notas")
     .get(function(req,res){
-        
+        Nota.find({},function(err,notas){
+            if(err){
+               return res.redirect('/app')
+            }
+            res.render('app/notas/index',{title: 'Proschool - Notas', notas: notas})
+        })
     })
     .post(function(req,res){
         var data = {

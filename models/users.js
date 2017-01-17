@@ -1,7 +1,5 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-mongoose.connect('mongodb://jairperezs:D1e560*9c@ds157078.mlab.com:57078/proschool')
-mongoose.Promise = global.Promise;
 
 var email_match = [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,"Coloca un email valido"]
 var password_validation = {
@@ -14,7 +12,7 @@ var user_schema = new Schema({
     name: String,
     lastname: String,
     email: {type: String, required: "El correo es obligatorio", match: email_match},
-    username: {type: String , required: true, maxlength: [50, "Nombre de usuario muy grande"]},
+    username: {type: String , required: true, unique:true, maxlength: [50, "Nombre de usuario muy grande"]},
     password: {type: String, minlength: [8, "La contraseña es muy corta"], validate: password_validation}
 })
 
