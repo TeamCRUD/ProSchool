@@ -3,7 +3,8 @@ var Schema = mongoose.Schema
 
 var nota_schema = new Schema({
     periodo: { type: String, require: true },
-    nota: Number
+    nota: Number,
+    profesor: { type: Schema.Types.ObjectId, ref: "User" }
 })
 
 var Nota = mongoose.model("Nota", nota_schema)

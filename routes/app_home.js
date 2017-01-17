@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var Nota = require('../models/notas')
+var nota_finder_middleware = require('../middlewares/find_nota')
 
 /* GET app page. */
 router.get('/', function(req, res, next) {
@@ -14,29 +15,25 @@ router.get('/notas/new',function(req,res){
     res.render('app/notas/new', {title: 'Proschool - Nueva nota'})
 })
 
+router.all('/notas/:id*', nota_finder_middleware)
+
 router.get('/notas/:id/edit',function(req,res){
-    Nota.findById(req.params.id,function(err, nota){
-        res.render('app/notas/edit',{title: 'Proschool - Editar nota', nota: nota})
-    })
+    res.render('app/notas/edit',{title: 'Proschool - Editar nota'})
 })
 
 router.route("/notas/:id")
     .get(function(req,res){
-       Nota.findById(req.params.id,function(err, nota){
-           res.render('app/notas/show',{title: 'Proschool - Notas', nota: nota})
-       })
+        res.render('app/notas/show',{title: 'Proschool - Notas'})
     })
     .put(function(req,res){
-        Nota.findById(req.params.id,function(err, nota){
-            nota.periodo = req.body.periodo
-            nota.nota = req.body.nota
-            nota.save(function(err){
-                if(!err){
-                    res.render('app/notas/show',{nota: nota})
-                }else{
-                    res.render('app/notas/'+nota.id+'/edit',{nota: nota})
-                }
-            })
+        res.locals.nota.periodo = req.body.periodo
+        res.locals.nota.nota = req.body.nota
+        nota.save(function(err){
+            if(!err){
+                res.render('app/notas/show')
+            }else{
+                res.render('app/notas/'+req.params.id+'/edit')
+            }
         })
     })
     .delete(function(req,res){
@@ -52,7 +49,7 @@ router.route("/notas/:id")
 
 router.route("/notas")
     .get(function(req,res){
-        Nota.find({},function(err,notas){
+        Nota.find({profesor: res.locals.user._id},function(err,notas){
             if(err){
                return res.redirect('/app')
             }
@@ -60,9 +57,11 @@ router.route("/notas")
         })
     })
     .post(function(req,res){
+        console.log(res.locals.user._id)
         var data = {
             periodo: req.body.periodo,
-            nota: req.body.nota
+            nota: req.body.nota,
+            profesor: res.locals.user._id
         }
 
         var nota = new Nota(data)
@@ -72,7 +71,8 @@ router.route("/notas")
                 res.redirect('/app/notas/'+nota._id);
             }
             else{
-                res.render(err)
+                res.render(err);
+                console.log(nota)
             }
         })
     })

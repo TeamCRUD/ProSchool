@@ -2,3 +2,5 @@ extends ../layout_app
 
 block content_app
     h1= nota.periodo + ' ' + nota.nota
+    if(typeof nota.profesor != "undefined")
+        p Por #{nota.profesor.name  + ' ' + nota.profesor.lastname }
