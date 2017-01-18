@@ -34,12 +34,12 @@ main{
     @include edContainer;
     .login-title{
         @include edItem;
-        h1{
-            font-size: 42px;
+        padding-top: 2em;
+        a{
             font-family:'pacifico', cursive;
-            font-weight: 200;
             color: $primary;
             font-size: 2.5em;
+            text-decoration: none
         }
     }
     .login-form{
@@ -47,25 +47,27 @@ main{
     }
     .login-input{
         input{
-            margin: 3px 0;
-            padding: 9px 11px;
-            width: 13.5em;
-            font-size: 20px;
-            color: $secondary;
-            border: 1px solid $light;
-            border-radius: 4px
+            margin-bottom: 8px; 
+            padding: 8px;
+            width: 16em;
+            font-size: 16px;
+            color: black;
+            border: 1px solid #E1E8ED;
+            border-radius: 3px;
+            &:focus{
+                border: 1px solid $light
+            }
         }
     }
     .login-button-1{
-        font-size: 18px;
-        margin: 2px;
-        width: 15em;
+        font-size: 15px;
+        width: 17em;
         @include button($secondary, white, radius);
-        margin-bottom: 25px
+        margin-bottom: 35px
     }
     .login-button-2{
         font-size: 16px;
-        color: $light
+        color: $secondary
     }
 }
 
@@ -75,10 +77,18 @@ main{
     @include edContainer;
     .signup-title{
         @include edItem;
-        h1{
-            font-size: 40px;
-            font-size: 42px
+        padding-top: 2em;
+        a{
+            font-size: 45px;
+            font-family: "pacifico",cursive;
+            color: $primary;
+            text-decoration: none
         }
+        h1{
+            color: $secondary;
+            font-weight: 400;
+            font-family: "roboto"
+        }   
     }
     .signup-form{
         @include edItem
@@ -86,27 +96,25 @@ main{
     .signup-input{
         input{
             margin: 3px 0;
-            padding: 9px 11px;
-            width: 13.5em;
-            font-size: 20px;
-            border: 1px solid $favorite;
-            border-radius: 4px
+            padding: 10px;
+            width: 16em;
+            font-size: 18px;
+            border: 1px solid #E1E8ED;
+            border-radius: 3px;
+            &:focus{
+                border: 1px solid $light
+            }
         }
     }
     .signup-button-1{
         font-size: 16px;
         margin: 2px;
-        width: 9.5em;
-        @include button($secondary, $primary, radius)
+        margin-bottom: 35px;
+        width: 18em;
+        @include button($secondary, white, radius)
     }
     .signup-button-2{
         font-size: 16px;
-        margin: 2px;
-        border: 1px solid $secondary;
-        @include button($primary, $secondary, radius)
-    }
-    .signup-button-3{
-        margin: 10px;
-        @include button($primary, $secondary, radius);
+        color: $secondary
     }
 }

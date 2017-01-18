@@ -1,21 +1,25 @@
 extends layout
 
 block content
-  h1 Proschool
-  form(action="/signup", method="POST")
-    div
-        input(type="text", name="name", placeholder="Nombre", id="name")
-    div
-        input(type="text", name="lastname", placeholder="Apellido", id="lastname")
-    div
-        input(type="text", name="email", placeholder="Correo electronico", id="email")
-    div
-        input(type="text", name="username", placeholder="Nombre de usuario", id="username")
-    div
-        input(type="password", name="password", placeholder="Contraseña", id="password")
-    div
-        input(type="password", name="password_confirmation", placeholder="Confirmar contraseña", id="password_confirmation")
-    div
-        input(type="submit" value="Registrar")
-    div
-        a(href="/") Ya tengo cuenta
+    .signup-content
+        .signup-title
+            a(href="/") Proschool
+            h1 Registrate
+        .signup-form
+            form(action="/signup", method="POST")
+                .signup-input
+                    input(type="text", name="name", placeholder="Nombre", id="name")
+                .signup-input
+                    input(type="text", name="lastname", placeholder="Apellido", id="lastname")
+                .signup-input
+                    input(type="text", name="email", placeholder="Correo electronico", id="email")
+                .signup-input
+                    input(type="text", name="username", placeholder="Nombre de usuario", id="username")
+                .signup-input
+                    input(type="password", name="password", placeholder="Contraseña", id="password")
+                .signup-input
+                    input(type="password", name="password_confirmation", placeholder="Confirmar contraseña", id="password_confirmation")
+                .signup-button
+                    input.signup-button-1(type="submit" value="Registrar")
+                .signup-button
+                    a.signup-button-2(href="/") Ya tengo cuenta

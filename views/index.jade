@@ -3,7 +3,7 @@ extends layout
 block content
   .login-content
     .login-title
-      h1= title
+      a(href="/")= title
     .login-form
       form(action="/sessions", method="POST")
         .login-input
