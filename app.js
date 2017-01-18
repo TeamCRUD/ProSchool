@@ -4,13 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var cookieSession = require('cookie-session');
+//var cookieSession = require('cookie-session');
+var session = require('express-session')
 var session_middleware = require('./middlewares/session')
 var methodOverride = require("method-override")
-
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://jairperezs:D1e560*9c@ds157078.mlab.com:57078/proschool')
-mongoose.Promise = global.Promise;
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -35,10 +32,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(methodOverride("_method"))
 
-app.use(cookieSession({
+app.use(session({
+  secret: 'P*s*1*7',
+  resave: false,
+  saveUninitialized: false
+
+}))
+
+/**app.use(cookieSession({
   name: "session",
   keys: ["llave-1, llave-2"]
-}))
+}))**/
 
 app.use('/', index);
 app.use('/users', users);
