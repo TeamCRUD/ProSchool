@@ -6,7 +6,12 @@ var nota_finder_middleware = require('../middlewares/find_nota')
 
 /* GET app page. */
 router.get('/', function(req, res, next) {
-    res.render('app/home', {title: 'Proschool - Home'})
+    Nota.find({})
+        .populate('profesor')
+        .exec(function(err, notas){
+            if(err) console.log(err)
+            res.render('app/home', {title: 'Proschool - Home', notas: notas})
+        })
 });
 
 
