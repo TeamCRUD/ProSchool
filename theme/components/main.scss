@@ -35,8 +35,11 @@ main{
     .login-title{
         @include edItem;
         h1{
-            font-size: 40px;
-            font-size: 42px
+            font-size: 42px;
+            font-family:'pacifico', cursive;
+            font-weight: 200;
+            color: $primary;
+            font-size: 2.5em;
         }
     }
     .login-form{
@@ -48,26 +51,21 @@ main{
             padding: 9px 11px;
             width: 13.5em;
             font-size: 20px;
-            border: 1px solid $favorite;
+            color: $secondary;
+            border: 1px solid $light;
             border-radius: 4px
         }
     }
     .login-button-1{
-        font-size: 16px;
+        font-size: 18px;
         margin: 2px;
-        width: 9.5em;
-        @include button($secondary, $primary, radius)
+        width: 15em;
+        @include button($secondary, white, radius);
+        margin-bottom: 25px
     }
     .login-button-2{
         font-size: 16px;
-        margin: 2px;
-        border: 1px solid $secondary;
-        @include button($primary, $secondary, radius)
-    }
-    .login-button-3{
-        font-size: 15px;
-        margin: 10px 0;
-        @include button($primary, $secondary, radius);
+        color: $light
     }
 }
 
