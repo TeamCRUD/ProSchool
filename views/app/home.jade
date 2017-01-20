@@ -1,8 +1,9 @@
 extends layout_app
 
 block content_app
-    div
+    .main-content
         for nota in notas
-            h1= nota.periodo + ' ' + nota.nota
-            if(typeof nota.profesor != "undefined")
-                p Por #{nota.profesor.name  + ' ' + nota.profesor.lastname }
+            .main-nota
+                h1= nota.nota
+                if(typeof nota.profesor != "undefined")
+                    p #{nota.periodo + ' periodo'} | Por #{nota.profesor.name  + ' ' + nota.profesor.lastname }

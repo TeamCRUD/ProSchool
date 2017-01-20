@@ -1,30 +1,14 @@
-// Index =================
-main{
-    .main-content{
-        @include edContainer;
-        text-align: center
-    }
-    .main-title{
+// App =================
+.main-content{
+    @include edContainer;
+    padding: .5em 0;
+    .main-nota{
         @include edItem;
-        @include from(m){
-            font-size: 30px
-        }
-    }
-    .main-button{
-        @include edItem;
-        a{
-            margin: 0 5px;
-            @include from(m){
-                font-size: 18px
-            }
-        }
-        .button-1{
-            border: 1px solid $secondary;
-            @include button($primary, $secondary, radius);
-        }
-        .button-2{
-            border: 1px solid $secondary;
-            @include button($secondary, $primary, radius)
+        border: 1px solid #E1E8ED;
+        border-radius: 3px;
+        margin: 2px;
+        p{
+            color: $favorite
         }
     }
 }
@@ -71,7 +55,7 @@ main{
     }
 }
 
-// Login ==================
+// Signup ==================
 .signup-content{
     text-align: center;
     @include edContainer;
@@ -86,7 +70,7 @@ main{
         }
         h1{
             color: $secondary;
-            font-weight: 400;
+            font-weight: $normal;
             font-family: "roboto"
         }   
     }
@@ -116,5 +100,51 @@ main{
     .signup-button-2{
         font-size: 16px;
         color: $secondary
+    }
+}
+
+// Signup ==================
+.new-content{
+    @include edContainer;
+    padding: 2em;
+    .new-title{
+        @include edItem;
+        text-align: center;
+        h2{
+            font-weight: $normal;
+        }
+        p{
+            color: $favorite;
+        }
+    }
+    .new-form{
+        @include edItem;
+        text-align: center
+    }
+    .new-input{
+        input{
+            margin: 3px 0;
+            padding: 10px;
+            width: 16em;
+            font-size: 18px;
+            border: 1px solid #E1E8ED;
+            border-radius: 3px;
+            &:focus{
+                border: 1px solid $light
+            }
+        }
+    }
+    .new-button-1{
+        font-size: 16px;
+        margin: 2px;
+        width: 18em;
+        @include button($secondary, white, radius)
+    }
+    .new-button-2{
+        font-size: 16px;
+        margin: 2px;
+        width: 18em;
+        border: 1px solid $secondary;
+        @include button(white, $secondary, radius)
     }
 }

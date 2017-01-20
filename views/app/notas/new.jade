@@ -1,13 +1,17 @@
 extends ../layout_app
 
 block content_app
-    h1 Subir nueva nota
-    form(action="/app/notas", method="POST")
-        div
-            input(type="text", name="periodo", placeholder="Periodo", id="periodo")
-        div
-            input(type="text", name="nota", placeholder="Escribir nota", id="nota")
-        div
-            input(type="submit" value="Subir")
-        div
-            a(href="/app/notas") Cancelar
+    .new-content 
+        .new-title
+            h2 Subir nueva nota
+            p Asigna una nota, tarea o periodo
+        .new-form
+            form(action="/app/notas", method="POST")
+                .new-input
+                    input(type="text", name="periodo", placeholder="Periodo", id="periodo")
+                .new-input
+                    input(type="text", name="nota", placeholder="Escribir nota", id="nota")
+                .new-button
+                    input.new-button-1(type="submit" value="Subir")
+                .new-button
+                    a.new-button-2(href="/app/notas") Cancelar

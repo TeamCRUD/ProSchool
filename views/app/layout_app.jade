@@ -2,9 +2,15 @@ extends ../layout
 
 block content
     header
-        h1 Proschool
-        a(href="/app") Inicio 
-        a(href="/app/notas/new") Subir nota 
-        a(href="/app/notas") Notas 
-        a(href="/logout") Cerrar sesión
+        .header-content
+            .header-title
+                h1 Proschool
+            .header-nav
+                a(href="/app") Inicio 
+                a(href="/app/notas/new") Subir nota 
+                a(href="/app/notas") Notas 
+                a(href="/logout") Cerrar sesión
+    //.avatar-content
+        a(href="/#{user.username}") #{user.name + ' ' + user.lastname} 
+        a(href="/#{user.username}") @#{user.username}
     block content_app
