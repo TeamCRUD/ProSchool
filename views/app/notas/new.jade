@@ -4,7 +4,7 @@ block content_app
     .new-content 
         .new-title
             h2 Subir nueva nota
-            p Asigna una nota, tarea o periodo
+            p Asigna una nota, tarea y el periodo
         .new-form
             form(action="/app/notas", method="POST")
                 .new-input
@@ -14,4 +14,4 @@ block content_app
                 .new-button
                     input.new-button-1(type="submit" value="Subir")
                 .new-button
-                    a.new-button-2(href="/app/notas") Cancelar
+                    a.new-button-2(href="/app") Cancelar

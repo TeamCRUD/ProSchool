@@ -61,7 +61,6 @@
     @include edContainer;
     .signup-title{
         @include edItem;
-        padding-top: 2em;
         a{
             font-size: 45px;
             font-family: "pacifico",cursive;
@@ -103,13 +102,13 @@
     }
 }
 
-// Signup ==================
+// New ==================
 .new-content{
     @include edContainer;
-    padding: 2em;
+    text-align: center;
+    padding: 2em 0;
     .new-title{
         @include edItem;
-        text-align: center;
         h2{
             font-weight: $normal;
         }
@@ -119,7 +118,6 @@
     }
     .new-form{
         @include edItem;
-        text-align: center
     }
     .new-input{
         input{
@@ -146,5 +144,117 @@
         width: 18em;
         border: 1px solid $secondary;
         @include button(white, $secondary, radius)
+    }
+}
+
+// list ==================
+.list-content{
+    @include edContainer;
+    .list-title{
+        @include edItem;
+        text-align: center;
+        h1{
+            font-weight: $normal;
+        }
+    }
+    .list-main{
+        @include edContainer;
+        @include edItem;
+    }
+    .list-main-title{
+        @include edItem(75,75,80)
+    }
+    .list-button{
+        @include edItem(10);
+        line-height: 4;
+        text-align: center;
+    }
+    .list-button-1{
+        color: $light;
+        text-decoration: none;
+        @include to(m){
+            display: none
+        }
+    }
+    .list-button-2{
+        color: $danger;
+        background: white;
+        border: none;
+        cursor: pointer;
+        @include to(m){
+            display: none
+        }
+    }
+    .list-button-hide-1{
+        @include hideFrom(m);
+        text-decoration: none;
+        color: $light;
+        background: white;
+    }
+    .list-button-hide-2{
+        @include hideFrom(m);
+        color: $danger;
+        background: white;
+        border: none;
+        cursor: pointer
+    }
+}
+
+// Edit ==================
+.edit-content{
+    @include edContainer;
+    text-align: center;
+    padding: 2em 0;
+    .edit-title{
+        @include edItem;
+        h2{
+            font-weight: $normal;
+        }
+        p{
+            color: $favorite;
+        }
+    }
+    .edit-form{
+        @include edItem;
+    }
+    .edit-input{
+        input{
+            margin: 3px 0;
+            padding: 10px;
+            width: 16em;
+            font-size: 18px;
+            border: 1px solid #E1E8ED;
+            border-radius: 3px;
+            &:focus{
+                border: 1px solid $light
+            }
+        }
+    }
+    .edit-button-1{
+        font-size: 16px;
+        margin: 2px;
+        width: 18em;
+        @include button($secondary, white, radius)
+    }
+    .edit-button-2{
+        font-size: 16px;
+        margin: 2px;
+        width: 18em;
+        border: 1px solid $secondary;
+        @include button(white, $secondary, radius)
+    }
+}
+
+// Show ==================
+.show-content{
+    @include edContainer;
+    .show-main{
+        @include edItem;
+        h1{
+            font-weight: $normal
+        }
+        p{
+            color: $favorite;
+        }
     }
 }

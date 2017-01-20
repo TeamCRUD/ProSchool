@@ -13,6 +13,9 @@ header{
             color: $primary;
             font-family: "pacifico",cursive;
         }
+        @include to(l){
+            text-align: center
+        }
     }
     .header-nav{
         @include edItem(100,100,30);
@@ -27,6 +30,9 @@ header{
                 color: $light;
                 transition: .2s all
             }
+        }
+        @include to(l){
+            text-align: center
         }
     }
 }

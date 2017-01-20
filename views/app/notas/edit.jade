@@ -1,13 +1,17 @@
 extends ../layout_app
 
 block content_app
-    h1 Subir nueva nota
-    form(action="/app/notas/#{nota._id}?_method=PUT", method="POST")
-        div
-            input(type="text", name="periodo", placeholder="Periodo", id="periodo", value="#{nota.periodo}")
-        div
-            input(type="text", name="nota", placeholder="Escribir nota", id="nota", value="#{nota.nota}")
-        div
-            input(type="submit" value="Cambiar")
-        div
-            a(href="/app/notas") Cancelar
+    .edit-content 
+        .edit-title
+            h2 Editar nota
+            p Puedes cambiar la nota, tarea o periodo
+        .edit-form
+            form(action="/app/notas/#{nota._id}?_method=PUT", method="POST")
+                .edit-input
+                    input(type="text", name="periodo", placeholder="Periodo", id="periodo", value="#{nota.periodo}")
+                .edit-input
+                    input(type="text", name="nota", placeholder="Escribir nota", id="nota", value="#{nota.nota}")
+                .edit-button
+                    input.edit-button-1(type="submit" value="Cambiar")
+                .edit-button
+                    a.edit-button-2(href="/app/notas") Cancelar
