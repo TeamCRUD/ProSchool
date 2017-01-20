@@ -20,7 +20,7 @@ router.post('/', function(req, res, next) {
   });
   user.save(function(err){
       if(err){
-        res.redirect('/')
+        res.redirect('/signup')
         return res.status(500).send()
       }else{
         res.redirect('/')
