@@ -65,6 +65,7 @@ router.route("/notas")
         
         var data = {
             periodo: req.body.periodo,
+            description: req.body.description,
             nota: req.body.nota,
             profesor: res.locals.user._id
         }
@@ -73,7 +74,7 @@ router.route("/notas")
 
         nota.save(function(err){
             if(!err){
-                res.redirect('/app/notas/'+nota._id);
+                res.redirect('/app/notas/' + nota._id);
             }
             else{
                 res.render(err);

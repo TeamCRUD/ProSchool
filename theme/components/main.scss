@@ -7,6 +7,9 @@
         border: 1px solid #E1E8ED;
         border-radius: 3px;
         margin: 2px;
+        h1{
+            font-weight: $normal
+        }
         p{
             color: $favorite
         }
@@ -162,7 +165,10 @@
         @include edItem;
     }
     .list-main-title{
-        @include edItem(75,75,80)
+        @include edItem(75,75,80);
+        h2{
+            font-weight: $normal
+        }
     }
     .list-button{
         @include edItem(10);
