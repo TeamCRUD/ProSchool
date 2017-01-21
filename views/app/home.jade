@@ -2,9 +2,19 @@ extends layout_app
 
 block content_app
     .main-content
+        .main-avatar
+            strong Hola, #{user.name + ' ' + user.lastname}
+            p @#{user.username}
+            p Profesor
+        .main-links
+            h3 Informacion
+            a(href="/app/notas") Notas 
         for nota in notas
             .main-nota
                 if(nota.nota > 3.9 )
                     strong= nota.description + ': ' +nota.nota
                     if(typeof nota.profesor != "undefined")
-                        p #{nota.periodo + ' periodo'} | Profesor #{nota.profesor.name  + ' ' + nota.profesor.lastname } | Estudiante #{nota.student.name + ' ' + nota.student.lastname}
+                        p Profesor #{nota.profesor.name  + ' ' + nota.profesor.lastname } | Estudiante #{nota.student.name + ' ' + nota.student.lastname}
+        .main-links
+            h3 Informacion
+            a(href="/app/notas") Notas         
