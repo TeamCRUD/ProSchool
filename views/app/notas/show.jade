@@ -3,6 +3,6 @@ extends ../layout_app
 block content_app
     .show-content 
         .show-main
-            h1= nota.description + ' ' + nota.nota
+            h1= nota.description + ' : ' + nota.nota
             if(typeof nota.profesor != "undefined")
                 p #{nota.periodo + ' periodo'} | Por #{nota.profesor.name  + ' ' + nota.profesor.lastname }

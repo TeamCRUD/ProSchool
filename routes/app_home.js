@@ -32,8 +32,9 @@ router.route("/notas/:id")
     })
     .put(function(req,res){
         res.locals.nota.periodo = req.body.periodo
+        res.locals.nota.description = req.body.description
         res.locals.nota.nota = req.body.nota
-        nota.save(function(err){
+        res.locals.nota.save(function(err){
             if(!err){
                 res.render('app/notas/show')
             }else{
