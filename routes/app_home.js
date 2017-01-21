@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-var Nota = require('../models/notas')
+var Nota = require('../models/notas');
+var User = require('../models/users');
 var nota_finder_middleware = require('../middlewares/find_nota')
 
 /* GET app page. */
@@ -63,23 +64,37 @@ router.route("/notas")
         })
     })
     .post(function(req,res){
-        
-        var data = {
-            periodo: req.body.periodo,
-            description: req.body.description,
-            nota: req.body.nota,
-            profesor: res.locals.user._id
-        }
-
-        var nota = new Nota(data)
-
-        nota.save(function(err){
-            if(!err){
-                res.redirect('/app/notas/' + nota._id);
+        User.findOne({username: req.body.student}, function(err,user){
+            if(err){
+                console.log(err);
+                return res.status(500).send()
             }
-            else{
-                res.render(err);
-                console.log(nota)
+            if(!user){
+                return res.status(404).redirect('/app/notas/new')
+            }else{
+                var data = {
+                    periodo: req.body.periodo,
+                    description: req.body.description,
+                    nota: req.body.nota,
+                    student: {
+                        name: user.name,
+                        lastname: user.lastname,
+                        username: user.username
+                    },
+                    profesor: res.locals.user._id
+                }
+                
+                var nota = new Nota(data)
+
+                nota.save(function(err){
+                    if(!err){
+                        res.redirect('/app/notas/' + nota._id);
+                    }
+                    else{
+                        res.render(err);
+                        console.log(nota)
+                    }
+                })
             }
         })
     })

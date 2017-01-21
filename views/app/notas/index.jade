@@ -7,7 +7,7 @@ block content_app
         .list-main
             for nota in notas
                 .list-main-title
-                    h2= nota.description + ': ' + nota.nota
+                    h2= nota.student.name + ' ' + nota.student.lastname + ' : ' + nota.description + ' ' + nota.nota
                 .list-button
                     a.list-button-1(href="/app/notas/#{nota._id}/edit") Editar 
                     a.list-button-hide-1(href="/app/notas/#{nota._id}/edit") E

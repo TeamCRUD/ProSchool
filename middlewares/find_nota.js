@@ -6,6 +6,7 @@ module.exports = function(req,res,next){
         .populate('profesor')
         .exec(function(err,nota){
         if(nota != null && owner_check(nota, req, res)){
+                console.log('Estudiante' + nota.student)
                 res.locals.nota = nota
                 next()
             }else{

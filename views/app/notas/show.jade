@@ -5,4 +5,4 @@ block content_app
         .show-main
             h1= nota.description + ' : ' + nota.nota
             if(typeof nota.profesor != "undefined")
-                p #{nota.periodo + ' periodo'} | Por #{nota.profesor.name  + ' ' + nota.profesor.lastname }
+                p #{nota.periodo + ' periodo'} | Profesor #{nota.profesor.name  + ' ' + nota.profesor.lastname } | Estudiante #{nota.student.name + ' ' + nota.student.lastname}

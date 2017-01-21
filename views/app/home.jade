@@ -4,6 +4,7 @@ block content_app
     .main-content
         for nota in notas
             .main-nota
-                h1= nota.description + ': ' +nota.nota
-                if(typeof nota.profesor != "undefined")
-                    p #{nota.periodo + ' periodo'} | Por #{nota.profesor.name  + ' ' + nota.profesor.lastname }
+                if(nota.nota > 3.9 )
+                    h1= nota.description + ': ' +nota.nota
+                    if(typeof nota.profesor != "undefined")
+                        p #{nota.periodo + ' periodo'} | Profesor #{nota.profesor.name  + ' ' + nota.profesor.lastname } | Estudiante #{nota.student.name + ' ' + nota.student.lastname}
