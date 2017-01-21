@@ -5,6 +5,6 @@ block content_app
         for nota in notas
             .main-nota
                 if(nota.nota > 3.9 )
-                    h1= nota.description + ': ' +nota.nota
+                    strong= nota.description + ': ' +nota.nota
                     if(typeof nota.profesor != "undefined")
                         p #{nota.periodo + ' periodo'} | Profesor #{nota.profesor.name  + ' ' + nota.profesor.lastname } | Estudiante #{nota.student.name + ' ' + nota.student.lastname}
