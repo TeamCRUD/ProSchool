@@ -3,15 +3,13 @@ extends ../layout_app
 block content_app
     .list-content
         .list-title
-            h1 Lista de Notas
+            h1 Historial de Notas
         .list-main
             for nota in notas
                 .list-main-title
-                    p= nota.student.name + ' ' + nota.student.lastname + ' : ' + nota.description + ' ' + nota.nota
+                    a(href="/app/notas/#{nota._id}")=  nota.student.name + ' ' + nota.student.lastname
                 .list-button
                     a.list-button-1(href="/app/notas/#{nota._id}/edit") Editar 
-                    a.list-button-hide-1(href="/app/notas/#{nota._id}/edit") E
                 .list-button
                     form(action="/app/notas/#{nota._id}?_method=DELETE", method="POST")
                         input.list-button-2(type="submit", value="Eliminar")
-                        input.list-button-hide-2(type="submit", value="X")

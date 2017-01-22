@@ -2,13 +2,15 @@ var mongoose = require("mongoose")
 var Schema = mongoose.Schema
 
 var nota_schema = new Schema({
-    periodo: { type: String, require: true },
-    description: { type: String, required: true },
-    nota: {type: Number, required: true},
     student: {
         name: String,
         lastname: String,
-        username: String 
+        username: {type: String , required: true, unique:true},
+        task: {
+                periodo: String,
+                description: String,
+                nota: Number,
+            }
     },
     profesor: { type: Schema.Types.ObjectId, ref: "User" }
 })

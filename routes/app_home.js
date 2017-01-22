@@ -73,13 +73,15 @@ router.route("/notas")
                 return res.status(404).redirect('/app/notas/new')
             }else{
                 var data = {
-                    periodo: req.body.periodo,
-                    description: req.body.description,
-                    nota: req.body.nota,
                     student: {
                         name: user.name,
                         lastname: user.lastname,
-                        username: user.username
+                        username: user.username,
+                        task:{
+                            periodo: req.body.periodo,
+                            description: req.body.description,
+                            nota: req.body.nota,
+                        }
                     },
                     profesor: res.locals.user._id
                 }

@@ -8,13 +8,17 @@ block content_app
             p Profesor
         .main-links
             h3 Informacion
-            a(href="/app/notas") Notas 
+            a(href="/app/notas/new") Subir nota 
+            a(href="/app/notas") Historial Notas 
         for nota in notas
             .main-nota
-                if(nota.nota > 3.9 )
-                    strong= nota.description + ': ' +nota.nota
+                if(nota.student.task.nota > 3.9 )
+                    strong= nota.student.task.description + ': ' + nota.student.task.nota
                     if(typeof nota.profesor != "undefined")
                         p Profesor #{nota.profesor.name  + ' ' + nota.profesor.lastname } | Estudiante #{nota.student.name + ' ' + nota.student.lastname}
         .main-links
-            h3 Informacion
-            a(href="/app/notas") Notas         
+            h3 Publicidad
+            a(href="#") 
+                p TeamCRUD
+            a(href="#") TecnoPC
+                      
