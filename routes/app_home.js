@@ -21,14 +21,18 @@ router.get('/', function(req, res, next) {
 
 
 /* RESET */
-router.all('/notas',function(req,res){
+router.all('/notas',function(req,res,next){
     if(res.locals.user.typeuser!='Profesor'){
         res.redirect('/app')
+    }else{
+        next()
     }
 })
-router.all('/notas/*',function(req,res){
+router.all('/notas/*',function(req,res,next){
     if(res.locals.user.typeuser!='Profesor'){
         res.redirect('/app')
+    }else{
+        next()
     }
 })
 router.get('/notas/new',function(req,res){
