@@ -2,8 +2,45 @@
 .main-content{
     @include edContainer;
     padding: .5em 0;
+    .main-data{
+        @include edItem(100,100,20);
+        .data-avatar, .data-links{
+            padding: 0;
+            margin-bottom: .5em;
+            text-align: center;
+            border: 1px solid #E1E8ED;
+        }
+        .data-avatar{
+            p{
+                padding: 0;
+                margin: .5em
+            }
+            .data-user{
+                font-weight: $bold
+            }
+            .data-username{
+                color: $primary
+            }
+            .data-type{
+                color: $light
+            }
+        }
+        .data-links{
+            h3,a{
+                padding: 0;
+                margin: 0
+            }
+            h3{
+                margin: .5em;
+                padding: .2em;
+                font-weight: $normal;
+                color: white;
+                background: $secondary
+            }
+        }
+    }
     .main-nota{
-        @include edItem;
+        @include edItem(100,100,60);
         h1{
             font-weight: $normal
         }
@@ -12,6 +49,9 @@
             border-bottom: 1px solid #E1E8ED;
             padding-bottom: 1.5em
         }
+    }
+    .main-publicidad{
+        @include edItem(100,100,20)
     }
 }
 // Login ==================
