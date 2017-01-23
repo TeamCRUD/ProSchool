@@ -5,7 +5,7 @@ block content_app
         .main-avatar
             strong Hola, #{user.name + ' ' + user.lastname}
             p @#{user.username}
-            p Profesor
+            p #{user.typeuser}
         .main-links
             h3 Informacion
             a(href="/app/notas/new") Subir nota 

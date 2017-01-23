@@ -1,5 +1,20 @@
 extends layout_parent
 
 block content_parent
-    h1 Hola, #{user.name + ' ' + user.lastname} 
-    h2 Soy #{user.typeuser}
+   .main-content
+        .main-avatar
+            strong Hola, #{user.name + ' ' + user.lastname}
+            p @#{user.username}
+            p #{user.typeuser}
+        .main-links
+            h3 Informacion
+            a(href="/app/notas/new") Subir nota 
+            a(href="/app/notas") Historial Notas 
+        
+        .main-nota
+             
+        .main-links
+            h3 Publicidad
+            a(href="#") 
+                p TeamCRUD
+            a(href="#") TecnoPC
