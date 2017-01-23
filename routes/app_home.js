@@ -7,16 +7,30 @@ var nota_finder_middleware = require('../middlewares/find_nota')
 
 /* GET app page. */
 router.get('/', function(req, res, next) {
-    Nota.find({})
-        .populate('profesor')
-        .exec(function(err, notas){
-            if(err) console.log(err)
-            res.render('app/home', {title: 'Proschool - Home', notas: notas})
-        })
+    if(res.locals.user.typeuser == 'Estudiante' || res.locals.user.typeuser == 'Acudiente'){
+        res.render(res.locals.user.typeuser+'/home',{title: 'Proschool - Home'})
+    }else{
+        Nota.find({})
+            .populate('profesor')
+            .exec(function(err, notas){
+                if(err) console.log(err)
+                res.render('app/home', {title: 'Proschool - Home', notas: notas})
+            })
+    }
 });
 
 
 /* RESET */
+router.all('/notas',function(req,res){
+    if(res.locals.user.typeuser!='Profesor'){
+        res.redirect('/app')
+    }
+})
+router.all('/notas/*',function(req,res){
+    if(res.locals.user.typeuser!='Profesor'){
+        res.redirect('/app')
+    }
+})
 router.get('/notas/new',function(req,res){
     res.render('app/notas/new', {title: 'Proschool - Nueva nota'})
 })

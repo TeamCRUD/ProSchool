@@ -11,11 +11,12 @@ var password_validation = {
     message: "Las contraseña no son iguales"
 }
 var user_schema = new Schema({
-    name: String,
-    lastname: String,
-    email: {type: String, required: "El correo es obligatorio", match: email_match},
-    username: {type: String , required: true, unique:true, maxlength: [50, "Nombre de usuario muy grande"]},
-    password: {type: String, minlength: [8, "La contraseña es muy corta"], validate: password_validation}
+    name: {type: String, required: true},
+    lastname:{type: String, required: true},
+    email: {type: String, required: true},
+    typeuser: {type: String, required: true},
+    username: {type: String , required: true},
+    password: {type: String, required: true},
 })
 
 user_schema.virtual('password_confirmation').get(function(){
