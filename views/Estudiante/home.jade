@@ -8,14 +8,15 @@ block content_student
                 p.data-username @#{user.username}
                 p.data-type #{user.typeuser}
             .data-links
-                h3 Informacion
-                a(href="/app/notas/new") Subir nota 
-                br
-                a(href="/app/notas") Historial Notas 
-
+                h3.links-title Informacion
+                ul
+                    li: a.links-item(href="/app/notas/new") Subir nota 
+                    li: a.links-item(href="/app/notas") Historial Notas 
         .main-nota
         .main-publicidad
-            h3 Publicidad
-            a(href="#") TeamCRUD
-            br
-            a(href="#") TecnoPC                      
+            .publicidad-item
+                a(href="#") 
+                    img(src="images/1.png", alt="")
+            .publicidad-item
+                a(href="#")  
+                    img(src="images/1.png", alt="")                   

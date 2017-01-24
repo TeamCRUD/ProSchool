@@ -2,23 +2,28 @@ extends layout_app
 
 block content_app
     .main-content
-        .main-avatar
-            strong Hola, #{user.name + ' ' + user.lastname}
-            p @#{user.username}
-            p #{user.typeuser}
-        .main-links
-            h3 Informacion
-            a(href="/app/notas/new") Subir nota 
-            a(href="/app/notas") Historial Notas 
-        for nota in notas
-            .main-nota
-                if(nota.student.task.nota > 3.9 )
-                    strong= nota.student.task.description + ': ' + nota.student.task.nota
-                    if(typeof nota.profesor != "undefined")
-                        p Profesor #{nota.profesor.name  + ' ' + nota.profesor.lastname } | Estudiante #{nota.student.name + ' ' + nota.student.lastname}
-        .main-links
-            h3 Publicidad
-            a(href="#") 
-                p TeamCRUD
-            a(href="#") TecnoPC
-                      
+       .main-data
+            .data-avatar
+                p.data-user Hola, #{user.name + ' ' + user.lastname}
+                p.data-username @#{user.username}
+                p.data-type #{user.typeuser}
+            .data-links
+                h3.links-title Informacion
+                ul
+                    li: a.links-item(href="/app/notas/new") Subir nota 
+                    li: a.links-item(href="/app/notas") Historial Notas 
+        .main-nota
+            h1 Mejores notas
+            p.nota-subtitle Apareceran notas superiores a 4
+            for nota in notas
+                    if(nota.student.task.nota > 3.9 )
+                        h3= nota.student.task.description + ': ' + nota.student.task.nota
+                        if(typeof nota.profesor != "undefined")
+                            p Profesor #{nota.profesor.name  + ' ' + nota.profesor.lastname } | Estudiante #{nota.student.name + ' ' + nota.student.lastname}
+         .main-publicidad
+            .publicidad-item
+                a(href="#") 
+                    img(src="images/1.png", alt="")
+            .publicidad-item
+                a(href="#")  
+                    img(src="images/1.png", alt="")

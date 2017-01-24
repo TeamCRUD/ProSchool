@@ -2,19 +2,21 @@ extends layout_parent
 
 block content_parent
    .main-content
-        .main-avatar
-            strong Hola, #{user.name + ' ' + user.lastname}
-            p @#{user.username}
-            p #{user.typeuser}
-        .main-links
-            h3 Informacion
-            a(href="/app/notas/new") Subir nota 
-            a(href="/app/notas") Historial Notas 
-        
+        .main-data
+            .data-avatar
+                p.data-user Hola, #{user.name + ' ' + user.lastname}
+                p.data-username @#{user.username}
+                p.data-type #{user.typeuser}
+            .data-links
+                h3.links-title Informacion
+                ul
+                    li: a.links-item(href="/app/notas/new") Subir nota 
+                    li: a.links-item(href="/app/notas") Historial Notas 
         .main-nota
-             
-        .main-links
-            h3 Publicidad
-            a(href="#") 
-                p TeamCRUD
-            a(href="#") TecnoPC
+        .main-publicidad
+            .publicidad-item
+                a(href="#") 
+                    img(src="images/1.png", alt="")
+            .publicidad-item
+                a(href="#")  
+                    img(src="images/1.png", alt="")        
