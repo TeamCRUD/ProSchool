@@ -7,8 +7,19 @@ block content_app
             p Puedes cambiar la nota, tarea o periodo 
         .edit-form
             form(action="/app/notas/#{nota._id}?_method=PUT", method="POST")
+                .new-input
+                    label Periodo 
+                    select(name="period")
+                        option(value="Primero" , selected) Primero
+                        option(value="Segundo") Segundo
+                        option(value="Tercero") Tercero
+                        option(value="Cuarto") Cuarto
                 .edit-input
-                    input(type="text", name="periodo", placeholder="Periodo", id="periodo", value="#{nota.periodo}")
+                    input(type="text", name="task", placeholder="Tarea, examen, etc", value="#{nota.task}")
+                .edit-input
+                    input(type="text", name="note", placeholder="Note", value="#{nota.note}")
+                .edit-input
+                    input(type="text", name="student", placeholder="Note", value="#{nota.student}")
                 .edit-button
                     input.edit-button-1(type="submit" value="Cambiar")
                 .edit-button

@@ -1,4 +1,4 @@
-var Nota = require('../models/notas')
+var Nota = require('../models/notas');
 var owner_check = require('./nota_permission')
 
 module.exports = function(req,res,next){
@@ -6,10 +6,10 @@ module.exports = function(req,res,next){
         .populate('profesor')
         .exec(function(err,nota){
             if(nota != null && owner_check(nota, req, res)){
-                    res.locals.nota = nota
-                    next()
-                }else{
-                    res.redirect('/app')
-                }
+                res.locals.nota = nota
+                next()
+            }else{
+                res.redirect('/app')
+            }
         })
 }
