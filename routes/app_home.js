@@ -9,7 +9,12 @@ var nota_find = require('../middlewares/find_nota')
 /* GET app page. */
 router.get('/', function(req, res, next) {
     if(res.locals.user.typeuser == 'Estudiante' || res.locals.user.typeuser == 'Acudiente'){
-        res.render(res.locals.user.typeuser+'/home',{title: 'Proschool - Home'})
+        Nota.find({student: res.locals.user.username},function(err,notas){
+            if(err){
+                return res.redirect('/app')
+            }
+            res.render(res.locals.user.typeuser+'/home',{title: 'Proschool - Home', notas: notas})
+        })
     }else{
         Nota.find({})
             .populate('profesor')
@@ -74,6 +79,7 @@ router.route('/notas')
             task: req.body.task,
             note: req.body.note,
             student: req.body.student,
+            teacher: res.locals.user.username,
             profesor: res.locals.user._id
         }
 

@@ -6,6 +6,7 @@ var nota_schema = new Schema({
     task:{type: String, require: true},
     note:{type: Number, require: true},
     student:{type: String, require: true},
+    teacher:{type: String, require: true},
     profesor:{type: Schema.Types.ObjectId, ref:'User'}
 })
 
