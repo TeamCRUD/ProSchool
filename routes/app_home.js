@@ -26,6 +26,22 @@ router.get('/', function(req, res, next) {
 });
 
 /* REST */
+router.all('/notas', function(req, res, next){
+    if(res.locals.user.typeuser!= 'Profesor'){
+        res.redirect('/app')
+    }else{
+        next()
+    }
+})
+
+router.route('/notas/*', function(req,res,next){
+    if(res.locals.user.typeuser!= 'Profesor'){
+        res.redirect('/app')
+    }else{
+        next()
+    }
+})
+
 router.get('/notas/new',function(req,res){
     res.render('app/notas/new',{ title: 'Nueva nota - Proschool'})
 })
