@@ -5,7 +5,7 @@ var User = require('../models/users');
 
 /* GET signup page. */
 router.get('/', function(req, res, next) {
-  res.render('signup', { title: 'Proschool - Sign up' });
+  res.render('signup', { title: 'Sign up - Proschool' });
 });
 
 /* POST signup page. */

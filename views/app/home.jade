@@ -15,11 +15,7 @@ block content_app
         .main-nota
             h1 Mejores notas
             p.nota-subtitle Apareceran notas superiores a 4
-            for nota in notas
-                    if(nota.student.task.nota > 3.9 )
-                        h3= nota.student.task.description + ': ' + nota.student.task.nota
-                        if(typeof nota.profesor != "undefined")
-                            p Profesor #{nota.profesor.name  + ' ' + nota.profesor.lastname } | Estudiante #{nota.student.name + ' ' + nota.student.lastname}
+            
          .main-publicidad
             .publicidad-item
                 a(href="#") 

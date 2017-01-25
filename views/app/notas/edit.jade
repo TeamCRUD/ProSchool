@@ -8,11 +8,7 @@ block content_app
         .edit-form
             form(action="/app/notas/#{nota._id}?_method=PUT", method="POST")
                 .edit-input
-                    input(type="text", name="periodo", placeholder="Periodo", id="periodo", value="#{nota.student.task.periodo}")
-                .edit-input
-                    input(type="text", name="description", placeholder="Tarea", id="description", value="#{nota.student.task.description}")
-                .edit-input
-                    input(type="text", name="nota", placeholder="Escribir nota", id="nota", value="#{nota.student.task.nota}")
+                    input(type="text", name="periodo", placeholder="Periodo", id="periodo", value="#{nota.periodo}")
                 .edit-button
                     input.edit-button-1(type="submit" value="Cambiar")
                 .edit-button

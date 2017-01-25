@@ -7,7 +7,7 @@ block content_app
         .list-main
             for nota in notas
                 .list-main-title
-                    a(href="/app/notas/#{nota._id}")=  nota.student.name + ' ' + nota.student.lastname
+                    h2=nota.periodo
                 .list-button
                     a.list-button-1(href="/app/notas/#{nota._id}/edit") Editar 
                 .list-button
