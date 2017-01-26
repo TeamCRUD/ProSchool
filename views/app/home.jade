@@ -14,13 +14,19 @@ block content_app
                 a.links-item(href="/app/notas") 
                     h4 Historial Notas 
         .main-nota
-            h1 Mejores notas
+            h1.nota-title Mejores notas
             p.nota-subtitle Apareceran notas superiores a 4
             for nota in notas
-                if(nota.note > 3.9 )
-                    a(href=href="/app/notas/#{nota._id}/")= nota.task + ' : ' + nota.note
-                    if(typeof nota.profesor != "undefined")
-                        p Por @#{nota.profesor.username} | Estudiante: @#{nota.student}
+                .nota-item
+                    if(nota.note > 3.9 )
+                        if(typeof nota.profesor != "undefined")
+                            b.nota-fullname #{nota.profesor.name + ' ' + nota.profesor.lastname} 
+                            s.nota-username @#{nota.profesor.username} 
+                            br
+                        p.nota-parrafo= nota.task
+                        span.nota-footer Estudiante: @#{nota.student} 
+                        b.nota Nota: #{nota.note}
+                        br
          .main-publicidad
             .publicidad-item
                 a(href="#") 

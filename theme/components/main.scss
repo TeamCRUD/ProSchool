@@ -62,30 +62,46 @@
     }
     .main-nota{
         @include edItem(100,100,60);
+        padding: 1em 0;
         border-top: 1px solid $border;
-        a{  
-            color: #333;
-            font-size: 1.5em;
-            font-weight: $light;
-            text-decoration: none;
-        }
-        h3{
-            font-weight: $normal
-        }
-        h1{
-            padding: 0;
+        .nota-title{
             margin: 0;
-            padding-top: .5em;
+            padding: 0;
             text-align: center;
             font-weight: $normal
         }
-        .nota-subtitle{
-            text-align: center
-        }
-        p{
+        .nota-subtitle, .nota-subtitle-2{
+            margin: 0;
+            margin-top: .3em;
+            padding: 0;
+            font-weight: 300;
+            text-align: center;
             color: $favorite;
-            border-bottom: 1px solid #E1E8ED;
-            padding-bottom: 1.4em
+        }
+        .nota-subtitle-2{
+            padding-bottom: 1.2em; 
+            border-bottom: 1px solid $border
+        }
+        .nota-item{
+            border-bottom: 1px solid $border;
+            padding: .8em;
+            .nota-username{
+                text-decoration: none;
+                color: $favorite;
+            }
+            .nota-parrafo{
+                margin: 0;
+                margin-bottom: .4em;
+                padding: 0;
+                font-size: 18px;
+            }
+            .nota-footer{
+                color: $favorite;
+            }
+            .nota{
+                color: #333;
+                font-weight: 300
+            }
         }
     }
     .main-publicidad{
@@ -176,7 +192,7 @@
         @include edItem
     }
     .signup-select{
-        margin: .4em;
+        margin: .1em;
         label{
             font-size: 1.2em;
             margin-right: 1.9em;
@@ -184,6 +200,8 @@
         select{
             padding: .3em .6em;
             font-size: 1em;
+            background: white;
+            color: #333;
             border: 1px solid #E1E8ED;
         }
     }
@@ -231,7 +249,7 @@
         @include edItem;
     }
     .new-select{
-        margin: .3em;
+        margin: .1em;
         label{
             font-size: 1.2em;
             margin-left: .1em;
@@ -240,6 +258,8 @@
         select{
             padding: .3em .6em;
             font-size: 1em;
+            background: white;
+            color: #333;
             border: 1px solid #E1E8ED;
         }
     }
@@ -284,12 +304,13 @@
     .list-main{
         @include edContainer;
         @include edItem;
-        padding: .7em 0;
+        padding: .7em 1em;
         margin: .1em 0;
         border: 1px solid $border
     }
     .list-main-title{
-        @include edItem(75,75,80);
+        @include edItem(65,80,90);
+        padding: 0;
         a{
             color: #333;
             font-weight: $normal;
@@ -301,19 +322,16 @@
         }
     }
     .list-button{
-        @include edItem(10);
+        @include edItem(15,10,5);
         text-align: center;
+        padding: 0;
     }
     .list-button-1{
         color: $favorite;
-        padding: .1em;
         text-decoration: none;
         &:hover{
             color: $light;
             transition: .3s all
-        }
-        @include to(m){
-            display: none
         }
     }
     .list-button-2{
@@ -324,9 +342,6 @@
         &:hover{
            color: $danger;
            transition: .3s all
-        }
-        @include to(m){
-            display: none
         }
     }
     .list-button-hide-1{
@@ -362,7 +377,7 @@
         @include edItem;
     }
     .edit-select{
-        margin: .3em;
+        margin: .1em;
         label{
             font-size: 1.2em;
             margin-left: .1em;

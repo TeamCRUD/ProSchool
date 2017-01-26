@@ -95,10 +95,13 @@ router.route('/notas')
             task: req.body.task,
             note: req.body.note,
             student: req.body.student,
-            teacher: res.locals.user.username,
+            teacher: {
+                name: res.locals.user.name,
+                lastname: res.locals.user.lastname,
+                username: res.locals.user.username
+            },
             profesor: res.locals.user._id
         }
-        console.log(data)
         var nota = new Nota(data)
 
         nota.save(function(err){

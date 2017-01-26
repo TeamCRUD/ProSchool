@@ -14,12 +14,19 @@ block content_student
                 a.links-item(href="/app/notas")
                     h4 Historial Notas 
         .main-nota
-            h1 Todas mis notas
-            p.nota-subtitle Apareceran notas de todos tus profesores
+            h1.nota-title Ultimas Notas
+            p.nota-subtitle-2 Apareceran notas de todo tus profesores
             for nota in notas
-                h3= nota.task + ' : ' + nota.note
-                if(typeof nota.profesor != "undefined")
-                    p Por @#{nota.teacher}
+                .nota-item
+                    if(nota.note > 3.9 )
+                        if(typeof nota.profesor != "undefined")
+                            b.nota-fullname #{nota.teacher.name + ' ' + nota.teacher.lastname} 
+                            s.nota-username @#{nota.teacher.username} 
+                            br
+                        p.nota-parrafo= nota.task
+                        span.nota-footer Estudiante: @#{nota.student} 
+                        b.nota Nota: #{nota.note}
+                        br
         .main-publicidad
             .publicidad-item
                 a(href="#") 
