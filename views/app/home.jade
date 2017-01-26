@@ -8,10 +8,11 @@ block content_app
                 p.data-username @#{user.username}
                 p.data-type #{user.typeuser}
             .data-links
-                h3.links-title Informacion
-                ul
-                    li: a.links-item(href="/app/notas/new") Subir nota 
-                    li: a.links-item(href="/app/notas") Historial Notas 
+                h4.links-title Informacion
+                a.links-item(href="/app/notas/new") 
+                    h4 Subir nota 
+                a.links-item(href="/app/notas") 
+                    h4 Historial Notas 
         .main-nota
             h1 Mejores notas
             p.nota-subtitle Apareceran notas superiores a 4

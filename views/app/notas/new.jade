@@ -7,7 +7,7 @@ block content_app
             p Asigna una nota, tarea y el periodo
         .new-form
             form(action="/app/notas", method="POST")
-                .new-input
+                .new-select
                     label Periodo 
                     select(name="period")
                         option(value="Primero" , selected) Primero
