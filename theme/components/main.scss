@@ -229,8 +229,8 @@
         margin: .3em;
         label{
             font-size: 1.2em;
-            margin-left: .6em;
-            margin-right: 5.6em;
+            margin-left: .1em;
+            margin-right: 5.5em;
         }
         select{
             padding: .3em .6em;
@@ -279,31 +279,47 @@
     .list-main{
         @include edContainer;
         @include edItem;
+        padding: .7em 0;
+        margin: .1em 0;
+        border: 1px solid $border
     }
     .list-main-title{
         @include edItem(75,75,80);
         a{
+            color: #333;
             font-weight: $normal;
-            color: $secondary
+            text-decoration: none;
+            &:hover{
+                color: $secondary;
+                transition: .3s all
+            }
         }
     }
     .list-button{
         @include edItem(10);
-        line-height: 4;
         text-align: center;
     }
     .list-button-1{
-        color: $light;
+        color: $favorite;
+        padding: .1em;
         text-decoration: none;
+        &:hover{
+            color: $light;
+            transition: .3s all
+        }
         @include to(m){
             display: none
         }
     }
     .list-button-2{
-        color: $danger;
+        color: $favorite;
         background: white;
         border: none;
         cursor: pointer;
+        &:hover{
+           color: $danger;
+           transition: .3s all
+        }
         @include to(m){
             display: none
         }
@@ -339,6 +355,19 @@
     }
     .edit-form{
         @include edItem;
+    }
+    .edit-select{
+        margin: .3em;
+        label{
+            font-size: 1.2em;
+            margin-left: .1em;
+            margin-right: 5.5em;
+        }
+        select{
+            padding: .3em .6em;
+            font-size: 1em;
+            border: 1px solid #E1E8ED;
+        }
     }
     .edit-input{
         input{

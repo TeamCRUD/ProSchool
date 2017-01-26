@@ -4,10 +4,10 @@ block content_app
     .list-content
         .list-title
             h1 Historial de Notas
-        .list-main
-            for nota in notas
+        for nota in notas
+            .list-main
                 .list-main-title
-                    a(href="/app/notas/#{nota._id}/")=nota.task + ' - ' + nota.note + ' : @' +  nota.student
+                    a(href="/app/notas/#{nota._id}/")=nota.task + ' @' +  nota.student
                 .list-button
                     a.list-button-1(href="/app/notas/#{nota._id}/edit") Editar 
                 .list-button
