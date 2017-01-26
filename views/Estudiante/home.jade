@@ -8,15 +8,18 @@ block content_student
                 p.data-username @#{user.username}
                 p.data-type #{user.typeuser}
             .data-links
-                h3.links-title Informacion
-                ul
-                    li: a.links-item(href="/app/notas/new") Subir nota 
-                    li: a.links-item(href="/app/notas") Historial Notas 
+                h4.links-title Informacion
+                a.links-item(href="/app/notas/new") 
+                    h4  Subir nota 
+                a.links-item(href="/app/notas")
+                    h4 Historial Notas 
         .main-nota
+            h1 Todas mis notas
+            p.nota-subtitle Apareceran notas de todos tus profesores
             for nota in notas
-                a(href=href="/app/notas/#{nota._id}/")= nota.task + ' : ' + nota.note
-                    if(typeof nota.profesor != "undefined")
-                        p Por @#{nota.teacher}
+                h3= nota.task + ' : ' + nota.note
+                if(typeof nota.profesor != "undefined")
+                    p Por @#{nota.teacher}
         .main-publicidad
             .publicidad-item
                 a(href="#") 

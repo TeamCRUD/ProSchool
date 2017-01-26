@@ -34,7 +34,7 @@ router.all('/notas', function(req, res, next){
     }
 })
 
-router.route('/notas/*', function(req,res,next){
+router.all('/notas/*', function(req,res,next){
     if(res.locals.user.typeuser!= 'Profesor'){
         res.redirect('/app')
     }else{
