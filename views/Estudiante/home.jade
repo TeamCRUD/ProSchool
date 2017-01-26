@@ -14,8 +14,7 @@ block content_student
                     li: a.links-item(href="/app/notas") Historial Notas 
         .main-nota
             for nota in notas
-                a(href=href="/app/notas/#{nota._id}/")
-                    h3= nota.task + ' : ' + nota.note
+                a(href=href="/app/notas/#{nota._id}/")= nota.task + ' : ' + nota.note
                     if(typeof nota.profesor != "undefined")
                         p Por @#{nota.teacher}
         .main-publicidad

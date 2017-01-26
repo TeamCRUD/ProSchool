@@ -90,29 +90,25 @@ router.route('/notas')
         })
     })
     .post(function(req,res){
-        if(req.body.nota != null){
-            var data = {
-                period: req.body.period,
-                task: req.body.task,
-                note: req.body.note,
-                student: req.body.student,
-                teacher: res.locals.user.username,
-                profesor: res.locals.user._id
-            }
-            
-            var nota = new Nota(data)
-
-            nota.save(function(err){
-                if(err){
-                        res.redirect('/app/notas/new')
-                        return res.status(500).send()
-                    }else{
-                        res.redirect('/app/notas/' + nota._id)
-                        return res.status(200).send()
-                }
-            })
-        }else{
-            res.redirect('/app/notas/new')
+        var data = {
+            period: req.body.period,
+            task: req.body.task,
+            note: req.body.note,
+            student: req.body.student,
+            teacher: res.locals.user.username,
+            profesor: res.locals.user._id
         }
+        console.log(data)
+        var nota = new Nota(data)
+
+        nota.save(function(err){
+            if(err){
+                    res.redirect('/app/notas/new')
+                    return res.status(500).send()
+                }else{
+                    res.redirect('/app/notas/' + nota._id)
+                    return res.status(200).send()
+            }
+        })
     })
 module.exports = router;

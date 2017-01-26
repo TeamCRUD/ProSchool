@@ -6,6 +6,9 @@ header{
     }
     .header-title{
         @include edItem(100,100,70);
+        a{
+            text-decoration: none
+        }
         h1{
             margin: 0;
             font-size: 1.5em;
