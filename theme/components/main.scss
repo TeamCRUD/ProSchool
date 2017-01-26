@@ -4,6 +4,7 @@
     padding: .5em 0;
     .main-data{
         @include edItem(100,100,20);
+        @include showFrom(l);
         .data-avatar, .data-links{
             padding: 0;
             margin-bottom: .5em;
@@ -89,6 +90,7 @@
     }
     .main-publicidad{
         @include edItem(100,100,20);
+        @include showFrom(l);
         .publicidad-title,.publicidad-item{
             text-align: center;
             a{
