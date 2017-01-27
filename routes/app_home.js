@@ -90,6 +90,15 @@ router.route('/notas')
         })
     })
     .post(function(req,res){
+        if(req.body.student == ''){
+            return res.redirect('/app/notas/new')
+        }
+        if(req.body.task == ''){
+            return res.redirect('/app/notas/new')
+        }
+        if(req.body.note == null){
+            return res.redirect('/app/notas/new')
+        }
         var data = {
             period: req.body.period,
             task: req.body.task,
@@ -103,7 +112,6 @@ router.route('/notas')
             profesor: res.locals.user._id
         }
         var nota = new Nota(data)
-
         nota.save(function(err){
             if(err){
                     res.redirect('/app/notas/new')
