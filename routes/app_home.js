@@ -114,4 +114,18 @@ router.route('/notas')
             }
         })
     })
+
+/* Estudiante */
+router.get('/list',function(req,res,next){
+   if(res.locals.user.typeuser == 'Estudiante' || res.locals.user.typeuser == 'Acudiente'){
+        Nota.find({student: res.locals.user.username},function(err,notas){
+            if(err){
+                return res.redirect('/app')
+            }
+            res.render(res.locals.user.typeuser+'/notas/index',{title: 'Proschool - Home', notas: notas})
+        })
+    }else{
+        next()
+    }
+})
 module.exports = router;

@@ -15,10 +15,10 @@ block content_app
                     h4 Historial Notas 
         .main-nota
             h1.nota-title Mejores notas
-            p.nota-subtitle Apareceran notas superiores a 4
+            p.nota-subtitle Apareceran notas superiores a 4.8
             for nota in notas
-                .nota-item
-                    if(nota.note > 3.9 )
+                if(nota.note > 4.8 )
+                    .nota-item
                         if(typeof nota.profesor != "undefined")
                             b.nota-fullname #{nota.profesor.name + ' ' + nota.profesor.lastname} 
                             s.nota-username @#{nota.profesor.username} 

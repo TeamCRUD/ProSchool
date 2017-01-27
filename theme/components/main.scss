@@ -70,16 +70,14 @@
             text-align: center;
             font-weight: $normal
         }
-        .nota-subtitle, .nota-subtitle-2{
+        .nota-subtitle{
             margin: 0;
             margin-top: .3em;
             padding: 0;
+            padding-bottom: 1.2em; 
             font-weight: 300;
             text-align: center;
             color: $favorite;
-        }
-        .nota-subtitle-2{
-            padding-bottom: 1.2em; 
             border-bottom: 1px solid $border
         }
         .nota-item{
@@ -311,7 +309,7 @@
     .list-main-title{
         @include edItem(65,80,90);
         padding: 0;
-        a{
+        a,p{
             color: #333;
             font-weight: $normal;
             text-decoration: none;
@@ -319,6 +317,10 @@
                 color: $secondary;
                 transition: .3s all
             }
+        }
+        p{
+            margin: 0;
+            padding: 0
         }
     }
     .list-button{
@@ -337,25 +339,13 @@
     .list-button-2{
         color: $favorite;
         background: white;
+        font-size: .9em;
         border: none;
         cursor: pointer;
         &:hover{
            color: $danger;
            transition: .3s all
         }
-    }
-    .list-button-hide-1{
-        @include hideFrom(m);
-        text-decoration: none;
-        color: $light;
-        background: white;
-    }
-    .list-button-hide-2{
-        @include hideFrom(m);
-        color: $danger;
-        background: white;
-        border: none;
-        cursor: pointer
     }
 }
 

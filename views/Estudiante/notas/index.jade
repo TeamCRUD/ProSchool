@@ -1,0 +1,11 @@
+extends ../layout_student
+
+block content_student
+   .list-content
+        .list-title
+            h1 Lista de Notas
+            p Apareceran notas de todo tus profesores
+         for nota in notas
+            .list-main
+                .list-main-title
+                    p=nota.task + ' @' +  nota.teacher.username

@@ -9,16 +9,14 @@ block content_student
                 p.data-type #{user.typeuser}
             .data-links
                 h4.links-title Informacion
-                a.links-item(href="/app/notas/new") 
-                    h4  Subir nota 
-                a.links-item(href="/app/notas")
-                    h4 Historial Notas 
+                a.links-item(href="/app/list") 
+                    h4  Mis notas
         .main-nota
             h1.nota-title Ultimas Notas
-            p.nota-subtitle-2 Apareceran notas de todo tus profesores
+            p.nota-subtitle Apareceran notas superiores a 4.8
             for nota in notas
-                .nota-item
-                    if(nota.note > 3.9 )
+                if(nota.note > 4.8 )
+                    .nota-item
                         if(typeof nota.profesor != "undefined")
                             b.nota-fullname #{nota.teacher.name + ' ' + nota.teacher.lastname} 
                             s.nota-username @#{nota.teacher.username} 
