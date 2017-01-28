@@ -45,6 +45,7 @@ app.use(session({
 }))**/
 
 app.use('/', index);
+app.use('/users', session_middleware)
 app.use('/users', users);
 app.use('/signup', signup);
 app.use('/sessions', sessions);

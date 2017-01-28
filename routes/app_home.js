@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
             .populate('profesor')
             .exec(function(err,notas){
                 if(err) console.log(err)
-                res.render('app/home', {title: 'Home - Proschool', notas: notas})
+                res.render('Profesor/home', {title: 'Home - Proschool', notas: notas})
             })
     }
 });
@@ -47,18 +47,18 @@ router.all('/notas/*', function(req,res,next){
 })
 
 router.get('/notas/new',function(req,res){
-    res.render('app/notas/new',{ title: 'Nueva nota - Proschool'})
+    res.render('Profesor/notas/new',{ title: 'Nueva nota - Proschool'})
 })
 
 router.all('/notas/:id*', nota_find)
 
 router.get('/notas/:id/edit',function(req,res){
-    res.render('app/notas/edit',{ title: 'Editar nota - Proschool'})
+    res.render('Profesor/notas/edit',{ title: 'Editar nota - Proschool'})
 })
 
 router.route('/notas/:id')
     .get(function(req,res){
-        res.render('app/notas/show',{title: res.locals.nota.task + ' - Proschool'})
+        res.render('Profesor/notas/show',{title: res.locals.nota.task + ' - Proschool'})
     })
     .put(function(req,res){
         res.locals.nota.period = req.body.period
@@ -67,9 +67,9 @@ router.route('/notas/:id')
         res.locals.nota.student = req.body.student
         res.locals.nota.save(function(err){
             if(!err){
-                res.render('app/notas/show')
+                res.render('Profesor/notas/show')
             }else{
-                res.render('app/notas/'+req.params.id+'/edit')
+                res.render('Profesor/notas/'+req.params.id+'/edit')
             }
         })
     })
@@ -90,7 +90,7 @@ router.route('/notas')
             if(err){
                 return res.redirect('/app')
             }
-            res.render('app/notas/index', {title: 'Historial - Proschool', notas: notas })
+            res.render('Profesor/notas/index', {title: 'Historial - Proschool', notas: notas })
         })
     })
     .post(function(req,res){
