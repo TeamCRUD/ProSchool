@@ -8,11 +8,9 @@ block content
         .signup-form
             form(action="/signup", method="POST")
                 .signup-input
-                    input(type="text", name="name", placeholder="Nombre", id="name")
+                    input(type="text", name="fullname", placeholder="Nombre completo")
                 .signup-input
-                    input(type="text", name="lastname", placeholder="Apellido", id="lastname")
-                .signup-input
-                    input(type="text", name="email", placeholder="Correo electronico", id="email")
+                    input(type="text", name="email", placeholder="Correo electronico")
                 .signup-select
                     label Tipo de usuario
                     select(name="typeuser")
@@ -20,11 +18,11 @@ block content
                         option(value="Profesor") Profesor
                         option(value="Acudiente") Acudiente
                 .signup-input
-                    input(type="text", name="username", placeholder="Nombre de usuario", id="username")
+                    input(type="text", name="username", placeholder="Nombre de usuario")
                 .signup-input
-                    input(type="password", name="password", placeholder="Contraseña", id="password")
+                    input(type="password", name="password", placeholder="Contraseña")
                 .signup-input
-                    input(type="password", name="password_confirmation", placeholder="Confirmar contraseña", id="password_confirmation")
+                    input(type="password", name="password_confirmation", placeholder="Confirmar contraseña")
                 .signup-button
                     input.signup-button-1(type="submit" value="Registrar")
                 .signup-button

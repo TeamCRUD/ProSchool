@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://jairperezs:d1e560@ds131119.mlab.com:31119/proschool')
+mongoose.connect('mongodb://jairperezs:D1e560*9c@ds135519.mlab.com:35519/proschool')
 
 var email_match = [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,"Coloca un email valido"]
 var password_validation = {
@@ -11,10 +11,11 @@ var password_validation = {
     message: "Las contraseña no son iguales"
 }
 var user_schema = new Schema({
-    name: {type: String, required: true},
-    lastname:{type: String, required: true},
+    fullname: {type: String, required: true},
     email: {type: String, required: true},
     typeuser: {type: String, required: true},
+    school: String,
+    grade: String,
     username: {type: String , required: true},
     password: {type: String, required: true},
 })

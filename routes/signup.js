@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 /* POST signup page. */
 router.post('/', function(req, res, next) {
   var user = new User({
-      name: req.body.name,
+      fullname: req.body.fullname,
       lastname: req.body.lastname,
       email: req.body.email,
       typeuser: req.body.typeuser,

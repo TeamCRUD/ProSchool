@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+var Escuela = require('../models/escuelas');
 var Nota = require('../models/notas');
 var User = require('../models/users');
 
@@ -8,6 +9,9 @@ var nota_find = require('../middlewares/find_nota')
 
 /* GET app page. */
 router.get('/', function(req, res, next) {
+    if(res.locals.user.typeuser == null){
+       return res.redirect('/');
+    }
     if(res.locals.user.typeuser == 'Estudiante' || res.locals.user.typeuser == 'Acudiente'){
         Nota.find({student: res.locals.user.username},function(err,notas){
             if(err){
@@ -105,8 +109,7 @@ router.route('/notas')
             note: req.body.note,
             student: req.body.student,
             teacher: {
-                name: res.locals.user.name,
-                lastname: res.locals.user.lastname,
+                fullname: res.locals.user.name,
                 username: res.locals.user.username
             },
             profesor: res.locals.user._id
@@ -136,4 +139,5 @@ router.get('/list',function(req,res,next){
         next()
     }
 })
+
 module.exports = router;

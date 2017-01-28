@@ -2,17 +2,7 @@ extends layout_app
 
 block content_app
     .main-content
-       .main-data
-            .data-avatar
-                p.data-user Hola, #{user.name + ' ' + user.lastname}
-                p.data-username @#{user.username}
-                p.data-type #{user.typeuser}
-            .data-links
-                h4.links-title Informacion
-                a.links-item(href="/app/notas/new") 
-                    h4 Subir nota 
-                a.links-item(href="/app/notas") 
-                    h4 Historial Notas 
+        include ../includes/avatar/profesor/index
         .main-nota
             h1.nota-title Mejores notas
             p.nota-subtitle Apareceran notas superiores a 4.8

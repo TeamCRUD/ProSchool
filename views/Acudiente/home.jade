@@ -4,9 +4,7 @@ block content_parent
    .main-content
         .main-data
             .data-avatar
-                p.data-user Hola, #{user.name + ' ' + user.lastname}
-                p.data-username @#{user.username}
-                p.data-type #{user.typeuser}
+               include ../includes/avatar
             .data-links
                 h3.links-title Informacion
                 a.links-item(href="/app/notas/new") 

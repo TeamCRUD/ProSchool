@@ -2,15 +2,7 @@ extends layout_student
 
 block content_student
     .main-content
-        .main-data
-            .data-avatar
-                p.data-user Hola, #{user.name + ' ' + user.lastname}
-                p.data-username @#{user.username}
-                p.data-type #{user.typeuser}
-            .data-links
-                h4.links-title Informacion
-                a.links-item(href="/app/list") 
-                    h4  Mis notas
+        include ../includes/avatar/estudiante/index
         .main-nota
             h1.nota-title Ultimas Notas
             p.nota-subtitle Apareceran notas superiores a 4.8
@@ -25,10 +17,4 @@ block content_student
                         span.nota-footer Estudiante: @#{nota.student} 
                         b.nota Nota: #{nota.note}
                         br
-        .main-publicidad
-            .publicidad-item
-                a(href="#") 
-                    img(src="images/1.png", alt="")
-            .publicidad-item
-                a(href="#")  
-                    img(src="images/1.png", alt="")                   
+         include ../includes/ads            
