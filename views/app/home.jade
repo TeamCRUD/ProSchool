@@ -2,7 +2,11 @@ extends layout_app
 
 block content_app
     .main-content
-        include ../includes/avatar/profesor/index
+        .main-data
+            .data-avatar
+                include ../includes/avatar/avatar_data
+            .data-links
+                include ../includes/avatar/profesor_links
         .main-nota
             h1.nota-title Mejores notas
             p.nota-subtitle Apareceran notas superiores a 4.8

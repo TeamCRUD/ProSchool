@@ -2,7 +2,11 @@ extends layout_student
 
 block content_student
     .main-content
-        include ../includes/avatar/estudiante/index
+        .main-data
+            .data-avatar
+                include ../includes/avatar/avatar_data
+            .data-links
+                include ../includes/avatar/estudiante_links
         .main-nota
             h1.nota-title Ultimas Notas
             p.nota-subtitle Apareceran notas superiores a 4.8

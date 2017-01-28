@@ -4,13 +4,9 @@ block content_parent
    .main-content
         .main-data
             .data-avatar
-               include ../includes/avatar
+                include ../includes/avatar/avatar_data
             .data-links
-                h3.links-title Informacion
-                a.links-item(href="/app/notas/new") 
-                    h4 Subir nota 
-                a.links-item(href="/app/notas") 
-                    h4 Historial Notas 
+                include ../includes/avatar/acudiente_links
         .main-nota
             h1.nota-title Ultimas Notas
             p.nota-subtitle Apareceran notas superiores a 4.8
