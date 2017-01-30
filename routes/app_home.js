@@ -140,4 +140,16 @@ router.get('/list',function(req,res,next){
     }
 })
 
+router.get('/:username',function(req,res,next){
+    var params_user = req.params.username
+    User.findOne({ username: params_user }, function(err, profile){
+        if(err){
+            return res.redirect('/app')
+        }
+        if(!profile){
+            return res.redirect('/app')
+        }
+        res.render(profile.typeuser +'/profile',{profile: profile})
+    })
+})
 module.exports = router;

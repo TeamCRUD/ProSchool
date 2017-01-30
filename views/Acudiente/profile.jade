@@ -1,0 +1,11 @@
+extends layout_parent
+
+block content_parent
+    .main-content
+        .main-data
+            .data-avatar
+                p.data-user Hola, #{profile.fullname}
+                a(href="/app/#{profile.username}").data-username @#{profile.username}
+                p.data-type #{profile.typeuser}
+                if(user.username == profile.username)
+                   p Editar
