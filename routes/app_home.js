@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
        return res.redirect('/');
     }
     if(res.locals.user.typeuser == 'Estudiante' || res.locals.user.typeuser == 'Acudiente'){
-        Nota.find({student: res.locals.user.username},function(err,notas){
+        Nota.find({grade: res.locals.user.grade},function(err,notas){
             if(err){
                 return res.redirect('/app')
             }
@@ -63,8 +63,7 @@ router.route('/notas/:id')
     .put(function(req,res){
         res.locals.nota.period = req.body.period
         res.locals.nota.task = req.body.task
-        res.locals.nota.note = req.body.note
-        res.locals.nota.student = req.body.student
+        res.locals.nota.grade = req.body.grade
         res.locals.nota.save(function(err){
             if(!err){
                 res.render('Profesor/notas/show')
@@ -94,22 +93,15 @@ router.route('/notas')
         })
     })
     .post(function(req,res){
-        if(req.body.student == ''){
-            return res.redirect('/app/notas/new')
-        }
         if(req.body.task == ''){
-            return res.redirect('/app/notas/new')
-        }
-        if(req.body.note == null){
             return res.redirect('/app/notas/new')
         }
         var data = {
             period: req.body.period,
             task: req.body.task,
-            note: req.body.note,
-            student: req.body.student,
+            grade: req.body.grade,
             teacher: {
-                fullname: res.locals.user.name,
+                fullname: res.locals.user.fullname,
                 username: res.locals.user.username
             },
             profesor: res.locals.user._id
@@ -140,16 +132,40 @@ router.get('/list',function(req,res,next){
     }
 })
 
-router.get('/:username',function(req,res,next){
-    var params_user = req.params.username
-    User.findOne({ username: params_user }, function(err, profile){
-        if(err){
-            return res.redirect('/app')
-        }
-        if(!profile){
-            return res.redirect('/app')
-        }
-        res.render(profile.typeuser +'/profile',{profile: profile})
+/* Perfil */ 
+router.route('/:username')
+    .get(function(req,res,next){
+        var params_user = req.params.username
+        User.findOne({ username: params_user }, function(err, profile){
+            if(err){
+                return res.redirect('/app')
+            }
+            if(!profile){
+                return res.redirect('/app')
+            }
+            res.render(profile.typeuser +'/profile/index',{profile: profile})
+        })
     })
-})
+    .put(function(req,res){
+        res.locals.user.fullname = req.body.fullname
+        res.locals.user.email = req.body.email
+        res.locals.user.school = req.body.school
+        res.locals.user.grade = req.body.grade
+        res.locals.user.save(function(err){
+            if(!err){
+                res.redirect('/app/'+req.params.username)
+            }else{
+                res.render('/app/'+req.params.username+'/edit')
+            }
+        })
+    })
+
+router.route('/:username/edit')
+    .get(function(req,res){
+        if(req.params.username != res.locals.user.username){
+            return res.redirect('/app')
+        }
+        res.render(res.locals.user.typeuser + '/profile/edit',{ title: 'Editar nota - Proschool'})
+    })
+    
 module.exports = router;

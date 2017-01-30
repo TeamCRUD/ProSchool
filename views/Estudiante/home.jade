@@ -8,17 +8,16 @@ block content_student
             .data-links
                 include ../includes/avatar/estudiante_links
         .main-nota
-            h1.nota-title Ultimas Notas
-            p.nota-subtitle Apareceran notas superiores a 4.8
+            h1.nota-title Tareas sin realizar
+            p.nota-subtitle Apareceran todas las tareas de tus profesores
             for nota in notas
-                if(nota.note > 4.8 )
-                    .nota-item
-                        if(typeof nota.profesor != "undefined")
-                            b.nota-fullname #{nota.teacher.name + ' ' + nota.teacher.lastname} 
-                            s.nota-username @#{nota.teacher.username} 
-                            br
-                        p.nota-parrafo= nota.task
-                        span.nota-footer Estudiante: @#{nota.student} 
-                        b.nota Nota: #{nota.note}
+                .nota-item
+                    if(typeof nota.profesor != "undefined")
+                        b.nota-fullname #{nota.teacher.fullname} 
+                        s.nota-username #[a(href="/app/#{nota.teacher.username}") @#{nota.teacher.username}] 
                         br
+                    p.nota-parrafo= nota.task
+                    //span.nota-footer Estudiante: #[a(href="/app/#{nota.student}") @#{nota.student}]
+                    //b.nota Nota: #{nota.note}
+                    //br
          include ../includes/ads            

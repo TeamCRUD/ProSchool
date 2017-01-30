@@ -5,7 +5,7 @@ header{
         @include edContainer;
     }
     .header-title{
-        @include edItem(100,100,70);
+        @include edItem(100,100,10);
         a{
             text-decoration: none
         }
@@ -21,7 +21,7 @@ header{
         }
     }
     .header-nav{
-        @include edItem(100,100,30);
+        @include edItem(100,100,90);
         line-height: 2.5;
         text-align: right;
         a{

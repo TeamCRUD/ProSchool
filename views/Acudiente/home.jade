@@ -1,4 +1,4 @@
-extends layout_parent
+extends ../layout_parent
 
 block content_parent
    .main-content
@@ -14,7 +14,7 @@ block content_parent
                 if(nota.note > 4.8 )
                     .nota-item
                         if(typeof nota.profesor != "undefined")
-                            b.nota-fullname #{nota.teacher.name + ' ' + nota.teacher.lastname} 
+                            b.nota-fullname #{nota.teacher.fullname} 
                             s.nota-username @#{nota.teacher.username} 
                             br
                         p.nota-parrafo= nota.task

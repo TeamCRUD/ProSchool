@@ -14,11 +14,11 @@ block content_app
                 if(nota.note > 4.8 )
                     .nota-item
                         if(typeof nota.profesor != "undefined")
-                            b.nota-fullname #{nota.profesor.name + ' ' + nota.profesor.lastname} 
-                            s.nota-username @#{nota.profesor.username} 
+                            b.nota-fullname #{nota.profesor.fullname} 
+                            s.nota-username #[a(href="/app/#{nota.teacher.username}") @#{nota.profesor.username}]
                             br
                         p.nota-parrafo= nota.task
-                        span.nota-footer Estudiante: @#{nota.student} 
+                        span.nota-footer Estudiante: #[a(href="/app/#{nota.student}") @#{nota.student}] 
                         b.nota Nota: #{nota.note}
                         br
          include ../includes/ads   

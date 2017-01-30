@@ -1,0 +1,5 @@
+p.data-user Hola, #{profile.fullname}
+a(href="/app/#{profile.username}").data-username @#{profile.username}
+p.data-type #{profile.typeuser}
+if(user.username == profile.username)
+    a(href="/app/#{profile.username}/edit") Editar perfil
