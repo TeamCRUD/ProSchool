@@ -85,11 +85,11 @@ router.route('/notas/:id')
 
 router.route('/notas')
     .get(function(req,res){
-        Nota.find({profesor: res.locals.user._id},function(err,notas){
+        User.find({grade: res.locals.user.grade}, function(err,users){
             if(err){
                 return res.redirect('/app')
             }
-            res.render('Profesor/notas/index', {title: 'Historial - Proschool', notas: notas })
+            res.render('Profesor/notas/index', {title: 'Historial - Proschool', users: users})
         })
     })
     .post(function(req,res){
@@ -143,8 +143,13 @@ router.route('/:username')
             if(!profile){
                 return res.redirect('/app')
             }
-            res.render(profile.typeuser +'/profile/index',{profile: profile})
         })
+        Nota.find({profesor: res.locals.user._id},function(err,notas){
+            if(err){
+                return res.redirect('/app')
+            }
+        })
+        res.render(profile.typeuser +'/profile/index',{profile: profile})
     })
     .put(function(req,res){
         res.locals.user.fullname = req.body.fullname

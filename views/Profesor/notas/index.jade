@@ -4,12 +4,7 @@ block content_app
     .list-content
         .list-title
             h1 Historial de Notas
-        for nota in notas
+        for user in users
             .list-main
                 .list-main-title
-                    a(href="/app/notas/#{nota._id}/")=nota.task + ' @' +  nota.student
-                .list-button
-                    a.list-button-1(href="/app/notas/#{nota._id}/edit") Editar 
-                .list-button
-                    form(action="/app/notas/#{nota._id}?_method=DELETE", method="POST")
-                        input.list-button-2(type="submit", value="Eliminar")
+                    a(href="/app/notas/#{user.username}/")=user.fullname 
