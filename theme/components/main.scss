@@ -190,17 +190,18 @@
         @include edItem
     }
     .signup-select{
-        margin: .1em;
+        margin: .2em 0;
         label{
             font-size: 1.2em;
             margin-right: 1.9em;
         }
         select{
-            padding: .3em .6em;
+            padding: .3em .5em;
             font-size: 1em;
             background: white;
             color: #333;
             border: 1px solid #E1E8ED;
+            border-radius: 3px
         }
     }
     .signup-input{
@@ -259,6 +260,7 @@
             background: white;
             color: #333;
             border: 1px solid #E1E8ED;
+            border-radius: 3px
         }
     }
     .new-input{
