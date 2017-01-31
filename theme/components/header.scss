@@ -6,13 +6,20 @@ header{
     }
     .header-school{
         @include edItem(100,100,45);
-        h1{
+        .title-school{
             margin: 0;
             font-size: 1.5em;
             font-weight: 200;
             line-height: 1.6;
             color: $favorite;
             font-family: "roboto";
+        }
+        .title-logo{
+            margin: 0;
+            font-size: 1.5em;
+            font-weight: 200;
+            color: $primary;
+            font-family: "pacifico",cursive;
         }
     }
     .header-title{

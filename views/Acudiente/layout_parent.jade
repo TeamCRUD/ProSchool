@@ -3,6 +3,9 @@ extends ../layout
 block content
     header
         .header-content
+            .header-school.hideL
+                if(user.school == undefined)
+                    h1 Logo | #{user.school}
            .header-title
                 a(href="/app")  
                     h1 Proschool

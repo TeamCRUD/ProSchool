@@ -3,9 +3,16 @@ extends ../layout
 block content
     header
         .header-content
+            .header-school.hideL
+                if(user.school != undefined)
+                    h1.title-school Logo | #{user.school}
+                if(user.school == undefined)
+                    a(href="/app") 
+                        h1.title-logo Proschool
             .header-title
-                 a(href="/app") 
-                    h1 Proschool
+                if(user.school != undefined)
+                    a(href="/app") 
+                        h1 Proschool
             .header-nav
                 a(href="/app") Inicio 
                 a(href="/app/#{user.username}") Perfil
