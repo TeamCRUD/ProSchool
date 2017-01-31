@@ -145,11 +145,6 @@ router.route('/:username')
             }
             res.render(profile.typeuser +'/profile/index',{profile: profile})
         })
-        Nota.find({profesor: res.locals.user._id},function(err,notas){
-            if(err){
-                return res.redirect('/app')
-            }
-        })
         
     })
     .put(function(req,res){

@@ -21,3 +21,7 @@ a {
   text-decoration : none;
   &:hover { text-decoration : underline }
 }
+
+.hideL{
+  @include showFrom(l);
+}

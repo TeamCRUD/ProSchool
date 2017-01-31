@@ -4,7 +4,6 @@
     padding: .5em 0;
     .main-data{
         @include edItem(100,100,20);
-        @include showFrom(l);
         .data-avatar, .data-links{
             padding: 0;
             margin-bottom: .5em;
@@ -122,6 +121,9 @@
               transition: .6s all
             }
         }
+    }
+    @include to(m){
+        text-align: center
     }
 }
 // Login ==================
