@@ -143,13 +143,14 @@ router.route('/:username')
             if(!profile){
                 return res.redirect('/app')
             }
+            res.render(profile.typeuser +'/profile/index',{profile: profile})
         })
         Nota.find({profesor: res.locals.user._id},function(err,notas){
             if(err){
                 return res.redirect('/app')
             }
         })
-        res.render(profile.typeuser +'/profile/index',{profile: profile})
+        
     })
     .put(function(req,res){
         res.locals.user.fullname = req.body.fullname
