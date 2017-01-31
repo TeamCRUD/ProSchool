@@ -4,6 +4,17 @@ header{
     .header-content{
         @include edContainer;
     }
+    .header-school{
+        @include edItem(100,100,45);
+        h1{
+            margin: 0;
+            font-size: 1.5em;
+            font-weight: 200;
+            line-height: 1.6;
+            color: $favorite;
+            font-family: "roboto";
+        }
+    }
     .header-title{
         @include edItem(100,100,10);
         a{
@@ -21,7 +32,7 @@ header{
         }
     }
     .header-nav{
-        @include edItem(100,100,90);
+        @include edItem(100,100,45);
         line-height: 2.5;
         text-align: right;
         a{

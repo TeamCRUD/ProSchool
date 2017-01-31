@@ -1,7 +1,7 @@
 var mongoose = require("mongoose")
 var Schema = mongoose.Schema
 
-var escuela_schema = new Schema({
+var school_schema = new Schema({
     school:{type: String, require: true},
     grade:{type: String, require: true},
     student:{type: String, require: true},
@@ -12,6 +12,6 @@ var escuela_schema = new Schema({
     }
 })
 
-var Escuela = mongoose.model("Escuela", escuela_schema)
+var School = mongoose.model("school", school_schema)
 
-module.exports = Escuela
+module.exports = School

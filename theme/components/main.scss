@@ -307,8 +307,8 @@
         @include edContainer;
         @include edItem;
         padding: .7em 1em;
-        margin: .1em 0;
-        border: 1px solid $border
+        margin:0;
+        border-bottom: 1px solid $border
     }
     .list-main-title{
         @include edItem(65,80,90);

@@ -11,4 +11,8 @@ block content_app
                         input(type="text" name='school' placeholder="Escuela")
                     if(user.school != undefined)
                         input(type="text" name='school' placeholder="Escuela" value='#{user.school}')
+                    if(user.grade == undefined)
+                        input(type="text" name='grade' placeholder="Grado")
+                    if(user.grade != undefined)
+                        input(type="text" name='grade' placeholder="Grado" value='#{user.grade}')
                     input(type="submit" value='Guardar cambios')

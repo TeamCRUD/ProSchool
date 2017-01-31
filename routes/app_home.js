@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Escuela = require('../models/escuelas');
+var School = require('../models/schools');
 var Nota = require('../models/notas');
 var User = require('../models/users');
 
@@ -85,11 +85,11 @@ router.route('/notas/:id')
 
 router.route('/notas')
     .get(function(req,res){
-        User.find({grade: res.locals.user.grade}, function(err,users){
+        User.find({grade: res.locals.user.grade}, function(err,students){
             if(err){
                 return res.redirect('/app')
             }
-            res.render('Profesor/notas/index', {title: 'Historial - Proschool', users: users})
+            res.render('Profesor/notas/index', {title: 'Historial - Proschool', students: students})
         })
     })
     .post(function(req,res){

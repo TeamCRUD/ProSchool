@@ -3,8 +3,9 @@ extends ../layout_app
 block content_app
     .list-content
         .list-title
-            h1 Lista de estudiantes
-        for user in users
+            h1 Lista de estudiantes / #{user.grade}
+        for student in students
             .list-main
                 .list-main-title
-                    a(href="/app/notas/#{user.username}/")=user.fullname 
+                    if(student.typeuser == 'Estudiante')
+                        a(href="/app/#{student.username}/")=student.fullname 
