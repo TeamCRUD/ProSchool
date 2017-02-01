@@ -45,6 +45,7 @@
                 color: $secondary;
                 padding: 0;
                 text-decoration: none;
+                text-align: center;
                 h4{
                     padding: .3em;
                     margin: 0;
@@ -121,9 +122,6 @@
               transition: .6s all
             }
         }
-    }
-    @include to(m){
-        text-align: center
     }
 }
 // Login ==================

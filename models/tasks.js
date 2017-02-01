@@ -8,7 +8,8 @@ var task_schema = new Schema({
     teacher: {
         fullname: {type: String, require: true},
         username: {type: String, require: true}
-    }
+    },
+    profesor:{type: Schema.Types.ObjectId, ref:'User'}
 })
 
 var Task = mongoose.model("Task", task_schema)

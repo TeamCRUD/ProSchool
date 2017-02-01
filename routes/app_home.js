@@ -2,9 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 var School = require('../models/schools');
+var Task = require('../models/tasks');
 var Nota = require('../models/notas');
 var User = require('../models/users');
 
+var TaskCtrl = require('../middlewares/task_reset')
 var nota_find = require('../middlewares/find_nota')
 
 /* GET app page. */
@@ -109,11 +111,11 @@ router.route('/notas')
         var nota = new Nota(data)
         nota.save(function(err){
             if(err){
-                    res.redirect('/app/notas/new')
-                    return res.status(500).send()
-                }else{
-                    res.redirect('/app/notas/' + nota._id)
-                    return res.status(200).send()
+                res.redirect('/app/notas/new')
+                return res.status(500).send()
+            }else{
+                res.redirect('/app/notas/' + nota._id)
+                return res.status(200).send()
             }
         })
     })
@@ -136,14 +138,17 @@ router.get('/list',function(req,res,next){
 router.route('/:username')
     .get(function(req,res,next){
         var params_user = req.params.username
-        User.findOne({ username: params_user }, function(err, profile){
-            if(err){
+        User.findOne({ username: params_user }, function(err, profile){   
+           if(err){
                 return res.redirect('/app')
             }
             if(!profile){
                 return res.redirect('/app')
             }
-            res.render(profile.typeuser +'/profile/index',{profile: profile})
+            Task.find({}, function(err, tasks){
+                if(err){res.redirect('/app'); return}
+                res.render(profile.typeuser +'/profile/index',{profile: profile,tasks: tasks})
+            })
         })
         
     })
@@ -170,21 +175,19 @@ router.route('/:username/edit')
     })
     
 /**Reset Task */
-router.get('/task/new', function(req,res){
-    res.render('Profesor/task/new')
-})
+router.get('/task/new', TaskCtrl.renderNewTask)
 
 router.get('/task/:id/edit', function(req,res){
 
 })
 
-router.route('/tasks/:id')
-    .get()
+router.route('/task/:id')
+    .get(TaskCtrl.renderShowTask)
     .put()
     .delete()
 
-router.route('/tasks')
+router.route('/task')
     .get()
-    .post()
+    .post(TaskCtrl.addTask)
 
 module.exports = router;
