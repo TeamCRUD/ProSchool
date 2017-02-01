@@ -16,7 +16,7 @@ block content_student
                         b.nota-fullname #{nota.teacher.fullname} 
                         s.nota-username #[a(href="/app/#{nota.teacher.username}") @#{nota.teacher.username}] 
                         br
-                    p.nota-parrafo= nota.task
+                    a(href='/app/task/#{nota._id}').nota-parrafo= nota.task
                     //span.nota-footer Estudiante: #[a(href="/app/#{nota.student}") @#{nota.student}]
                     //b.nota Nota: #{nota.note}
                     //br

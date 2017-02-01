@@ -177,13 +177,11 @@ router.route('/:username/edit')
 /**Reset Task */
 router.get('/task/new', TaskCtrl.renderNewTask)
 
-router.get('/task/:id/edit', function(req,res){
-
-})
+router.get('/task/:id/edit', TaskCtrl.renderEditTask)
 
 router.route('/task/:id')
     .get(TaskCtrl.renderShowTask)
-    .put()
+    .put(TaskCtrl.updateTask)
     .delete()
 
 router.route('/task')

@@ -3,4 +3,11 @@ extends ../layout_app
 block content_app
     .show-content 
         .show-main
+            b.nota-fullname #{task.teacher.fullname} 
+            s.nota-username #[a(href="/app/#{task.teacher.username}") @#{task.teacher.username}] 
             h1= task.task
+        if(user.typeuser == 'Profesor' && user.username == task.teacher.username)
+            .show-button
+                a.list-button-1(href="/app/task/#{task._id}/edit") Editar 
+                form(action="/app/notas/#{task._id}?_method=DELETE", method="POST")
+                    input.list-button-2(type="submit", value="Eliminar")

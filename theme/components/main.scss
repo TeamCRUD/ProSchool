@@ -112,12 +112,17 @@
             .nota-username{
                 text-decoration: none;
                 color: $favorite;
+                a{
+                    color: $favorite
+                }
             }
             .nota-parrafo{
                 margin: 0;
                 margin-bottom: .4em;
                 padding: 0;
                 font-size: 18px;
+                color: #333;
+                text-decoration: none
             }
             .nota-footer{
                 color: $favorite;
