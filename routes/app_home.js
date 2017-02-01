@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
        return res.redirect('/');
     }
     if(res.locals.user.typeuser == 'Estudiante' || res.locals.user.typeuser == 'Acudiente'){
-        Nota.find({grade: res.locals.user.grade},function(err,notas){
+        Task.find({grade: res.locals.user.grade},function(err,notas){
             if(err){
                 return res.redirect('/app')
             }
