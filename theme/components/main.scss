@@ -203,7 +203,6 @@
             background: white;
             color: #333;
             border: 1px solid #E1E8ED;
-            border-radius: 3px
         }
     }
     .signup-input{
@@ -262,7 +261,6 @@
             background: white;
             color: #333;
             border: 1px solid #E1E8ED;
-            border-radius: 3px
         }
     }
     .new-input{
@@ -380,6 +378,8 @@
         select{
             padding: .3em .6em;
             font-size: 1em;
+            background: white;
+            color: #333;
             border: 1px solid #E1E8ED;
         }
     }

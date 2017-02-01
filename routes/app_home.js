@@ -169,4 +169,22 @@ router.route('/:username/edit')
         res.render(res.locals.user.typeuser + '/profile/edit',{ title: 'Editar nota - Proschool'})
     })
     
+/**Reset Task */
+router.get('/task/new', function(req,res){
+    res.render('Profesor/task/new')
+})
+
+router.get('/task/:id/edit', function(req,res){
+
+})
+
+router.route('/tasks/:id')
+    .get()
+    .put()
+    .delete()
+
+router.route('/tasks')
+    .get()
+    .post()
+
 module.exports = router;
