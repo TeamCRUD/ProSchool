@@ -33,12 +33,12 @@ router.get('/', function(req, res, next) {
 });
 
 /* REST */
-router.all(['/notas'], TaskCtrl.taskPermission)
+router.all(['/notas', '/task'], TaskCtrl.taskPermission)
 
-router.all(['/notas/*'], TaskCtrl.taskPermission)
+router.all(['/notas/*', '/task/new', '/task/:id/edit'], TaskCtrl.taskPermission)
 
 router.get('/notas/new',function(req,res){
-    res.render('Profesor/notas/new',{ title: 'Nueva nota - Proschool'})
+    res.render('Profesor/task/new',{ title: 'Nueva nota - Proschool'})
 })
 
 router.all('/notas/:id*', nota_find)
@@ -165,10 +165,10 @@ router.route('/:username/edit')
     
 /**Reset Task */
 
-router.all('/task/:id*', task_find)
 
 router.get('/task/new', TaskCtrl.renderNewTask)
 
+router.all('/task/:id*', task_find)
 router.get('/task/:id/edit', TaskCtrl.renderEditTask)
 
 router.route('/task/:id')

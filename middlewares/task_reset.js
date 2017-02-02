@@ -2,7 +2,7 @@ var Task = require('../models/tasks');
 
 /** RENDER */
 exports.renderShowTask = function(req, res){
-        res.render('Profesor/task/show')
+    res.render('Profesor/task/show')
 }
 
 exports.renderNewTask = function(req, res){
@@ -10,7 +10,7 @@ exports.renderNewTask = function(req, res){
 }
 
 exports.renderEditTask = function(req, res){
-        res.render('Profesor/task/edit')
+    res.render('Profesor/task/edit')
 }
 
 /** RESET */
@@ -47,10 +47,10 @@ exports.addTask = function(req, res){
 }
 
 exports.updateTask = function(req,res){
-    res.loctask.period = req.body.period
-    res.loctask.task = req.body.task
-    res.loctask.grade = req.body.grade
-    res.loctask.save(function(err){
+    res.locals.task.period = req.body.period
+    res.locals.task.task = req.body.task
+    res.locals.task.grade = req.body.grade
+    res.locals.task.save(function(err){
         if(!err){
             res.redirect('/app/task/'+req.params.id)
         }else{
@@ -72,7 +72,8 @@ exports.deleteTask = function(req,res){
 
 /**Permission task */
 exports.taskPermission = function(req, res, next){
-    if(res.locals.user.typeuser!= 'Profesor'){
+    if(res.locals.user.typeuser != 'Profesor'){
+        console.log(res.locals.user.typeuser)
         res.redirect('/app')
     }else{
         next()
