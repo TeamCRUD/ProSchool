@@ -6,7 +6,7 @@ exports.renderShowTask = function(req, res){
 }
 
 exports.renderNewTask = function(req, res){
-    res.render('Profesor/task/new')
+    res.render('Profesor/task/new',{title: 'Nueva tarea - Proschool'})
 }
 
 exports.renderEditTask = function(req, res){
