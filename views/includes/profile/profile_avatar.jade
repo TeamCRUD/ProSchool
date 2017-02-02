@@ -1,11 +1,13 @@
 p.data-user Hola, #{profile.fullname}
 a(href="/app/#{profile.username}").data-username @#{profile.username}
-p.data-type #{profile.typeuser}
 if(user.school != undefined)
     p.data-school #{user.school}
 if(user.grade != undefined)
     p.data-grade Grado: #{user.grade}
+p.data-type #{profile.typeuser}
 if(user.username == profile.username)
     .data-button
-        a.data-button-1(href="/app/#{profile.username}/edit") Editar perfil
-        a.data-button-2(href="/logout") Cerrar sesión
+        a.data-button-1(href="/app/#{profile.username}/edit") 
+            p Editar perfil   
+        a.data-button-2(href="/logout") 
+            p Cerrar sesión

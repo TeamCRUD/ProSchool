@@ -1,7 +1,20 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://jairperezs:D1e560*9c@ds135519.mlab.com:35519/proschool')
+var options = { 
+    server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
+    replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } 
+}; 
+
+var mongodbUri = 'mongodb://jairperezs:D1e560*9c@ds135519.mlab.com:35519/proschool'
+mongoose.connect(mongodbUri, options)
+
+var conn = mongoose.connection;  
+
+conn.on('error', console.error.bind(console, 'connection error:'));  
+conn.once('open', function() {
+    console.log('Conectado a DB')
+});
 
 var email_match = [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,"Coloca un email valido"]
 var password_validation = {

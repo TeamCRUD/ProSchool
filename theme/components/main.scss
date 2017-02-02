@@ -1,46 +1,54 @@
 // App =================
 .main-content{
     @include edContainer;
-    padding: .5em 0;
     .main-data{
         @include edItem(100,100,20);
         .data-avatar, .data-links{
             padding: 0;
-            margin-bottom: .5em;
+            margin: .5em 0;
             border: 1px solid #E1E8ED;
         }
         .data-avatar{
             text-align: center;
+            padding: .5em;
             p{
                 padding: 0;
-                margin: .5em
+                margin: 0
             }
             a{
-                
                 color: $favorite;
-                @include to(m){
-                    margin: 1em;
-                }
-                @include from(m){
-                    margin: .2em
-                }
             }
             .data-user{
                 font-weight: $bold
             }
             .data-username{
-                color: $primary
+                
+            }
+            .data-school{
+                border-top: 1px solid $border;
+                margin-top: .5em;
+                padding-top: .5em
+            }
+            .data-grade{
+                padding-top: .5em
             }
             .data-type{
-                color: $light
+                padding: .5em
             }
             .data-button{
                 border-top: 1px solid $border;
-                padding: .5em 0;
+                padding-top: .5em;
                 .data-button-1,.data-button-2{
                     color: $favorite;
+                    p{
+                        margin: 0;
+                        padding: 0
+                    }
                 }
                 .data-button-1{
+                    p{
+                        margin-bottom: .5em;
+                    }
                     &:hover{
                         color: $light
                     }
@@ -88,7 +96,8 @@
     }
     .main-nota{
         @include edItem(100,100,60);
-        padding: 1em 0;
+        padding: .5em 0;
+        margin: .5em 0;
         border-top: 1px solid $border;
         .nota-title{
             margin: 0;
@@ -100,7 +109,7 @@
             margin: 0;
             margin-top: .3em;
             padding: 0;
-            padding-bottom: 1.2em; 
+            padding-bottom: 1em; 
             font-weight: 300;
             text-align: center;
             color: $favorite;
@@ -136,6 +145,7 @@
     .main-publicidad{
         @include edItem(100,100,20);
         @include showFrom(l);
+        margin: .5em 0;
         .publicidad-title,.publicidad-item{
             text-align: center;
             a{
