@@ -64,3 +64,14 @@ exports.updateTask = function(req,res){
         })
     })
 }
+
+exports.deleteTask = function(req,res){
+    Task.findOneAndRemove({_id: req.params.id}, function(err){
+        if(!err){
+            res.redirect('/app')
+        }else{
+            console.log(err)
+            res.redirect('/app/task/'+re.params.id)
+        }
+    })
+}

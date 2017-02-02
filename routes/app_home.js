@@ -182,7 +182,7 @@ router.get('/task/:id/edit', TaskCtrl.renderEditTask)
 router.route('/task/:id')
     .get(TaskCtrl.renderShowTask)
     .put(TaskCtrl.updateTask)
-    .delete()
+    .delete(TaskCtrl.deleteTask)
 
 router.route('/task')
     .get()
