@@ -33,9 +33,9 @@ router.get('/', function(req, res, next) {
 });
 
 /* REST */
-router.all(['/notas', '/task'], TaskCtrl.taskPermission)
+router.all(['/notas'], TaskCtrl.taskPermission)
 
-router.all(['/notas/*', '/task/new','/task/:id/edit'], TaskCtrl.taskPermission)
+router.all(['/notas/*'], TaskCtrl.taskPermission)
 
 router.get('/notas/new',function(req,res){
     res.render('Profesor/notas/new',{ title: 'Nueva nota - Proschool'})
@@ -165,7 +165,8 @@ router.route('/:username/edit')
     
 /**Reset Task */
 
-router.all('task/:id*', task_find)
+router.all('/task/:id*', task_find)
+
 router.get('/task/new', TaskCtrl.renderNewTask)
 
 router.get('/task/:id/edit', TaskCtrl.renderEditTask)

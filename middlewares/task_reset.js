@@ -2,9 +2,7 @@ var Task = require('../models/tasks');
 
 /** RENDER */
 exports.renderShowTask = function(req, res){
-    Task.findById(req.params.id, function(err, task){
-        res.render('Profesor/task/show',{task: task})
-    })
+        res.render('Profesor/task/show')
 }
 
 exports.renderNewTask = function(req, res){
@@ -12,9 +10,7 @@ exports.renderNewTask = function(req, res){
 }
 
 exports.renderEditTask = function(req, res){
-     Task.findById(req.params.id, function(err, task){
-        res.render('Profesor/task/edit',{task: task})
-    })
+        res.render('Profesor/task/edit')
 }
 
 /** RESET */
@@ -51,17 +47,15 @@ exports.addTask = function(req, res){
 }
 
 exports.updateTask = function(req,res){
-    Task.findById(req.params.id, function(err, task){
-        task.period = req.body.period
-        task.task = req.body.task
-        task.grade = req.body.grade
-        task.save(function(err){
-            if(!err){
-                res.redirect('/app/task/'+req.params.id)
-            }else{
-                res.render('Profesor/task/'+req.params.id+'/edit')
-            }
-        })
+    res.loctask.period = req.body.period
+    res.loctask.task = req.body.task
+    res.loctask.grade = req.body.grade
+    res.loctask.save(function(err){
+        if(!err){
+            res.redirect('/app/task/'+req.params.id)
+        }else{
+            res.render('Profesor/task/'+req.params.id+'/edit')
+        }
     })
 }
 

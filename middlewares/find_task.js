@@ -1,3 +1,5 @@
+var Task = require('../models/tasks');
+
 module.exports = function(req, res, next){
     Task.findById(req.params.id, function(err, task){
         if(task != null){
