@@ -21,9 +21,6 @@
             .data-user{
                 font-weight: $bold
             }
-            .data-username{
-                
-            }
             .data-school{
                 border-top: 1px solid $border;
                 margin-top: .5em;
@@ -337,13 +334,15 @@
         @include edItem;
         text-align: center;
         h1, b{
+            padding: 0;
+            margin: .5em 0;
             font-weight: $normal;
         }
     }
     .list-main{
         @include edContainer;
         @include edItem;
-        padding: .7em 1em;
+        padding: .6em;
         margin:0;
         border-bottom: 1px solid $border
     }
