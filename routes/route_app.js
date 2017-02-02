@@ -134,7 +134,7 @@ router.route('/:username')
             if(!profile){
                 return res.redirect('/app')
             }
-            Task.find({}, function(err, tasks){
+            Task.find({grade: res.locals.user.grade}, function(err, tasks){
                 if(err){res.redirect('/app'); return}
                 res.render(profile.typeuser +'/profile/index',{profile: profile,tasks: tasks})
             })

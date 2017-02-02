@@ -14,7 +14,7 @@ var users = require('./routes/users');
 var signup = require('./routes/signup');
 var sessions = require('./routes/sessions');
 var logout = require('./routes/logout');
-var app_home = require('./routes/app_home');
+var route_app = require('./routes/route_app');
 
 var app = express();
 
@@ -51,7 +51,7 @@ app.use('/signup', signup);
 app.use('/sessions', sessions);
 app.use('/logout', logout);
 app.use('/app', session_middleware)
-app.use('/app', app_home);
+app.use('/app', route_app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
