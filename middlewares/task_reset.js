@@ -75,3 +75,12 @@ exports.deleteTask = function(req,res){
         }
     })
 }
+
+/**Permission task */
+exports.taskPermission = function(req, res, next){
+    if(res.locals.user.typeuser!= 'Profesor'){
+        res.redirect('/app')
+    }else{
+        next()
+    }
+}

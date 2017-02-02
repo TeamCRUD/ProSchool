@@ -8,6 +8,7 @@ var User = require('../models/users');
 
 var TaskCtrl = require('../middlewares/task_reset')
 var nota_find = require('../middlewares/find_nota')
+var task_find = require('../middlewares/find_task')
 
 /* GET app page. */
 router.get('/', function(req, res, next) {
@@ -32,21 +33,9 @@ router.get('/', function(req, res, next) {
 });
 
 /* REST */
-router.all('/notas', function(req, res, next){
-    if(res.locals.user.typeuser!= 'Profesor'){
-        res.redirect('/app')
-    }else{
-        next()
-    }
-})
+router.all(['/notas', '/task'], TaskCtrl.taskPermission)
 
-router.all('/notas/*', function(req,res,next){
-    if(res.locals.user.typeuser!= 'Profesor'){
-        res.redirect('/app')
-    }else{
-        next()
-    }
-})
+router.all(['/notas/*', '/task/new','/task/:id/edit'], TaskCtrl.taskPermission)
 
 router.get('/notas/new',function(req,res){
     res.render('Profesor/notas/new',{ title: 'Nueva nota - Proschool'})
@@ -175,6 +164,8 @@ router.route('/:username/edit')
     })
     
 /**Reset Task */
+
+router.all('task/:id*', task_find)
 router.get('/task/new', TaskCtrl.renderNewTask)
 
 router.get('/task/:id/edit', TaskCtrl.renderEditTask)
