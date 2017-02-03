@@ -1,0 +1,6 @@
+extends ../layout_app
+
+block content_app
+    h1 Tareas y notas / #{user.fullname}
+    for task in tasks
+        p= task.task

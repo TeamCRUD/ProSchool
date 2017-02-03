@@ -3,21 +3,18 @@ extends ../layout_app
 block content_app
     .new-content 
         .new-title
-            h2 Subir nueva nota
-            p Asigna una nota, tarea y el periodo
+            h2 Tarea / #{task.task}
+            p Asigna una nota
         .new-form
-            form(action="/app/notas", method="POST")
+            form(action="/app/notas/#{task._id}", method="POST")
                 .new-select
                     label Periodo 
                     select(name="period")
-                        option(value="Primero" , selected) Primero
-                        option(value="Segundo") Segundo
-                        option(value="Tercero") Tercero
-                        option(value="Cuarto") Cuarto
+                        option(value="#{task.period}" , selected) #{task.period}
                 .new-input
-                    input(type="text", name="task", placeholder="Tarea, examen, etc")
+                    input(type="text", name="student", placeholder="Usuario de estudiante")
                 .new-input
-                    input(type="text", name="grade", placeholder="Grado")
+                    input(type="text", name="note", placeholder="Asignar nota")
                 .new-button
                     input.new-button-1(type="submit" value="Subir")
                 .new-button

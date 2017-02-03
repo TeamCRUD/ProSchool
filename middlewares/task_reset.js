@@ -1,4 +1,5 @@
 var Task = require('../models/tasks');
+var User = require('../models/users');
 
 /** RENDER */
 exports.renderShowTask = function(req, res){
@@ -15,9 +16,25 @@ exports.renderEditTask = function(req, res){
 
 /** RESET */
 exports.findAll = function (req,res){
-    Task.find({}, function(err, tasks){
+    Task.find({profesor: res.locals.user._id}, function(err, tasks){
+        if(err){ res.redirect('/app'); return}
+        res.render('Profesor/task/index', {tasks: tasks})
     })
+
 }
+
+exports.findOne = function (req,res){
+    User.findOne({username: req.params.username}, function(err, user){
+        if(err){ res.redirect('/app'); return}
+        if(!user){res.redirect('/app/list'); return}
+        Task.find({profesor: res.locals.user._id}, function(err, tasks){
+            if(err){ res.redirect('/app'); return}
+            res.render('Profesor/task/task_notes', {tasks: tasks, user: user})
+        })
+    })
+
+}
+
 exports.addTask = function(req, res){
     if(req.body.task == ''){
             return res.redirect('/app/notas/new')

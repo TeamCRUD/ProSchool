@@ -5,7 +5,10 @@ block content_app
         .list-title
             h1 Lista de estudiantes #[b.hideL / #{user.grade}]
         for student in students
-            .list-main
-                .list-main-title
-                    if(student.typeuser == 'Estudiante')
-                        a(href="/app/#{student.username}/")=student.fullname 
+            if(student.typeuser == 'Estudiante')
+                .list-main
+                    .list-main-title
+                        if(student.typeuser == 'Estudiante')
+                            a(href="/app/#{student.username}/")=student.fullname
+                    .list-main-item
+                        a(href="/app/task/#{student.username}") Ver mas

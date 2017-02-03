@@ -37,8 +37,37 @@ router.all(['/notas', '/task'], TaskCtrl.taskPermission)
 
 router.all(['/notas/*', '/task/new', '/task/:id/edit'], TaskCtrl.taskPermission)
 
-router.get('/notas/new',function(req,res){
-    res.render('Profesor/task/new',{ title: 'Nueva nota - Proschool'})
+router.route('/notas/:id')
+    .post(task_find, function(req,res){
+        if(req.body.task == ''){
+            return res.redirect('/app/notas/new')
+        }
+        var data = {
+            period: res.locals.task.period,
+            task: res.locals.task.task,
+            grade: res.locals.task.grade,
+            note: req.body.note,
+            student: req.body.student,
+            teacher: {
+                fullname: res.locals.user.fullname,
+                username: res.locals.user.username
+            },
+            profesor: res.locals.user._id
+        }
+        var nota = new Nota(data)
+        nota.save(function(err){
+            if(err){
+                res.redirect('/app/notas/new')
+                return res.status(500).send()
+            }else{
+                res.redirect('/app/notas/' + nota._id)
+                return res.status(200).send()
+            }
+        })
+    })
+    
+router.get('/notas/new/:id',task_find,function(req,res){
+    res.render('Profesor/notas/new',{ title: 'Nueva nota - Proschool'})
 })
 
 router.all('/notas/:id*', nota_find)
@@ -74,42 +103,26 @@ router.route('/notas/:id')
         })
     })
 
-router.route('/notas')
-    .get(function(req,res){
-        User.find({grade: res.locals.user.grade}, function(err,students){
-            if(err){
-                return res.redirect('/app')
-            }
-            res.render('Profesor/notas/index', {title: 'Historial - Proschool', students: students})
-        })
-    })
-    .post(function(req,res){
-        if(req.body.task == ''){
-            return res.redirect('/app/notas/new')
-        }
-        var data = {
-            period: req.body.period,
-            task: req.body.task,
-            grade: req.body.grade,
-            teacher: {
-                fullname: res.locals.user.fullname,
-                username: res.locals.user.username
-            },
-            profesor: res.locals.user._id
-        }
-        var nota = new Nota(data)
-        nota.save(function(err){
-            if(err){
-                res.redirect('/app/notas/new')
-                return res.status(500).send()
-            }else{
-                res.redirect('/app/notas/' + nota._id)
-                return res.status(200).send()
-            }
-        })
-    })
+/**Reset Task */
+router.get('/task/new', TaskCtrl.renderNewTask)
 
-/* Estudiante */
+router.route('/task/:username')
+    .get(TaskCtrl.findOne)
+
+router.all('/task/:id*', task_find)
+router.get('/task/:id/edit', TaskCtrl.renderEditTask)
+
+router.route('/task/:id')
+    .get(TaskCtrl.renderShowTask)
+    .put(TaskCtrl.updateTask)
+    .delete(TaskCtrl.deleteTask)
+
+router.route('/task')
+    .get(TaskCtrl.findAll)
+    .post(TaskCtrl.addTask)
+
+
+// List
 router.get('/list',function(req,res,next){
    if(res.locals.user.typeuser == 'Estudiante' || res.locals.user.typeuser == 'Acudiente'){
         Nota.find({student: res.locals.user.username},function(err,notas){
@@ -119,7 +132,12 @@ router.get('/list',function(req,res,next){
             res.render(res.locals.user.typeuser+'/notas/index',{title: 'Proschool - Home', notas: notas})
         })
     }else{
-        next()
+       User.find({grade: res.locals.user.grade}, function(err,students){
+            if(err){
+                return res.redirect('/app')
+            }
+            res.render('Profesor/notas/index', {title: 'Historial - Proschool', students: students})
+        })
     }
 })
 
@@ -129,7 +147,7 @@ router.route('/:username')
         var params_user = req.params.username
         User.findOne({ username: params_user }, function(err, profile){   
            if(err){
-                return res.redirect('/app')
+                return res.render(error)
             }
             if(!profile){
                 return res.redirect('/app')
@@ -162,22 +180,5 @@ router.route('/:username/edit')
         }
         res.render(res.locals.user.typeuser + '/profile/edit',{ title: 'Editar nota - Proschool'})
     })
-    
-/**Reset Task */
-
-
-router.get('/task/new', TaskCtrl.renderNewTask)
-
-router.all('/task/:id*', task_find)
-router.get('/task/:id/edit', TaskCtrl.renderEditTask)
-
-router.route('/task/:id')
-    .get(TaskCtrl.renderShowTask)
-    .put(TaskCtrl.updateTask)
-    .delete(TaskCtrl.deleteTask)
-
-router.route('/task')
-    .get()
-    .post(TaskCtrl.addTask)
 
 module.exports = router;
