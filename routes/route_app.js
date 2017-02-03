@@ -104,10 +104,8 @@ router.route('/notas/:id')
     })
 
 /**Reset Task */
-router.get('/task/new', TaskCtrl.renderNewTask)
 
-router.route('/task/:username')
-    .get(TaskCtrl.findOne)
+router.get('/task/new', TaskCtrl.renderNewTask)
 
 router.all('/task/:id*', task_find)
 router.get('/task/:id/edit', TaskCtrl.renderEditTask)
@@ -116,11 +114,10 @@ router.route('/task/:id')
     .get(TaskCtrl.renderShowTask)
     .put(TaskCtrl.updateTask)
     .delete(TaskCtrl.deleteTask)
-
+    
 router.route('/task')
     .get(TaskCtrl.findAll)
     .post(TaskCtrl.addTask)
-
 
 // List
 router.get('/list',function(req,res,next){

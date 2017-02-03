@@ -23,18 +23,6 @@ exports.findAll = function (req,res){
 
 }
 
-exports.findOne = function (req,res){
-    User.findOne({username: req.params.username}, function(err, user){
-        if(err){ res.redirect('/app'); return}
-        if(!user){res.redirect('/app/list'); return}
-        Task.find({profesor: res.locals.user._id}, function(err, tasks){
-            if(err){ res.redirect('/app'); return}
-            res.render('Profesor/task/task_notes', {tasks: tasks, user: user})
-        })
-    })
-
-}
-
 exports.addTask = function(req, res){
     if(req.body.task == ''){
             return res.redirect('/app/notas/new')

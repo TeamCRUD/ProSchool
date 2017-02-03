@@ -8,6 +8,7 @@ block content_app
             h1= task.task
         if(user.typeuser == 'Profesor' && user.username == task.teacher.username)
             .show-button
+                a.show-button-1(href="/app/notas/new/#{task._id}") Subir nota 
                 a.show-button-1(href="/app/task/#{task._id}/edit") Editar 
                 form(action="/app/task/#{task._id}?_method=DELETE", method="POST")
                     input.show-button-2(type="submit", value="Eliminar")
