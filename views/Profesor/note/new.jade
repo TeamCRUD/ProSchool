@@ -6,7 +6,7 @@ block content_app
             h2 Tarea / #{task.task}
             p Asigna una nota
         .new-form
-            form(action="/app/notas/#{task._id}", method="POST")
+            form(action="/app/note/#{task._id}", method="POST")
                 .new-select
                     label Periodo 
                     select(name="period")

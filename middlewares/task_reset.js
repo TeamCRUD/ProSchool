@@ -16,16 +16,29 @@ exports.renderEditTask = function(req, res){
 
 /** RESET */
 exports.findAll = function (req,res){
-    Task.find({profesor: res.locals.user._id}, function(err, tasks){
-        if(err){ res.redirect('/app'); return}
-        res.render('Profesor/task/index', {tasks: tasks})
-    })
-
+    if(res.locals.user.typeuser == 'Estudiante' || res.locals.user.typeuser == 'Acudiente'){
+        Nota.find({student: res.locals.user.username},function(err,notas){
+            if(err){
+                return res.redirect('/app')
+            }
+            res.render(res.locals.user.typeuser+'/notas/index',{title: 'Proschool - Home', notas: notas})
+        })
+    }else{
+       User.find({grade: res.locals.user.grade}, function(err,students){
+            if(err){
+                return res.redirect('/app')
+            }
+            Task.find({profesor: res.locals.user._id}, function(err, tasks){
+                if(err){ res.redirect('/app'); return}
+                res.render('Profesor/task/index', {title: 'Historial - Proschool', students: students , tasks: tasks})
+            })
+        })
+    }
 }
 
 exports.addTask = function(req, res){
     if(req.body.task == ''){
-            return res.redirect('/app/notas/new')
+        return res.redirect('/app/task/new')
     }
     var data = {
         period: req.body.period,

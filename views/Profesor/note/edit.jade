@@ -1,0 +1,19 @@
+extends ../layout_app
+
+block content_app
+    .edit-content 
+        .edit-title
+            h2 Editar nota
+            p Puedes cambiar la nota, tarea o periodo 
+        .edit-form
+            form(action="/app/note/#{task._id}?_method=PUT", method="POST")
+                .edit-select
+                    label Periodo 
+                    select(name="period")
+                        option(value="#{task.period}" , selected) #{task.period}
+                .edit-input
+                    input(type="text", name="note", placeholder="Note", value="#{task.note}")
+                .edit-button
+                    input.edit-button-1(type="submit" value="Cambiar")
+                .edit-button
+                    a.edit-button-2(href="/app/notas") Cancelar

@@ -7,6 +7,7 @@ var Nota = require('../models/notas');
 var User = require('../models/users');
 
 var TaskCtrl = require('../middlewares/task_reset')
+var NoteCtrl = require('../middlewares/note_reset')
 var nota_find = require('../middlewares/find_nota')
 var task_find = require('../middlewares/find_task')
 
@@ -33,112 +34,38 @@ router.get('/', function(req, res, next) {
 });
 
 /* REST */
-router.all(['/notas', '/task'], TaskCtrl.taskPermission)
+router.all(['/task'], TaskCtrl.taskPermission)
 
-router.all(['/notas/*', '/task/new', '/task/:id/edit'], TaskCtrl.taskPermission)
-
-router.route('/notas/:id')
-    .post(task_find, function(req,res){
-        if(req.body.task == ''){
-            return res.redirect('/app/notas/new')
-        }
-        var data = {
-            period: res.locals.task.period,
-            task: res.locals.task.task,
-            grade: res.locals.task.grade,
-            note: req.body.note,
-            student: req.body.student,
-            teacher: {
-                fullname: res.locals.user.fullname,
-                username: res.locals.user.username
-            },
-            profesor: res.locals.user._id
-        }
-        var nota = new Nota(data)
-        nota.save(function(err){
-            if(err){
-                res.redirect('/app/notas/new')
-                return res.status(500).send()
-            }else{
-                res.redirect('/app/notas/' + nota._id)
-                return res.status(200).send()
-            }
-        })
-    })
-    
-router.get('/notas/new/:id',task_find,function(req,res){
-    res.render('Profesor/notas/new',{ title: 'Nueva nota - Proschool'})
-})
-
-router.all('/notas/:id*', nota_find)
-
-router.get('/notas/:id/edit',function(req,res){
-    res.render('Profesor/notas/edit',{ title: 'Editar nota - Proschool'})
-})
-
-router.route('/notas/:id')
-    .get(function(req,res){
-        res.render('Profesor/notas/show',{title: res.locals.nota.task + ' - Proschool'})
-    })
-    .put(function(req,res){
-        res.locals.nota.period = req.body.period
-        res.locals.nota.task = req.body.task
-        res.locals.nota.grade = req.body.grade
-        res.locals.nota.save(function(err){
-            if(!err){
-                res.render('Profesor/notas/show')
-            }else{
-                res.render('Profesor/notas/'+req.params.id+'/edit')
-            }
-        })
-    })
-    .delete(function(req,res){
-        Nota.findOneAndRemove({_id: req.params.id}, function(err){
-            if(!err){
-                res.redirect('/app/notas')
-            }else{
-                console.log(err)
-                res.redirect('/app/notas/'+re.params.id)
-            }
-        })
-    })
-
-/**Reset Task */
+router.all(['/task/new', '/task/:id/edit'], TaskCtrl.taskPermission)
 
 router.get('/task/new', TaskCtrl.renderNewTask)
 
+router.get('/note/new/:id',task_find ,NoteCtrl.renderNewNote)
+
+router.route('/note/:id')
+    .put(task_find, NoteCtrl.updateNote)
+    .post(task_find, NoteCtrl.addNote)
+
+router.get('/task/note/:id/edit',task_find, NoteCtrl.renderEditNote)
+
+router.route('/task/note/:username')
+    .get(NoteCtrl.findAll)
+
 router.all('/task/:id*', task_find)
+
 router.get('/task/:id/edit', TaskCtrl.renderEditTask)
 
 router.route('/task/:id')
     .get(TaskCtrl.renderShowTask)
     .put(TaskCtrl.updateTask)
     .delete(TaskCtrl.deleteTask)
-    
+
 router.route('/task')
     .get(TaskCtrl.findAll)
     .post(TaskCtrl.addTask)
 
-// List
-router.get('/list',function(req,res,next){
-   if(res.locals.user.typeuser == 'Estudiante' || res.locals.user.typeuser == 'Acudiente'){
-        Nota.find({student: res.locals.user.username},function(err,notas){
-            if(err){
-                return res.redirect('/app')
-            }
-            res.render(res.locals.user.typeuser+'/notas/index',{title: 'Proschool - Home', notas: notas})
-        })
-    }else{
-       User.find({grade: res.locals.user.grade}, function(err,students){
-            if(err){
-                return res.redirect('/app')
-            }
-            res.render('Profesor/notas/index', {title: 'Historial - Proschool', students: students})
-        })
-    }
-})
-
 /* Perfil */ 
+
 router.route('/:username')
     .get(function(req,res,next){
         var params_user = req.params.username
