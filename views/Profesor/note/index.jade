@@ -1,8 +1,10 @@
 extends ../layout_app
 
 block content_app
-    h1 #{user.fullname} / #{user.grade}º
-    b Tareas y notas 
-    for task in tasks
-        p Tarea: #{task.task} | Nota: #{task.note} #[a(href="/app/task/note/#{task._id}/edit") Editar]
-         
+    .note-content
+        .main-note-title
+            h1.note-title #{user.fullname} / #{user.grade}º
+            p.note-subtitle Tareas y notas 
+        for task in tasks
+            .main-note
+                p.note-description Tarea: #{task.task} | Nota: #{task.note} #[a.note-button(href="/app/task/note/#{task._id}/edit") Editar]
