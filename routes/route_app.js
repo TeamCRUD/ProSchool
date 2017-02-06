@@ -13,21 +13,22 @@ var task_find = require('../middlewares/find_task')
 router.get('/', function(req, res, next) {
     if(res.locals.user.typeuser == null){
        return res.redirect('/');
-    }
-    if(res.locals.user.typeuser == 'Estudiante' || res.locals.user.typeuser == 'Acudiente'){
-        Task.find({grade: res.locals.user.grade},function(err,notas){
-            if(err){
-                return res.redirect('/app')
-            }
-            res.render(res.locals.user.typeuser+'/home',{title: 'Proschool - Home', notas: notas})
-        })
     }else{
-        Task.find({})
-            .populate('profesor')
-            .exec(function(err,tasks){
-                if(err) console.log(err)
-                res.render('Profesor/home', {title: 'Home - Proschool', tasks: tasks})
+        if(res.locals.user.typeuser == 'Estudiante' || res.locals.user.typeuser == 'Acudiente'){
+            Task.find({grade: res.locals.user.grade},function(err,notas){
+                if(err){
+                    return res.redirect('/app')
+                }
+                res.render(res.locals.user.typeuser+'/home',{title: 'Proschool - Home', notas: notas})
             })
+        }else{
+            Task.find({})
+                .populate('profesor')
+                .exec(function(err,tasks){
+                    if(err) console.log(err)
+                    res.render('Profesor/home', {title: 'Home - Proschool', tasks: tasks})
+                })
+        }
     }
 });
 

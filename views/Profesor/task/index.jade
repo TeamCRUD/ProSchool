@@ -3,9 +3,9 @@ extends ../layout_app
 block content_app
     .list-content
         .list-title
-            h1 Lista de estudiantes #[b.hideL / #{user.grade}]
+            h1 Lista de estudiantes #[b.hideL #{user.grade}]
         for student in students
-            if(student.typeuser == 'Estudiante')
+            if(student.typeuser == 'Estudiante' && user.grade != null)
                 .list-main
                     .list-main-title
                         if(student.typeuser == 'Estudiante')
