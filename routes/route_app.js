@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
             res.render(res.locals.user.typeuser+'/home',{title: 'Proschool - Home', notas: notas})
         })
     }else{
-        Nota.find({})
+        Task.find({})
             .populate('profesor')
             .exec(function(err,notas){
                 if(err) console.log(err)
