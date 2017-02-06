@@ -8,16 +8,14 @@ block content_student
             .data-links
                 include ../includes/avatar/estudiante_links
         .main-nota
-            h1.nota-title Tareas sin realizar
+            h1.nota-title Tareas
             p.nota-subtitle Apareceran todas las tareas de tus profesores
             for nota in notas
-                .nota-item
-                    if(typeof nota.profesor != "undefined")
-                        b.nota-fullname #{nota.teacher.fullname} 
-                        s.nota-username #[a(href="/app/#{nota.teacher.username}") @#{nota.teacher.username}] 
-                        br
-                    a(href='/app/task/#{nota._id}').nota-parrafo= nota.task
-                    //span.nota-footer Estudiante: #[a(href="/app/#{nota.student}") @#{nota.student}]
-                    //b.nota Nota: #{nota.note}
-                    //br
+                if(nota.note == null)
+                    .nota-item
+                        if(typeof nota.profesor != "undefined")
+                            b.nota-fullname #{nota.teacher.fullname} 
+                            s.nota-username #[a(href="/app/#{nota.teacher.username}") @#{nota.teacher.username}] 
+                            br
+                        a(href='/app/task/#{nota._id}').nota-parrafo= nota.task
          include ../includes/ads            

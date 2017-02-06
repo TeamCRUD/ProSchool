@@ -11,7 +11,7 @@ exports.renderEditNote = function(req, res){
 /** RESET */
 exports.findAll = function (req,res){
     if(res.locals.user.typeuser != 'Profesor'){
-        Nota.find({student: res.locals.user.username},function(err,notas){
+        Task.find({student: res.locals.user.username},function(err,notas){
             if(err){
                 return res.redirect('/app')
             }

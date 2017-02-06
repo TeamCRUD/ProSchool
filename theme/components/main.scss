@@ -461,6 +461,7 @@
             color: $favorite;
             background: #fff;
             border: none;
+            cursor: pointer;
             &:hover{
                 transition: .3s all
             }

@@ -17,11 +17,11 @@ exports.renderEditTask = function(req, res){
 /** RESET */
 exports.findAll = function (req,res){
     if(res.locals.user.typeuser == 'Estudiante' || res.locals.user.typeuser == 'Acudiente'){
-        Nota.find({student: res.locals.user.username},function(err,notas){
+        Task.find({student: res.locals.user.username},function(err,tasks){
             if(err){
                 return res.redirect('/app')
             }
-            res.render(res.locals.user.typeuser+'/notas/index',{title: 'Proschool - Home', notas: notas})
+            res.render(res.locals.user.typeuser+'/notas/index',{title: 'Proschool - Home', task: tasks})
         })
     }else{
        User.find({grade: res.locals.user.grade}, function(err,students){

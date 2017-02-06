@@ -3,12 +3,10 @@ var router = express.Router();
 
 var School = require('../models/schools');
 var Task = require('../models/tasks');
-var Nota = require('../models/notas');
 var User = require('../models/users');
 
 var TaskCtrl = require('../middlewares/task_reset')
 var NoteCtrl = require('../middlewares/note_reset')
-var nota_find = require('../middlewares/find_nota')
 var task_find = require('../middlewares/find_task')
 
 /* GET app page. */
@@ -26,9 +24,9 @@ router.get('/', function(req, res, next) {
     }else{
         Task.find({})
             .populate('profesor')
-            .exec(function(err,notas){
+            .exec(function(err,tasks){
                 if(err) console.log(err)
-                res.render('Profesor/home', {title: 'Home - Proschool', notas: notas})
+                res.render('Profesor/home', {title: 'Home - Proschool', tasks: tasks})
             })
     }
 });

@@ -1,5 +1,5 @@
 var Task = require('../models/tasks');
-var owner_check = require('./nota_permission')
+var owner_check = require('./task_permission')
 
 module.exports = function(req, res, next){
     Task.findById(req.params.id)

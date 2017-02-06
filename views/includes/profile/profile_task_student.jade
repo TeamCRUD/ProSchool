@@ -1,0 +1,10 @@
+h1.nota-title Tareas realizadas
+p.nota-subtitle Apareceran todas las tareas y sus notas
+for task in tasks
+    if(task.note != null)
+        .nota-item
+            b.nota-fullname #{task.teacher.fullname} 
+            s.nota-username #[a(href="/app/#{task.teacher.username}") @#{task.teacher.username}] #[br]
+            a(href="/app/task/#{task._id}").nota-parrafo #{task.task} #[br]
+            span.nota-footer Estudiante: #[a(href="/app/#{task.student}") @#{task.student}] 
+            b.nota | Nota: #{task.note} #[br]
