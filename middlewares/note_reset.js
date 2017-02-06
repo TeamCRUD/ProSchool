@@ -26,6 +26,9 @@ exports.findAll = function (req,res){
 }
 
 exports.addNote = function(req, res){
+    if(req.body.note > 10 || req.body.note == ''){
+        return res.redirect('/app')
+    }
     var data = {
         period: res.locals.task.period,
         task: res.locals.task.task,
