@@ -457,11 +457,45 @@
     @include edContainer;
     .show-main{
         @include edItem;
-        h1{
-            font-weight: $normal
+        margin-top: .5em;
+        s{
+            text-decoration: none;
+            a{
+                color: $favorite;
+            }
         }
         p{
+            margin: 0;
+            padding: .3em 0;
+            border-bottom: 1px solid $border;
+            font-size: 26px;
+        }
+    }
+    .show-button{
+        @include edItem(25,10);
+        margin: .5em 0;
+        .show-button-1, .show-button-2, .show-button-3{
             color: $favorite;
+            background: #fff;
+            border: none;
+            &:hover{
+                transition: .3s all
+            }
+        }
+        .show-button-1{
+            &:hover{
+                color: $secondary
+            }
+        }
+        .show-button-2{
+            &:hover{
+                color: $light
+            }
+        }
+        .show-button-3{
+            &:hover{
+                color: $danger
+            }
         }
     }
 }
