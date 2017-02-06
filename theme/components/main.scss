@@ -132,6 +132,9 @@
             }
             .nota-footer{
                 color: $favorite;
+                a{
+                    color: $favorite
+                }
             }
             .nota{
                 color: #333;

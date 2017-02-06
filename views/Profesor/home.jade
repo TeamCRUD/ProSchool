@@ -19,6 +19,6 @@ block content_app
                             br
                         p.nota-parrafo= nota.task
                         span.nota-footer Estudiante: #[a(href="/app/#{nota.student}") @#{nota.student}] 
-                        b.nota Nota: #{nota.note}
+                        b.nota | Nota: #{nota.note}
                         br
          include ../includes/ads   
