@@ -1,14 +1,8 @@
 extends ../layout_app
 
 block content_app
-    .list-content
-        .list-title
-            h1 Lista de estudiantes #[b.hideL / #{user.grade}]
-        for student in students
-            if(student.typeuser == 'Estudiante')
-                .list-main
-                    .list-main-title
-                        if(student.typeuser == 'Estudiante')
-                            a(href="/app/#{student.username}/")=student.fullname
-                    .list-main-item
-                        a(href="/app/task/#{student.username}") Ver mas
+    h1 #{user.fullname} / #{user.grade}º
+    b Tareas y notas 
+    for task in tasks
+        p Tarea: #{task.task} | Nota: #{task.note} #[a(href="/app/task/note/#{task._id}/edit") Editar]
+         

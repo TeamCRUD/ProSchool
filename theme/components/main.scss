@@ -350,44 +350,26 @@
         border-bottom: 1px solid $border
     }
     .list-main-title{
-        @include edItem(65,80,90);
+        @include edItem(70,80,90);
         padding: 0;
         a,p{
             color: #333;
             font-weight: $normal;
-            text-decoration: none;
-            &:hover{
-                color: $secondary;
-                transition: .3s all
-            }
         }
         p{
             margin: 0;
             padding: 0
         }
     }
-    .list-button{
-        @include edItem(15,10,5);
-        text-align: center;
-        padding: 0;
-    }
-    .list-button-1{
-        color: $favorite;
-        text-decoration: none;
-        &:hover{
-            color: $light;
-            transition: .3s all
-        }
-    }
-    .list-button-2{
-        color: $favorite;
-        background: white;
-        font-size: .9em;
-        border: none;
-        cursor: pointer;
-        &:hover{
-           color: $danger;
-           transition: .3s all
+    .list-main-button{
+        @include edItem(30,20,10);
+        text-align: right;
+        a{
+            color: $favorite;
+            &:hover{
+                color: $light;
+                transition: .3s all
+            }
         }
     }
 }

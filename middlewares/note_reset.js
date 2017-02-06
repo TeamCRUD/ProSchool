@@ -20,7 +20,7 @@ exports.findAll = function (req,res){
     }else{
         Task.find({student: req.params.username}, function(err, tasks){
             if(err){ res.redirect('/app'); return}
-            res.render('Profesor/task/task_notes', {title: 'Historial - Proschool', tasks: tasks})
+            res.render('Profesor/note/index', {title: 'Historial - Proschool', tasks: tasks})
         })
     }
 }
