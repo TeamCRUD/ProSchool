@@ -242,6 +242,7 @@
             background: white;
             color: #333;
             border: 1px solid #E1E8ED;
+            cursor: pointer;
         }
     }
     .signup-input{
@@ -376,7 +377,7 @@
         }
     }
     .list-teacher{
-        @include edItem(100,1/2,1/3);
+        @include edItem(100,1/2,1/4);
         margin: .5em;
         border: 1px solid $border
     }

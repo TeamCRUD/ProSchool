@@ -6,6 +6,9 @@ header{
     }
     .header-school{
         @include edItem(100,100,45);
+        a{
+            text-decoration: none
+        }
         .title-school{
             margin: 0;
             font-size: 1.5em;
