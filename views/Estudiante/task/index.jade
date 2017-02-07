@@ -1,0 +1,11 @@
+extends ../layout_student
+
+block content_student
+   .list-content
+        .list-title
+            h1 Lista de Notas
+            b Apareceran notas de todo tus profesores
+        .list-teacher
+            for teacher in teachers
+               if(teacher.typeuser == 'Profesor')
+                    p Clase: Español | Profesor: #[a(href="/app/#{teacher.username}/")=teacher.fullname] | #[a(href="/app/task/note/#{teacher.username}") Ver notas]

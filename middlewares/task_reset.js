@@ -17,11 +17,14 @@ exports.renderEditTask = function(req, res){
 /** RESET */
 exports.findAll = function (req,res){
     if(res.locals.user.typeuser == 'Estudiante' || res.locals.user.typeuser == 'Acudiente'){
-        Task.find({student: res.locals.user.username},function(err,tasks){
+        User.find({grade: res.locals.user.grade}, function(err,teachers){
             if(err){
                 return res.redirect('/app')
             }
-            res.render(res.locals.user.typeuser+'/notas/index',{title: 'Proschool - Home', task: tasks})
+            Task.find({teacher: {username: req.params.username}}, function(err, tasks){
+                if(err){ res.redirect('/app'); return}
+                res.render(res.locals.user.typeuser + '/task/index', {title: 'Historial - Proschool', teachers: teachers , tasks: tasks})
+            })
         })
     }else{
        User.find({grade: res.locals.user.grade}, function(err,students){

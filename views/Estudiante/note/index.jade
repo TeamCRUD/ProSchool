@@ -4,7 +4,8 @@ block content_student
    .list-content
         .list-title
             h1 Lista de Notas
-            p Apareceran notas de todo tus profesores
-        .list-table
-                
-           
+            b Apareceran notas de todo tus profesores
+        .list-task
+            for task in tasks
+                if(task.teacher.username = profesor && task.note != null)
+                    p #{task.task} Nota: #{task.note}

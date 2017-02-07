@@ -42,7 +42,7 @@ router.get('/task/new', TaskCtrl.renderNewTask)
 router.get('/note/new/:id',task_find ,NoteCtrl.renderNewNote)
 
 router.route('/note')
-    .get(NoteCtrl.findAll)
+    .get(TaskCtrl.findAll)
 
 router.all('/note/:id*', task_find)
 router.route('/note/:id')

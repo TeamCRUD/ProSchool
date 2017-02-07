@@ -1,4 +1,5 @@
 var Task = require('../models/tasks');
+var User = require('../models/users');
 
  /**RENDER */
 exports.renderNewNote = function(req, res){
@@ -11,11 +12,11 @@ exports.renderEditNote = function(req, res){
 /** RESET */
 exports.findAll = function (req,res){
     if(res.locals.user.typeuser != 'Profesor'){
-        Task.find({student: res.locals.user.username},function(err,notas){
-            if(err){
-                return res.redirect('/app')
-            }
-            res.render(res.locals.user.typeuser+'/note/index',{title: 'Proschool - Home', notas: notas})
+        Task.find({grade: res.locals.user.grade}, function(err, tasks){
+            var profesor = req.params.username
+            if(err){ res.redirect('/app'); return}
+            res.render(res.locals.user.typeuser + '/note/index', {title: 'Historial - Proschool', tasks: tasks, profesor: profesor})
+            console.log(tasks)
         })
     }else{
         Task.find({student: req.params.username}, function(err, tasks){
