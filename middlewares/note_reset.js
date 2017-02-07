@@ -16,7 +16,6 @@ exports.findAll = function (req,res){
             var profesor = req.params.username
             if(err){ res.redirect('/app'); return}
             res.render(res.locals.user.typeuser + '/note/index', {title: 'Historial - Proschool', tasks: tasks, profesor: profesor})
-            console.log(tasks)
         })
     }else{
         Task.find({student: req.params.username}, function(err, tasks){
