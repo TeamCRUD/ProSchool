@@ -41,9 +41,14 @@ router.get('/task/new', TaskCtrl.renderNewTask)
 
 router.get('/note/new/:id',task_find ,NoteCtrl.renderNewNote)
 
+router.route('/note')
+    .get(NoteCtrl.findAll)
+
+router.all('/note/:id*', task_find)
 router.route('/note/:id')
-    .put(task_find, NoteCtrl.updateNote)
-    .post(task_find, NoteCtrl.addNote)
+    .put(NoteCtrl.updateNote)
+    .post(NoteCtrl.addNote)
+    .delete(NoteCtrl.deleteNote)
 
 router.get('/task/note/:id/edit',task_find, NoteCtrl.renderEditNote)
 

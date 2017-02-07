@@ -15,7 +15,7 @@ exports.findAll = function (req,res){
             if(err){
                 return res.redirect('/app')
             }
-            res.render(res.locals.user.typeuser+'/notas/index',{title: 'Proschool - Home', notas: notas})
+            res.render(res.locals.user.typeuser+'/note/index',{title: 'Proschool - Home', notas: notas})
         })
     }else{
         Task.find({student: req.params.username}, function(err, tasks){
@@ -66,6 +66,16 @@ exports.updateNote = function(req,res){
     })
 }
 
+exports.deleteNote = function(req,res){
+        Task.findOneAndRemove({_id: req.params.id}, function(err){
+            if(!err){
+                res.redirect('/app/task')
+            }else{
+                console.log(err)
+                res.redirect('/app/notas/'+re.params.id)
+            }
+        })
+    }
 /*router.route('/notas/:id')
     .post(task_find, function(req,res){
         if(req.body.task == ''){
