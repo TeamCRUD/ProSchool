@@ -14,10 +14,12 @@ block content_app
                         option(value="Segundo") Segundo
                         option(value="Tercero") Tercero
                         option(value="Cuarto") Cuarto
+                .new-select-grade
+                    label Grado
+                    select(name="grade")
+                        option(value="#{user.grade}") #{user.grade}
                 .new-input
                     input(type="text", name="task", placeholder="Tarea, examen, etc")
-                .new-input
-                    input(type="text", name="grade", placeholder="Grado")
                 .new-button
                     input.new-button-1(type="submit" value="Subir")
                 .new-button

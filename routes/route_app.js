@@ -88,10 +88,13 @@ router.route('/:username')
         
     })
     .put(function(req,res){
+
+        var grade = req.body.grado + '-' + req.body.salon
+
         res.locals.user.fullname = req.body.fullname
         res.locals.user.email = req.body.email
         res.locals.user.school = req.body.school
-        res.locals.user.grade = req.body.grade
+        res.locals.user.grade = grade
         res.locals.user.save(function(err){
             if(!err){
                 res.redirect('/app/'+req.params.username)
