@@ -5,7 +5,7 @@ block content_app
         .list-title
             h1 Lista de estudiantes #[b.hideL #{user.grade}]
         for student in students
-            if(student.typeuser == 'Estudiante' && user.grade != null)
+            if student.typeuser == 'Estudiante' && user.grade != null
                 .list-main
                     .list-main-title
                         if(student.typeuser == 'Estudiante')

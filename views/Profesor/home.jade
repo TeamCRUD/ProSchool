@@ -11,14 +11,14 @@ block content_app
             h1.nota-title Mejores notas
             p.nota-subtitle Apareceran notas superiores a 4.8
             for task in tasks
-                if(task.note > 4.8 )
+                if task.note > 4.8 
                     .nota-item
-                        if(typeof task.profesor != "undefined")
+                        if typeof task.profesor != "undefined"
                             b.nota-fullname #{task.profesor.fullname} 
                             s.nota-username #[a(href="/app/#{task.teacher.username}") @#{task.profesor.username}]
                             br
                         a(href="/app/task/#{task._id}").nota-parrafo #{task.task} #[br]
                         span.nota-footer Estudiante: #[a(href="/app/#{task.student}") @#{task.student}] 
                         b.nota | Nota: #{task.note}
-                        br
-         //include ../includes/ads   
+                        br      
+        //include ../includes/ads   

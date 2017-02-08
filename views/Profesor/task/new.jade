@@ -14,10 +14,13 @@ block content_app
                         option(value="Segundo") Segundo
                         option(value="Tercero") Tercero
                         option(value="Cuarto") Cuarto
-                .new-select-grade
-                    label Grado
-                    select(name="grade")
-                        option(value="#{user.grade}") #{user.grade}
+                if user.grade
+                    .new-select-grade
+                        label Grado
+                        select(name="grade")
+                            option(value="#{user.grade}") #{user.grade}
+                else
+                    p No has agregado tu grado
                 .new-input
                     input(type="text", name="task", placeholder="Tarea, examen, etc")
                 .new-button

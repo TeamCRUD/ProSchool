@@ -6,6 +6,8 @@ var options = {
     replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } 
 }; 
 
+mongoose.Promise = global.Promise
+
 var mongodbUri = 'mongodb://jairperezs:D1e560*9c@ds135519.mlab.com:35519/proschool'
 mongoose.connect(mongodbUri, options)
 

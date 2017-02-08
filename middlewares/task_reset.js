@@ -40,7 +40,7 @@ exports.findAll = function (req,res){
 }
 
 exports.addTask = function(req, res){
-    if(req.body.task == ''){
+    if(req.body.task == '' || req.body.grade == null){
         return res.redirect('/app/task/new')
     }
     var data = {
