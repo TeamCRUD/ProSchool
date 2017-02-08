@@ -3,8 +3,8 @@ extends ../layout_student
 block content_student
    .list-content
         .list-title
-            h1 Lista de Notas
-            b Apareceran notas de todo tus profesores
+            h1.title-list Lista de Notas
+            b.subtitle-list Apareceran notas de todo tus profesores
         .list-teacher
             for teacher in teachers
                if(teacher.typeuser == 'Profesor')

@@ -11,8 +11,13 @@ block content_app
                     label Periodo 
                     select(name="period")
                         option(value="#{task.period}" , selected) #{task.period}
-                .new-input
-                    input(type="text", name="student", placeholder="Usuario de estudiante")
+                for user in users
+                    if user && user.typeuser == 'Estudiante'
+                        .new-input
+                            input(type="text", name="student", placeholder="Usuario de estudiante")
+                    else 
+                        p No hay estudiantes en #{user.grade}
+                        input(type="hidden", name="student")
                 .new-input
                     input(type="text", name="note", placeholder="Asignar nota")
                 .new-button

@@ -3,7 +3,10 @@ var User = require('../models/users');
 
  /**RENDER */
 exports.renderNewNote = function(req, res){
-    res.render('Profesor/note/new',{title: 'Nueva tarea - Proschool'})
+    User.find({grade: res.locals.user.grade}, function(err, users){
+        if(err){return res.redirect('/app')}
+        res.render('Profesor/note/new', {title: 'Nueva tarea - Proschool', users: users});
+    })
 }
 exports.renderEditNote = function(req, res){
     res.render('Profesor/note/edit',{ title: 'Editar nota - Proschool'})
@@ -26,8 +29,11 @@ exports.findAll = function (req,res){
 }
 
 exports.addNote = function(req, res){
+    if(req.body.student == ''){
+        return res.redirect('/app/note/new/'+req.params.id)
+    }
     if(req.body.note > 10 || req.body.note == ''){
-        return res.redirect('/app')
+        return res.redirect('/app/note/new/'+req.params.id)
     }
     var data = {
         period: res.locals.task.period,
@@ -35,6 +41,7 @@ exports.addNote = function(req, res){
         grade: res.locals.task.grade,
         student: req.body.student,
         note: req.body.note,
+        porcentage: res.locals.task.porcentage,
         teacher: {
             fullname: res.locals.user.fullname,
             username: res.locals.user.username
