@@ -13,7 +13,7 @@ block content_app
                         input(type="text" name='school' placeholder="Escuela" value='#{user.school}')
                     else
                         .new-select-grade
-                            label Grado
+                            label Grado #[br]
                             select(name="grado")
                                 option(value='vacio' selected) Grado
                                 - for(var i = 1; i < 12; i++)

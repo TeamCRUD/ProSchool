@@ -45,8 +45,9 @@ exports.addTask = function(req, res){
     }
     var data = {
         period: req.body.period,
-        task: req.body.task,
         grade: req.body.grade,
+        task: req.body.task,
+        porcentage: req.body.porcentage,
         teacher: {
             fullname: res.locals.user.fullname,
             username: res.locals.user.username

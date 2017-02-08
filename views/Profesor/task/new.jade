@@ -20,9 +20,11 @@ block content_app
                         select(name="grade")
                             option(value="#{user.grade}") #{user.grade}
                 else
-                    p No has agregado tu grado
+                    p No has asignado tu grado
                 .new-input
                     input(type="text", name="task", placeholder="Tarea, examen, etc")
+                .new-input
+                    input(type="text", name="porcentage", placeholder="Porcentaje, ej: 20,60, etc")
                 .new-button
                     input.new-button-1(type="submit" value="Subir")
                 .new-button
