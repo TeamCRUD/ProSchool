@@ -11,11 +11,10 @@ block content_student
             h1.nota-title Tareas
             p.nota-subtitle Todas las tareas de tus profesores
             for nota in notas
-                if(nota.note == null)
-                    .nota-item
-                        if(typeof nota.profesor != "undefined")
-                            b.nota-fullname #{nota.teacher.fullname} 
-                            s.nota-username #[a(href="/app/#{nota.teacher.username}") @#{nota.teacher.username}] 
-                            br
-                        a(href='/app/task/#{nota._id}').nota-parrafo= nota.task
-         //include ../includes/ads            
+                .nota-item
+                    if(typeof nota.profesor != "undefined")
+                        b.nota-fullname #{nota.teacher.fullname} 
+                        s.nota-username #[a(href="/app/#{nota.teacher.username}") @#{nota.teacher.username}] 
+                        br
+                    a(href='/app/task/#{nota._id}').nota-parrafo= nota.task
+          //include ../includes/ads            

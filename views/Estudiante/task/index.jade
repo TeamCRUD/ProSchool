@@ -5,7 +5,10 @@ block content_student
         .list-title
             h1.title-list Lista de Notas
             b.subtitle-list Apareceran notas de todo tus profesores
-        .list-teacher
-            for teacher in teachers
-               if(teacher.typeuser == 'Profesor')
-                    p Español | #[a(href="/app/#{teacher.username}/")=teacher.fullname] | #[a(href="/app/task/note/#{teacher.username}") Ver notas]
+            if user.grade
+                for teacher in teachers
+                    if teacher.typeuser == 'Profesor'
+                        .list-teacher
+                            p Español | #[a(href="/app/#{teacher.username}/")=teacher.fullname] | #[a(href="/app/task/note/#{teacher.username}") Ver notas]
+            else
+                p No has asignado tu grado

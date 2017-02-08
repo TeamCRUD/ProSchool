@@ -11,7 +11,7 @@ block content_app
                         input(type="text" name='school' placeholder="Escuela")
                     if user.school != undefined
                         input(type="text" name='school' placeholder="Escuela" value='#{user.school}')
-                    else
+                   if user.grade == undefined
                         .new-select-grade
                             label Grado #[br]
                             select(name="grado")
