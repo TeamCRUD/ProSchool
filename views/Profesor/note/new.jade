@@ -12,7 +12,7 @@ block content_app
                     select(name="period")
                         option(value="#{task.period}" , selected) #{task.period}
                 for user in users
-                    if user && user.typeuser == 'Estudiante'
+                    if user
                         .new-input
                             input(type="text", name="student", placeholder="Usuario de estudiante")
                     else 

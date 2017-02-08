@@ -3,11 +3,11 @@ extends ../layout_app
 block content_app
     .note-content
         .main-note-title
-            h1.note-title #{user.fullname} / #{user.grade}º
+            h1.note-title Notas / #{user.grade}º
             p.note-subtitle Tareas y notas 
         for task in tasks
-            if(task.profesor.username = user.username)
+            if task.profesor.username = user.username
                 .main-note
                     p.note-description Tarea: #{task.task} | Nota: #{task.note} #[a.note-button(href="/app/task/note/#{task._id}/edit") Editar]
                     form(action="/app/task/#{task._id}?_method=DELETE", method="POST")
-                        input(type="submit", value="Eliminar")
+                        input(type="submit", value="Eliminar")            
