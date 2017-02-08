@@ -99,7 +99,7 @@ router.route('/:username')
             if(!err){
                 res.redirect('/app/'+req.params.username)
             }else{
-                res.render('/app/'+req.params.username+'/edit')
+                res.redirect('/app/'+req.params.username+'/edit')
             }
         })
     })

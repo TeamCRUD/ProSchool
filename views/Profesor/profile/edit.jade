@@ -7,13 +7,14 @@ block content_app
                 form(action="/app/#{user.username}?_method=PUT", method="POST")
                     input(type="text" name='fullname' placeholder="Nombre completo" value="#{user.fullname}")
                     input(type="text" name='email' placeholder="Email" value='#{user.email}')
-                    if user.school == undefined
-                        input(type="text" name='school' placeholder="Escuela")
-                    if user.school != undefined
+                    if user.school 
                         input(type="text" name='school' placeholder="Escuela" value='#{user.school}')
-                   if user.grade == undefined
-                        .new-select-grade
-                            label Grado #[br]
+                    else
+                        input(type="text" name='school' placeholder="Escuela")
+                    if user.grade
+                        input(type="text" name='grade' placeholder="Grado" value='#{user.grade}')
+                    else
+                        label Grado #[br]
                             select(name="grado")
                                 option(value='vacio' selected) Grado
                                 - for(var i = 1; i < 12; i++)
@@ -22,6 +23,4 @@ block content_app
                                 option(value='vacio' selected) Salon
                                 - for(var i = 1; i < 5; i++)
                                     option(value="#{i}") #{i}
-                    if user.grade != undefined
-                        input(type="text" name='grade' placeholder="Grado" value='#{user.grade}')
-                    input(type="submit" value='Guardar cambios')
+                    input(type="submit" value='Guardar')
