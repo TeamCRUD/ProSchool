@@ -15,12 +15,12 @@ block content_app
                     p No hay estudiantes en #{user.grade}
                     input(type="hidden", name="student")
                 else
-                    for student in students
-                            .new-select
-                                label Estudainte
-                                select(name="student")
-                                    option(value="vacio") Selecinar estudiante
-                                    option(value="#{student.username}") #{student.username}
+                    .new-select
+                        label Estudainte
+                        select(name="student")
+                            option(value="vacio" selected) Selecinar estudiante
+                            for student in students
+                                option(value="#{student.username}") #{student.username}
                 .new-input
                     input(type="text", name="note", placeholder="Asignar nota")
                 .new-button
