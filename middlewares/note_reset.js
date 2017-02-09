@@ -5,9 +5,6 @@ var User = require('../models/users');
 exports.renderNewNote = function(req, res){
     User.find({grade: res.locals.user.grade, typeuser: 'Estudiante'}, function(err, students){
         if(err){return res.redirect('/app')}
-        if(students.length == 0){
-            console.log('No hay ')
-        }
         res.render('Profesor/note/new', {title: 'Nueva tarea - Proschool', students: students});
     })
 }
@@ -18,9 +15,10 @@ exports.renderEditNote = function(req, res){
 /** RESET */
 exports.findAll = function (req,res){
     if(res.locals.user.typeuser != 'Profesor'){
-        Task.find({grade: res.locals.user.grade}, function(err, tasks){
+        Task.find({grade: res.locals.user.grade, student: res.locals.user.username}, function(err, tasks){
             var profesor = req.params.username
             if(err){ res.redirect('/app'); return}
+            console.log(tasks)
             res.render(res.locals.user.typeuser + '/note/index', {title: 'Historial - Proschool', tasks: tasks, profesor: profesor})
         })
     }else{
