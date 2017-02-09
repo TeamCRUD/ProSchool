@@ -10,5 +10,6 @@ block content_student
                 p No ha subido notas refentes a ti
             else
                 for task in tasks
-                    p #{task.task} Nota: #{task.note}
+                    if task.teacher.username == profesor
+                        p #{task.task} Nota: #{task.note}
             
