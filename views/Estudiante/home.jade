@@ -10,6 +10,7 @@ block content_student
         .main-nota
             h1.nota-title Tareas
             p.nota-subtitle Todas las tareas de tus profesores
+            - var note = false
             for nota in notas
                 if nota.note == null
                     .nota-item
@@ -18,4 +19,7 @@ block content_student
                             s.nota-username #[a(href="/app/#{nota.teacher.username}") @#{nota.teacher.username}] 
                             br
                         a(href='/app/task/#{nota._id}').nota-parrafo= nota.task
+                        - note = true
+            if !note
+                p Ningun profesor ha subido tarea
           //include ../includes/ads            

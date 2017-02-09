@@ -1,5 +1,6 @@
 h1.nota-title Tareas
 p.nota-subtitle Apareceran todas las tareas
+- var note = false
 for task in tasks
     if task.note == null && task.teacher.username == user.username
         .nota-item
@@ -7,3 +8,6 @@ for task in tasks
             s.nota-username #[a(href="/app/#{task.teacher.username}") @#{task.teacher.username}] 
             br
             a(href="/app/task/#{task.id}").nota-parrafo= task.task
+            - note = true
+if !note
+    p Aun no has subido tareas
