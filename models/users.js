@@ -30,6 +30,7 @@ var user_schema = new Schema({
     email: {type: String, required: true},
     typeuser: {type: String, required: true},
     school: String,
+    matter: String, 
     grade: String,
     username: {type: String , required: true},
     password: {type: String, required: true},

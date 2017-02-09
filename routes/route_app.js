@@ -97,6 +97,7 @@ router.route('/:username')
         res.locals.user.fullname = req.body.fullname
         res.locals.user.email = req.body.email
         res.locals.user.school = req.body.school
+        res.locals.user.matter = req.body.matter
         res.locals.user.grade = grade
         res.locals.user.save(function(err){
             if(!err){

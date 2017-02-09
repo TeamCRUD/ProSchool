@@ -9,6 +9,6 @@ block content_student
                 for teacher in teachers
                     if teacher.typeuser == 'Profesor'
                         .list-teacher
-                            p Español | #[a(href="/app/#{teacher.username}/")=teacher.fullname] | #[a(href="/app/task/note/#{teacher.username}") Ver notas]
+                            p #{teacher.matter} | #[a(href="/app/#{teacher.username}/")=teacher.fullname] | #[a(href="/app/task/note/#{teacher.username}") Ver notas]
             else
                 p No has asignado tu grado
