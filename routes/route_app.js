@@ -35,7 +35,7 @@ router.get('/', function(req, res, next) {
 /* REST */
 router.all(['/task'], TaskCtrl.taskPermission)
 
-router.all(['/task/new', '/task/:id/edit'], TaskCtrl.taskPermission)
+router.all(['/task/new', '/task/:id/edit', "/note/:id" , "/note/new/:id"], TaskCtrl.taskPermission)
 
 router.get('/task/new', TaskCtrl.renderNewTask)
 
