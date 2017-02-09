@@ -11,13 +11,16 @@ block content_app
                     label Periodo 
                     select(name="period")
                         option(value="#{task.period}" , selected) #{task.period}
-                for user in users
-                    if user
-                        .new-input
-                            input(type="text", name="student", placeholder="Usuario de estudiante")
-                    else 
-                        p No hay estudiantes en #{user.grade}
-                        input(type="hidden", name="student")
+                if students.length == 0
+                    p No hay estudiantes en #{user.grade}
+                    input(type="hidden", name="student")
+                else
+                    for student in students
+                            .new-select
+                                label Estudainte
+                                select(name="student")
+                                    option(value="vacio") Selecinar estudiante
+                                    option(value="#{student.username}") #{student.username}
                 .new-input
                     input(type="text", name="note", placeholder="Asignar nota")
                 .new-button

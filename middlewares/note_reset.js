@@ -3,9 +3,12 @@ var User = require('../models/users');
 
  /**RENDER */
 exports.renderNewNote = function(req, res){
-    User.find({grade: res.locals.user.grade}, function(err, users){
+    User.find({grade: res.locals.user.grade, typeuser: 'Estudiante'}, function(err, students){
         if(err){return res.redirect('/app')}
-        res.render('Profesor/note/new', {title: 'Nueva tarea - Proschool', users: users});
+        if(students.length == 0){
+            console.log('No hay ')
+        }
+        res.render('Profesor/note/new', {title: 'Nueva tarea - Proschool', students: students});
     })
 }
 exports.renderEditNote = function(req, res){
