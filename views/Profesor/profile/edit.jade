@@ -12,7 +12,9 @@ block content_app
                     else
                         input(type="text" name='school' placeholder="Escuela")
                     if user.grade
-                        input(type="text" name='grade' placeholder="Grado" value='#{user.grade}')
+                        label Grado #[br]
+                            select(name="grado")
+                                option(value='#{user.grade}' selected) #{user.grade}
                     else
                         label Grado #[br]
                             select(name="grado")

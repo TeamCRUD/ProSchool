@@ -88,8 +88,11 @@ router.route('/:username')
         
     })
     .put(function(req,res){
-
-        var grade = req.body.grado + '-' + req.body.salon
+        if(res.locals.user.grade == null){
+            var grade = req.body.grado + '-' + req.body.salon
+        }else{
+            var grade = req.body.grado
+        }
 
         res.locals.user.fullname = req.body.fullname
         res.locals.user.email = req.body.email
