@@ -9,9 +9,10 @@ block content_student
             if tasks.length == 0
                 p No ha subido notas refentes a ti
             else
+                - var profe = false
                 for task in tasks
                     if task.teacher.username == profesor
                         p #{task.task} Nota: #{task.note}
-                    else
-                        p No ha subido notas refentes a ti
-            
+                        - profe = true
+                if !profe
+                    p No ha subido notas refentes a ti

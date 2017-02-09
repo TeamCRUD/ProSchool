@@ -18,7 +18,6 @@ exports.findAll = function (req,res){
         Task.find({grade: res.locals.user.grade, student: res.locals.user.username}, function(err, tasks){
             var profesor = req.params.username
             if(err){ res.redirect('/app'); return}
-            console.log(tasks)
             res.render(res.locals.user.typeuser + '/note/index', {title: 'Historial - Proschool', tasks: tasks, profesor: profesor})
         })
     }else{

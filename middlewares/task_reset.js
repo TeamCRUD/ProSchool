@@ -21,10 +21,7 @@ exports.findAll = function (req,res){
             if(err){
                 return res.redirect('/app')
             }
-            Task.find({teacher: {username: req.params.username}}, function(err, tasks){
-                if(err){ res.redirect('/app'); return}
-                res.render(res.locals.user.typeuser + '/task/index', {title: 'Historial - Proschool', teachers: teachers , tasks: tasks})
-            })
+            res.render(res.locals.user.typeuser + '/task/index', {title: 'Historial - Proschool', teachers: teachers})
         })
     }else{
        User.find({grade: res.locals.user.grade}, function(err,students){
