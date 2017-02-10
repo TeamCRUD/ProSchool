@@ -88,6 +88,9 @@ router.route('/:username')
         
     })
     .put(function(req,res){
+        if(req.body.school == "vacio" || req.body.matter == "vacio" || req.body.grado == "vacio" || req.body.salon == "vacio"){
+            return res.redirect('/app/'+req.params.username+'/edit')
+        }
         if(res.locals.user.grade == null){
             var grade = req.body.grado + '-' + req.body.salon
         }else{
