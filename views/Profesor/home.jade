@@ -21,8 +21,7 @@ block content_app
                                 br
                             p.nota-parrafo #{task.task} #[br]
                             span.nota-footer Estudiante: #[a(href="/app/#{task.student}") @#{task.student}] 
-                            b.nota | Nota: #{task.note}
-                            br      
+                            b.nota | Nota: #{task.note} #{br}
                             - note = true
                 if !note
                     p Ningun profesor ha subido nota
