@@ -281,7 +281,7 @@
     .new-form{
         @include edItem;
     }
-    .new-select{
+    .new-select, .new-select-grade{
         margin: .1em;
         label{
             font-size: 1.2em;
@@ -294,6 +294,15 @@
             background: white;
             color: #333;
             border: 1px solid #E1E8ED;
+        }
+    }
+    .new-select-grade{
+        label{
+            margin-right: 6em;
+        }
+        select{
+            margin-left: 3em;
+            padding: .3em .6em;
         }
     }
     .new-input{
