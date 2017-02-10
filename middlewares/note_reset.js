@@ -6,7 +6,6 @@ exports.renderNewNote = function(req, res){
     User.find({grade: res.locals.user.grade, typeuser: 'Estudiante'}, function(err, students){
         if(err){return res.redirect('/app')}
         res.render('Profesor/note/new', {title: 'Nueva tarea - Proschool', students: students});
-        console.log(res.locals.task)
     })
 }
 exports.renderEditNote = function(req, res){
@@ -30,7 +29,7 @@ exports.findAll = function (req,res){
 }
 
 exports.addNote = function(req, res){
-    if(req.body.student == ''){
+    if(req.body.student == 'vacio'){
         return res.redirect('/app/note/new/'+req.params.id)
     }
     if(req.body.note > 10 || req.body.note == ''){
