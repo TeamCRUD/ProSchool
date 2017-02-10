@@ -21,39 +21,35 @@
             .data-user{
                 font-weight: $bold
             }
-            .data-school{
-                border-top: 1px solid $border;
-                margin-top: .5em;
-                padding-top: .5em
+            .data-title{
+                margin: 0;
+                padding-bottom: .5em;
+                margin-bottom: .5em;
+                font-weight: $normal;
+                border-bottom: 1px solid $border;
             }
-            .data-grade{
-                padding-top: .5em
-            }
+            .data-school,
+            .data-grade,
             .data-type{
-                padding: .5em
+                padding: .2em;
             }
-            .data-button{
-                border-top: 1px solid $border;
-                padding-top: .5em;
-                .data-button-1,.data-button-2{
-                    color: $favorite;
-                    p{
-                        margin: 0;
-                        padding: 0
-                    }
+            .data-button-1,.data-button-2{
+                color: $favorite;
+                p{
+                    margin: 0;
+                    padding: .2em 0
                 }
-                .data-button-1{
-                    p{
-                        margin-bottom: .5em;
-                    }
-                    &:hover{
-                        color: $light
-                    }
+            }
+            .data-button-1{
+                p{
                 }
-                .data-button-2{
-                    &:hover{
-                        color: $danger
-                    }
+                &:hover{
+                    color: $light
+                }
+            }
+            .data-button-2{
+                &:hover{
+                    color: $danger
                 }
             }
         }

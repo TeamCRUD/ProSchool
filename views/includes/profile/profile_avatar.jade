@@ -1,13 +1,17 @@
-p.data-user #{profile.fullname}
-a(href="/app/#{profile.username}").data-username @#{profile.username}
-if(user.school != undefined)
-    p.data-school #{user.school}
-if(user.grade != undefined)
-    p.data-grade Grado: #{user.grade}
-p.data-type #{profile.typeuser}
-if(user.username == profile.username)
-    .data-button
-        a.data-button-1(href="/app/#{profile.username}/edit") 
-            p Editar perfil   
-        a.data-button-2(href="/logout") 
-            p Cerrar sesión
+.data-avatar
+    p.data-user #{profile.fullname}
+    a(href="/app/#{profile.username}").data-username @#{profile.username} #[br]
+.data-avatar
+    h4.data-title Informacion
+    if(user.school != undefined)
+        p.data-school #{user.school}
+    if(user.grade != undefined)
+        p.data-grade Grado: #{user.grade}
+    p.data-type #{profile.typeuser}
+    if(user.username == profile.username)
+.data-avatar
+    h4.data-title Configuracion
+    a.data-button-1(href="/app/#{profile.username}/edit") 
+        p Editar perfil   
+    a.data-button-2(href="/logout") 
+        p Cerrar sesión
