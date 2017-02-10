@@ -10,16 +10,19 @@ block content_student
         .main-nota
             h1.nota-title Tareas
             p.nota-subtitle Todas las tareas de tus profesores
-            - var note = false
-            for nota in notas
-                if nota.note == null
-                    .nota-item
-                        if typeof nota.profesor != "undefined"
-                            b.nota-fullname #{nota.teacher.fullname} 
-                            s.nota-username #[a(href="/app/#{nota.teacher.username}") @#{nota.teacher.username}] 
-                            br
-                        a(href='/app/task/#{nota._id}').nota-parrafo= nota.task
-                        - note = true
-            if !note
-                p Ningun profesor ha subido tarea
+            if user.grade
+                - var note = false
+                for nota in notas
+                    if nota.note == null
+                        .nota-item
+                            if typeof nota.profesor != "undefined"
+                                b.nota-fullname #{nota.teacher.fullname} 
+                                s.nota-username #[a(href="/app/#{nota.teacher.username}") @#{nota.teacher.username}] 
+                                br
+                            a(href='/app/task/#{nota._id}').nota-parrafo= nota.task
+                            - note = true
+                if !note
+                    p Ningun profesor ha subido tarea
+            else
+                p No has asignado tu grado
           //include ../includes/ads            

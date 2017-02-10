@@ -8,9 +8,14 @@ block content_app
                     input(type="text" name='fullname' placeholder="Nombre completo" value="#{user.fullname}")
                     input(type="text" name='email' placeholder="Email" value='#{user.email}')
                     if user.school 
-                        input(type="text" name='school' placeholder="Escuela" value='#{user.school}')
+                        p= user.school
                     else
-                        input(type="text" name='school' placeholder="Escuela")
+                        label Escuela #[br]
+                        select(name="school")
+                            option(value='vacio' selected) seleccionar
+                            - var schools = ['I.E Cecilia de Lleras']
+                            each school in schools
+                                option(value='#{school}') #{school}
                     if user.matter
                         label Materia #[br]
                         select(name="matter")

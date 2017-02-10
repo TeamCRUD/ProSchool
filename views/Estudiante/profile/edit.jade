@@ -8,19 +8,30 @@ block content_student
                     input(type="text" name='fullname' placeholder="Nombre completo" value="#{user.fullname}")
                     input(type="text" name='email' placeholder="Email" value='#{user.email}')
                     if user.school 
-                        input(type="text" name='school' placeholder="Escuela" value='#{user.school}')
+                        label Escuela
+                        select(name="school")
+                            option(value="#{user.school}" , selected) #{user.school}
                     else
-                        input(type="text" name='school' placeholder="Escuela")
+                        label Escuela #[br]
+                        select(name="school")
+                            option(value='vacio' selected) seleccionar
+                            - var schools = ['I.E Cecilia de Lleras']
+                            each school in schools
+                                option(value='#{school}') #{school}
                     if user.grade
-                        input(type="text" name='grade' placeholder="Grado" value='#{user.grade}')
+                        label Escuela
+                        select(name="grado")
+                            option(value="#{user.grade}" , selected) #{user.grade[0]}
+                        select(name="salon")
+                            option(value="#{user.grade}" , selected) #{user.grade[2]}
                     else
                         label Grado #[br]
-                            select(name="grado")
-                                option(value='vacio' selected) Grado
-                                - for(var i = 1; i < 12; i++)
-                                    option(value="#{i}") #{i}
-                            select(name="salon")
-                                option(value='vacio' selected) Salon
-                                - for(var i = 1; i < 5; i++)
-                                    option(value="#{i}") #{i}
+                        select(name="grado")
+                            option(value='vacio' selected) Grado
+                            - for(var i = 1; i < 12; i++)
+                                option(value="#{i}") #{i}
+                        select(name="salon")
+                            option(value='vacio' selected) Salon
+                            - for(var i = 1; i < 5; i++)
+                                option(value="#{i}") #{i}
                     input(type="submit" value='Guardar')
