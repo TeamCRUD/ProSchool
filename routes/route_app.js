@@ -82,7 +82,7 @@ router.route('/:username')
             }
             Task.find({grade: res.locals.user.grade}, function(err, tasks){
                 if(err){res.redirect('/app'); return}
-                res.render(profile.typeuser +'/profile/index',{profile: profile,tasks: tasks})
+                res.render(profile.typeuser +'/profile/index',{title: res.locals.user.fullname,profile: profile,tasks: tasks})
             })
         })
         
@@ -116,7 +116,7 @@ router.route('/:username/edit')
         if(req.params.username != res.locals.user.username){
             return res.redirect('/app')
         }
-        res.render(res.locals.user.typeuser + '/profile/edit',{ title: 'Editar nota - Proschool'})
+        res.render(res.locals.user.typeuser + '/profile/edit',{ title: 'Editar perfil - Proschool'})
     })
 
 module.exports = router;
