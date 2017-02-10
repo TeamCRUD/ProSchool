@@ -5,7 +5,9 @@ var User = require('../models/users');
 exports.renderNewNote = function(req, res){
     User.find({grade: res.locals.user.grade, typeuser: 'Estudiante'}, function(err, students){
         if(err){return res.redirect('/app')}
-        res.render('Profesor/note/new', {title: 'Nueva tarea - Proschool', students: students});
+       Task.find({grade: res.locals.user.grade}, function(err, tasks){
+             res.render('Profesor/note/new', {title: 'Nueva tarea - Proschool', students: students, tasks: tasks});
+        })
     })
 }
 exports.renderEditNote = function(req, res){

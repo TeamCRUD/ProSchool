@@ -4,11 +4,18 @@ block content_app
     .list-content
         .list-title
             h1 Lista de estudiantes #[b.title-grade.hideL #{user.grade}]
-        for student in students
-            if student.typeuser == 'Estudiante' && user.grade != null
-                .list-main
-                    .list-main-title
-                        if(student.typeuser == 'Estudiante')
-                            a(href="/app/#{student.username}/")=student.fullname
-                    .list-main-button
-                        a(href="/app/task/note/#{student.username}") Ver mas
+        if user.grade
+            - var task = false
+            for student in students
+                if student.typeuser == 'Estudiante' && user.grade != null
+                    .list-main
+                        .list-main-title
+                            if(student.typeuser == 'Estudiante')
+                                a(href="/app/#{student.username}/")=student.fullname
+                        .list-main-button
+                            a(href="/app/task/note/#{student.username}") Ver mas
+                    - task = true
+            if !task
+                p No hay estudiantes registrados en el curso
+        else
+            p No has asignado tu grado
