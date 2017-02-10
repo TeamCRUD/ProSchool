@@ -338,7 +338,8 @@
         text-align: center;
         h1, b{
             padding: 0;
-            margin: .5em 0;
+            margin: 0;
+            margin-top: .6em;
             font-weight: $normal;
         }
         .subtitle-title{
@@ -348,8 +349,8 @@
     .list-main{
         @include edContainer;
         @include edItem;
-        padding: .6em;
         margin:0;
+        padding: .6em;
         border-bottom: 1px solid $border
     }
     .list-main-title{

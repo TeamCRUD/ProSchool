@@ -6,6 +6,7 @@ block content_app
             h1 Lista de estudiantes #[b.title-grade.hideL #{user.grade}]
         if user.grade
             - var task = false
+            .list-main
             for student in students
                 if student.typeuser == 'Estudiante' && user.grade != null
                     .list-main
