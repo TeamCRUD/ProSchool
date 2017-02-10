@@ -41,8 +41,6 @@
                 }
             }
             .data-button-1{
-                p{
-                }
                 &:hover{
                     color: $light
                 }
@@ -74,7 +72,7 @@
                 color: $favorite;
                 text-align: center;
                 h4{
-                    padding: .3em 0;
+                    padding: .2em 0;
                     margin: 0;
                     font-weight: $normal;
                     &:hover{
@@ -512,11 +510,42 @@
         }
     }
     .main-note{
+        @include edContainer;
         @include edItem;
         border: 1px solid $border;
         margin: .1em 0;
-        .note-button{
-            color: $favorite;
+        .main-note-title{
+            @include edItem(50);
+            padding: 0;
+            text-align: left
+        }
+        .main-note-button{
+            @include edItem(25);
+            padding: 0;
+            text-align: center;
+            line-height: 3;
+            .note-button-1{
+                border: none;
+                color: $favorite;
+                background: #fff;
+                cursor: pointer;
+                &:hover{
+                    text-decoration: underline;
+                    color: $light;
+                    transition: .2s all
+                }
+            }
+            .note-button-2{
+                border: none;
+                color: $favorite;
+                background: #fff;
+                cursor: pointer;
+                &:hover{
+                    text-decoration: underline;
+                    color: $danger;
+                    transition: .2s all
+                }
+            }
         }
     }
 }
