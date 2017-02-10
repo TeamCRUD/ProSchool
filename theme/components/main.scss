@@ -58,33 +58,31 @@
             }
         }
         .data-links{
-            padding: .8em;
+            padding: 0 .5em;
+            padding-bottom: .5em;
             .links-title,.links-item{
                 padding: 0;
                 margin: 0
             }
             .links-title{
                 margin: 0;
-                margin-bottom: .8em;
-                padding: .3em;
+                padding: .5em;
+                margin-bottom: .3em;
                 text-align: center;
-                font-weight: 300;
+                font-weight: $normal;
                 font-size: 1em;
-                color: white;
-                background: $secondary
+                border-bottom: 1px solid $border
             }
             .links-item{
-                color: $secondary;
                 padding: 0;
-                text-decoration: none;
+                color: $favorite;
                 text-align: center;
                 h4{
-                    padding: .3em;
+                    padding: .3em 0;
                     margin: 0;
                     font-weight: $normal;
                     &:hover{
-                        color: $primary;
-                        background: $border;
+                        color: $light;
                         transition: .4s all
                     }
                 }
