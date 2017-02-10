@@ -511,19 +511,19 @@
     }
     .main-note{
         @include edContainer;
-        @include edItem;
+        @include edItem(100,100,1/3);
         border: 1px solid $border;
         margin: .1em 0;
         .main-note-title{
-            @include edItem(50);
+            @include edItem(50,80,70);
             padding: 0;
             text-align: left
         }
         .main-note-button{
-            @include edItem(25);
+            @include edItem(25,10,15);
             padding: 0;
             text-align: center;
-            line-height: 3;
+            line-height: 3.4;
             .note-button-1{
                 border: none;
                 color: $favorite;
