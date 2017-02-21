@@ -16,8 +16,8 @@ block content_app
                     input(type="hidden", name="student")
                 else
                     .new-select
-                        label Estudainte
-                        select(name="student")
+                        label.s-label Estudainte
+                        select.s-select(name="student")
                             option(value="vacio" selected) Selecinar estudiante
                             for student in students
                                 option(value="#{student.username}") #{student.username}
