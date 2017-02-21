@@ -20,7 +20,7 @@ block content_student
                             - var schools = ['I.E Cecilia de Lleras']
                             each school in schools
                                 option(value='#{school}') #{school}
-               .signup-select
+                .signup-select
                     if user.grade
                         select.grade(name="grado")
                             option(value='#{user.grade}' selected) #{user.grade}
