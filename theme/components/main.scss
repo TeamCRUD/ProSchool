@@ -50,10 +50,6 @@
                     color: $danger
                 }
             }
-            input{
-                width: 100%;
-                padding: .5em;
-            }
         }
         .data-links{
             padding: 0 .5em;
@@ -240,6 +236,11 @@
             color: #333;
             border: 1px solid #E1E8ED;
             cursor: pointer;
+        }
+        .school, .matter, .grade{
+            padding: 10px;
+            width: 18em;
+            border-radius: 3px;
         }
     }
     .signup-input{
