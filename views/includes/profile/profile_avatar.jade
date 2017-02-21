@@ -8,10 +8,10 @@
     if(user.grade != undefined)
         p.data-grade Grado: #{user.grade}
     p.data-type #{profile.typeuser}
-    if(user.username == profile.username)
-.data-avatar
-    h4.data-title Configuracion
-    a.data-button-1(href="/app/#{profile.username}/edit") 
-        p Editar perfil   
-    a.data-button-2(href="/logout") 
-        p Cerrar sesión
+if(user.username == profile.username)
+    .data-avatar
+        h4.data-title Configuracion
+        a.data-button-1(href="/app/#{profile.username}/edit") 
+            p Editar perfil   
+        a.data-button-2(href="/logout") 
+            p Cerrar sesión
