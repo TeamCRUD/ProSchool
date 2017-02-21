@@ -26,7 +26,7 @@ block content_app
                             option(value='#{user.matter}' selected) #{user.matter}
                     else
                         select.matter(name="matter")
-                            option(value='vacio' selected) seleccionar
+                            option(value='vacio' selected) Seleccionar materia
                             - var matters = ['Español', 'Matematicas', 'Sociales']
                             each matter in matters
                                 option(value='#{matter}') #{matter}
@@ -35,11 +35,11 @@ block content_app
                         select.grade(name="grado")
                             option(value='#{user.grade}' selected) #{user.grade}
                     else
-                        select(name="grado")
+                        select.g(name="grado")
                             option(value='vacio' selected) Grado
                             - for(var i = 1; i < 12; i++)
                                 option(value="#{i}") #{i}
-                        select(name="salon")
+                        select.s(name="salon")
                             option(value='vacio' selected) Salon
                             - for(var i = 1; i < 5; i++)
                                 option(value="#{i}") #{i}
