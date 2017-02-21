@@ -10,7 +10,7 @@ block content_app
             if task.profesor.username = user.username
                 .main-note
                     .main-note-title
-                        p.note-description #{task.task}, Nota: #{task.note}
+                        p.note-description #{task.task}, Nota: #{task.note}, #{task.porcentage}%
                     .main-note-button
                         a.note-button-1(href="/app/task/note/#{task._id}/edit") Editar
                     .main-note-button

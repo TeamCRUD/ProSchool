@@ -3,8 +3,7 @@ extends ../layout_student
 block content_student
     .main-content
         .main-data
-            .data-avatar
-               include ../../includes/profile/profile_avatar
+            include ../../includes/profile/profile_avatar
             if(user.username == profile.username)
                 .data-links
                     include ../../includes/avatar/estudiante_links
