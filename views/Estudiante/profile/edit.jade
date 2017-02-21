@@ -1,37 +1,37 @@
 extends ../layout_student
 
 block content_student
-    .main-content
-        .main-data
-            .data-avatar
-                form(action="/app/#{user.username}?_method=PUT", method="POST")
+    .signup-content
+        .signup-title
+            h1 Editar perfil
+        .signup-form
+            form(action="/app/#{user.username}?_method=PUT", method="POST")
+                .signup-input
                     input(type="text" name='fullname' placeholder="Nombre completo" value="#{user.fullname}")
+                .signup-input
                     input(type="text" name='email' placeholder="Email" value='#{user.email}')
+                .signup-select
                     if user.school 
-                        label Escuela
-                        select(name="school")
-                            option(value="#{user.school}" , selected) #{user.school}
+                        select.school(name="school")
+                            option(value='#{user.school}' selected) #{user.school}
                     else
-                        label Escuela #[br]
-                        select(name="school")
-                            option(value='vacio' selected) seleccionar
+                        select.school(name="school")
+                            option(value='vacio' selected) Seleccionar escuela
                             - var schools = ['I.E Cecilia de Lleras']
                             each school in schools
                                 option(value='#{school}') #{school}
+               .signup-select
                     if user.grade
-                        label Escuela
-                        select(name="grado")
-                            option(value="#{user.grade}" , selected) #{user.grade[0]}
-                        select(name="salon")
-                            option(value="#{user.grade}" , selected) #{user.grade[2]}
+                        select.grade(name="grado")
+                            option(value='#{user.grade}' selected) #{user.grade}
                     else
-                        label Grado #[br]
-                        select(name="grado")
+                        select.g(name="grado")
                             option(value='vacio' selected) Grado
                             - for(var i = 1; i < 12; i++)
                                 option(value="#{i}") #{i}
-                        select(name="salon")
+                        select.s(name="salon")
                             option(value='vacio' selected) Salon
                             - for(var i = 1; i < 5; i++)
                                 option(value="#{i}") #{i}
-                    input(type="submit" value='Guardar')
+                .signup-button          
+                    input.signup-button-1(type="submit" value='Guardar')
