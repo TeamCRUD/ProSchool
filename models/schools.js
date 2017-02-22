@@ -3,6 +3,8 @@ var Schema = mongoose.Schema
 
 var school_schema = new Schema({
     school:{type: String, require: true},
+    username:{type: String, require: true},
+    password:{type: String, require: true},
     grade:{type: String, require: true},
     student:{type: String, require: true},
     teacher:{
