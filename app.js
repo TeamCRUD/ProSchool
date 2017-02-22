@@ -16,6 +16,8 @@ var sessions = require('./routes/sessions');
 var logout = require('./routes/logout');
 var route_app = require('./routes/route_app');
 
+var admin = require("./routes/admin")
+
 var app = express();
 
 // view engine setup
@@ -53,10 +55,12 @@ app.use('/logout', logout);
 app.use('/app', session_middleware)
 app.use('/app', route_app);
 
+app.use("/admin", admin)
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
-  err.status = 404;s
+  err.status = 404;
   next(err);
 });
 

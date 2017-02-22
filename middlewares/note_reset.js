@@ -8,6 +8,7 @@ exports.renderNewNote = function(req, res){
         res.render('Profesor/note/new', {title: 'Nueva tarea - Proschool', students: students});
     })
 }
+
 exports.renderEditNote = function(req, res){
     res.render('Profesor/note/edit',{ title: 'Editar nota - Proschool'})
 }
@@ -74,15 +75,15 @@ exports.updateNote = function(req,res){
 }
 
 exports.deleteNote = function(req,res){
-        Task.findOneAndRemove({_id: req.params.id}, function(err){
-            if(!err){
-                res.redirect('/app/task')
-            }else{
-                console.log(err)
-                res.redirect('/app/notas/'+re.params.id)
-            }
-        })
-    }
+    Task.findOneAndRemove({_id: req.params.id}, function(err){
+        if(!err){
+            res.redirect('/app/task')
+        }else{
+            console.log(err)
+            res.redirect('/app/notas/'+re.params.id)
+        }
+    })
+}
 /*router.route('/notas/:id')
     .post(task_find, function(req,res){
         if(req.body.task == ''){

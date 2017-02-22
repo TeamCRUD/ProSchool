@@ -1,0 +1,11 @@
+extends layout_admin
+
+block content_parent
+    h1 Bienvenido, Crear Usuario
+    form(action="/admin/user" method="POST")
+        .input
+            input(type="text" name="username")
+        .input
+            input(type="text" name="password")
+        .input
+            input(type="submit")
