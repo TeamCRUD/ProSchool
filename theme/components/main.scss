@@ -85,7 +85,7 @@
     }
     .main-nota{
         @include edItem(100,100,60);
-        padding: .5em 0;
+        padding: .9em 0;
         margin: .5em 0;
         border-top: 1px solid $border;
         .nota-title{
@@ -295,7 +295,7 @@
         @include edItem;
     }
     .new-select, .new-select-grade{
-        margin: .1em;
+        margin: .3em;
         label{
             font-size: 1.2em;
             margin-left: .1em;
