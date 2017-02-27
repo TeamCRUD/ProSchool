@@ -1,19 +1,18 @@
-var Admin = require('../models/admin');
+var School = require('../models/schools');
 
-/**RENDER */
-exports.renderSingupUser = function(req, res, next) {
-  res.render('admin/user', { title: 'Admin - Proschool' });
+exports.renderSingupSchool = function(req, res, next) {
+  res.render('admin/school', { title: 'Admin - Proschool' });
 }
 
-/**RESET */
-exports.addUser = function(req, res, next) {
+exports.addSchool = function(req, res, next) {
     var data = {
+        school: req.body.school,
         username: req.body.username,
         password: req.body.password
     }
 
-    var admin = new Admin(data)
-    admin.save().then(function(us){
+    var school = new School(data)
+    school.save().then(function(us){
         res.send("Guardamos el Admin")
     }), function(err){
         res.send("No pudimos guardar")
