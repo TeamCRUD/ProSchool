@@ -18,7 +18,8 @@ exports.allUser = function(req, res, next){
 exports.addUser = function(req, res, next) {
     var data = {
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        typeuser: "admin"
     }
 
     var admin = new Admin(data)

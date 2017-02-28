@@ -13,7 +13,8 @@ exports.addSchool = function(req, res, next) {
     var data = {
         school: req.body.school,
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        typeuser: "school"
     }
 
     var school = new School(data)

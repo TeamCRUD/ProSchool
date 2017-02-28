@@ -17,7 +17,7 @@ router.post('/', function(req, res, next) {
                     return res.status(500).send()
                 }
                 if(!user){
-                    School.findOne({username: req.body.username, password: req.body.password},function(err,user){
+                   Admin.findOne({username: req.body.username, password: req.body.password},function(err,user){
                         if(err){
                             return res.status(500).send()
                         }
@@ -31,7 +31,7 @@ router.post('/', function(req, res, next) {
                     })
                 }else{
                     req.session.user_id = user._id
-                    res.redirect('/admin/school')
+                    res.redirect('/school')
                 }
            })
        }else{

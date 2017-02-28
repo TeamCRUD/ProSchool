@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 //var cookieSession = require('cookie-session');
 var session = require('express-session')
 var session_middleware = require('./middlewares/session')
+var session_admin = require('./middlewares/session_admin')
+var session_school = require('./middlewares/session_school')
 var methodOverride = require("method-override")
 
 var index = require('./routes/index');
@@ -17,7 +19,6 @@ var logout = require('./routes/logout');
 var route_app = require('./routes/route_app');
 
 var admin = require("./routes/admin")
-
 var app = express();
 
 // view engine setup
@@ -54,7 +55,7 @@ app.use('/sessions', sessions);
 app.use('/logout', logout);
 app.use('/app', session_middleware)
 app.use('/app', route_app);
-
+app.use("/admin", session_admin)
 app.use("/admin", admin)
 
 // catch 404 and forward to error handler
