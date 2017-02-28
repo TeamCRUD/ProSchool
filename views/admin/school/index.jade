@@ -1,0 +1,9 @@
+extends ../layout_admin
+
+block content_admin
+    a(href="/admin/school/new") Nueva escuela
+    - var typeuser = ["Estudiante", "Profesor", "Acudiente"]
+    each item in typeuser
+        a(href="/admin/"+item)=item
+    for school in schools
+        p=school.school

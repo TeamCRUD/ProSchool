@@ -5,11 +5,14 @@ exports.renderSingleTypeuser = function(req, res, next) {
 }
 
 exports.renderSingupUser = function(req, res, next) {
-  res.render('admin/user', { title: 'Admin - Proschool' });
+  res.render('admin/user/new', { title: 'Admin - Proschool' });
 }
 
 exports.allUser = function(req, res, next){
-
+    Admin.find({}, function(err,admins){
+        if(err){return res.redirect("/admin")}
+        res.render("admin/user/index", {title: "admin", admins: admins})
+    })
 }
 
 exports.addUser = function(req, res, next) {

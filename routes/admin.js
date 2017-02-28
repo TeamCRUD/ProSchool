@@ -11,12 +11,20 @@ router.get('/',function(req, res, next) {
   res.render('admin/index', { title: 'Admin - Proschool' });
 })
 
+router.get("/user/new", function(req, res){
+  res.render("admin/user/new")
+})
+
 router.route('/user') 
-  .get(AdminCtrl.renderSingupUser)
+  .get(AdminCtrl.allUser)
   .post(AdminCtrl.addUser)
 
+router.get("/school/new", function(req, res){
+  res.render("admin/school/new_school")
+})
+
 router.route("/school")
-  .get(SchoolCtrl.renderSingupSchool)
+  .get(SchoolCtrl.allSchool)
   .post(SchoolCtrl.addSchool)
 
 router.route("/:typeuser")

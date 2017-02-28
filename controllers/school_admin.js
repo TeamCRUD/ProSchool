@@ -1,7 +1,12 @@
 var School = require('../models/schools');
 
-exports.renderSingupSchool = function(req, res, next) {
-  res.render('admin/school', { title: 'Admin - Proschool' });
+exports.allSchool = function(req, res, next) {
+    School.find({},function(err,schools){
+        if(err){
+            return res.redirect("/admin")
+        }
+        res.render("admin/school/index", {title: "Admin", schools: schools})
+    })
 }
 
 exports.addSchool = function(req, res, next) {
@@ -14,7 +19,7 @@ exports.addSchool = function(req, res, next) {
     var school = new School(data)
     school.save().then(function(us){
         res.send("Guardamos el Admin")
-    }), function(err){
-        res.send("No pudimos guardar")
-    }
+    }, function(err){
+        res.send("No Guardamos")
+    })
 }

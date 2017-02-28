@@ -2,9 +2,5 @@ extends layout_admin
 
 block content_admin
     h1 Bienvenido
-    a(href="/admin/school") Añadir institucion 
-    a(href="/admin/user") Añadir administrador
-    
-    - var typeuser = ["Estudiante", "Profesor", "Acudiente"]
-    each item in typeuser
-        a(href="/admin/"+item)=item
+    a(href="/admin/school") Escuelas
+    a(href="/admin/user") Administradores
