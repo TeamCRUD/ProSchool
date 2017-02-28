@@ -17,8 +17,9 @@ var signup = require('./routes/signup');
 var sessions = require('./routes/sessions');
 var logout = require('./routes/logout');
 var route_app = require('./routes/route_app');
-
+var school = require("./routes/school")
 var admin = require("./routes/admin")
+
 var app = express();
 
 // view engine setup
@@ -57,6 +58,8 @@ app.use('/app', session_middleware)
 app.use('/app', route_app);
 app.use("/admin", session_admin)
 app.use("/admin", admin)
+app.use("/school", session_school)
+app.use("/school", school)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
