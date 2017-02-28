@@ -9,7 +9,8 @@ module.exports = function(req, res, next){
             res.locals.users = users
             next()
         })
-    }else{
+    }
+    if(res.locals.user.typeuser == "school"){
         User.find({typeuser: req.params.typeuser, school: res.locals.user.school}, function(err, users){
             if(err){
                 return res.redirect("/admin")

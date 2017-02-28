@@ -116,7 +116,12 @@ router.route('/:username/edit')
         if(req.params.username != res.locals.user.username){
             return res.redirect('/app')
         }
-        res.render(res.locals.user.typeuser + '/profile/edit',{ title: 'Editar perfil - Proschool'})
+        School.find({}, function(err,schools){
+            if(err){
+                return res.redirect("school")
+            }
+            res.render(res.locals.user.typeuser + '/profile/edit',{ title: 'Editar perfil - Proschool', schools: schools})
+        })
     })
 
 module.exports = router;

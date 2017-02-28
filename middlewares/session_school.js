@@ -1,4 +1,4 @@
-var School = require('../models/admin')
+var School = require('../models/schools')
 
 module.exports = function(req, res, next){
     if(!req.session.user_id){

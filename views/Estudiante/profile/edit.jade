@@ -17,9 +17,8 @@ block content_student
                     else
                         select.school(name="school")
                             option(value='vacio' selected) Seleccionar escuela
-                            - var schools = ['I.E Cecilia de Lleras']
-                            each school in schools
-                                option(value='#{school}') #{school}
+                            for school in schools
+                                option(value='#{school.school}') #{school.school}
                 .signup-select
                     if user.grade
                         select.grade(name="grado")
