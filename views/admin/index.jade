@@ -1,7 +1,8 @@
 extends layout_admin
 
 block content_admin
-    h1 Bienvenido
-    a(href="/admin/school") Escuelas
-    a(href="/admin/user") Administradores
-    p= user.username
+    .admin-content
+        .admin-title
+            h1 Adminstradores
+        .admin-main
+            p= user.username

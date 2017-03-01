@@ -1,4 +1,15 @@
 extends ../layout
 
 block content
+    header
+        .header-content
+            .header-school.hideL
+                h1.title-school Logo | #{user.school}
+            .header-title
+                a(href="/school") 
+                    h1 Proschool
+            .header-nav
+                - var typeuser = ["Estudiante", "Profesor", "Acudiente"]
+                each item in typeuser
+                    a(href="/school/"+item)=item
     block content_school

@@ -25,7 +25,7 @@ header{
             font-family: "pacifico",cursive;
         }
     }
-    .header-title{
+    .header-title, .header-title-admin{
         @include edItem(100,100,10);
         a{
             text-decoration: none
@@ -41,7 +41,10 @@ header{
             text-align: center
         }
     }
-    .header-nav{
+    .header-title-admin{
+        @include edItem(55)
+    }
+    .header-nav, .header-nav-admin{
         @include edItem(100,100,45);
         line-height: 2.5;
         text-align: right;
