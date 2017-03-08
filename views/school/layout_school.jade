@@ -9,7 +9,10 @@ block content
                 a(href="/school") 
                     h1 Proschool
             .header-nav
-                - var typeuser = ["Estudiante", "Profesor", "Acudiente"]
-                each item in typeuser
-                    a(href="/school/"+item)=item
+                a(href="/school")
+                    b.icon-home
+                    s Inicio
+                a(href="/school/profile/#{user.username}") 
+                    b.icon-user
+                    s Perfil
     block content_school

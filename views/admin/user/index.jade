@@ -1,9 +1,12 @@
 extends ../layout_admin
 
 block content_admin
-    .admin-content
-        .admin-user-links
-            include ../../includes/admin/links_user
-    for admin in admins
-        .admin-user-main
-            p=admin.username
+  .admin-content
+        .admin-avatar
+            .avatar-links
+                include ../../includes/admin/links_avatar
+        .admin-main
+            h1 Lista de administradores
+            for admin in admins
+                .admin-user-main
+                    p=admin.username

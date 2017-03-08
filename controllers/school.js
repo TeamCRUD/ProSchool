@@ -1,5 +1,13 @@
 var School = require('../models/schools');
 
+exports.renderSingleTypeuser = function(req, res, next) {
+  res.render('school/'+req.params.typeuser, { title: req.params.typeuser});
+}
+
+exports.renderProfile = function(req, res, next){
+    res.render("school/profile", {title: res.locals.user.username})
+}
+
 exports.allSchool = function(req, res, next) {
     School.find({},function(err,schools){
         if(err){
@@ -7,8 +15,4 @@ exports.allSchool = function(req, res, next) {
         }
         res.render("admin/school/index", {title: "Admin", schools: schools})
     })
-}
-
-exports.renderSingleTypeuser = function(req, res, next) {
-  res.render('school/'+req.params.typeuser, { title: req.params.typeuser});
 }

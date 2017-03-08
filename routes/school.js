@@ -11,4 +11,7 @@ router.get('/', function(req, res, next) {
 router.route("/:typeuser")
   .get(user_find, SchoolCtrl.renderSingleTypeuser)
 
+router.route("/profile/:username")
+  .get(SchoolCtrl.renderProfile)
+
 module.exports = router;

@@ -1,3 +1,12 @@
 extends layout_school
 
 block content_school
+    .admin-content
+        .admin-avatar
+            .avatar-main
+                include ../includes/admin/avatar
+            .avatar-links
+                include ../includes/admin/links_school
+        .admin-title
+            h1 Bienvenido
+            p Sube un estado para notificar a la #{user.school}
