@@ -1,8 +1,11 @@
 extends layout_admin
 
 block content_admin
-    include ../includes/admin/avatar
-    include ../includes/admin/links_school
-    include ../includes/admin/links_user
-    a(href="/admin/school") Escuelas
-    a(href="/admin/user") Administradores
+    .admin-content
+        .admin-avatar
+            .avatar-main
+                include ../includes/admin/avatar
+            .avatar-links
+                include ../includes/admin/links_new
+            .avatar-links
+                include ../includes/admin/links_school

@@ -2,16 +2,19 @@
     @include edContainer
 }
 .admin-avatar{
-    @include edItem(100,100);
+    @include edItem(20);
     @include showFrom(m)
 }
 .admin-title{
-    @include edItem;
-    @include to(m){
-        text-align: center;
-       h1{
-           font-weight: $normal
-       }
+    @include edItem(60);
+    text-align: center;
+    border-top: 1px solid $border;
+    margin: .5em 0;
+    h1{
+        margin: 0;
+        padding: .8em; 
+        border-bottom: 1px solid $border;
+        font-weight: $normal
     }
 }
 .admin-main{
@@ -27,5 +30,36 @@
     p{
         padding: .5em;
         margin: 0
+    }
+}
+.avatar-main, .avatar-links{
+    padding: .5em;
+    margin: .5em 0;
+    border: 1px solid $border;
+    text-align: center;
+    s{
+        text-decoration: none
+    }
+    .links-title, .links-item{
+        margin: 0;
+        h4{
+            margin: 0
+        }
+    }
+    .links-title{
+        margin-bottom: .3em;
+        padding-bottom: .5em;
+        border-bottom: 1px solid $border
+    }
+    .links-item{
+        color: $favorite;
+        h4{
+            padding: .2em;
+            font-weight: $normal;
+        }
+        &:hover{
+            color: $light;
+            transition: .4s all
+        }
     }
 }
