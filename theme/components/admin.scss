@@ -2,11 +2,10 @@
     @include edContainer
 }
 .admin-avatar{
-    @include edItem(20);
-    @include showFrom(m)
+    @include edItem(100,20);
 }
 .admin-title{
-    @include edItem(60);
+    @include edItem(100,60);
     text-align: center;
     border-top: 1px solid $border;
     margin: .5em 0;
