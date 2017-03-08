@@ -1,4 +1,11 @@
 extends ../layout_admin
 
 block content_admin
-    include includes/main
+    .admin-content
+        .admin-avatar
+            .avatar-links
+                include ../../includes/admin/links_school
+            .avatar-links
+                include ../../includes/admin/links_avatar
+        .admin-main
+            include includes/main

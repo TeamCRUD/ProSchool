@@ -2,8 +2,11 @@ extends ../layout_admin
 
 block content_admin
      .admin-content
-        .admin-school-links
-            include ../../includes/admin/links_school
-        for school in schools
-            .admin-school-main
-                p=school.school
+        .admin-avatar
+            .avatar-links
+                include ../../includes/admin/links_school
+        .admin-main
+            h1 lista de esceulas
+            for school in schools
+                .admin-school-main
+                    p=school.school
