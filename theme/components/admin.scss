@@ -1,0 +1,19 @@
+.admin-content{
+    @include edContainer
+}
+.admin-avatar{
+    @include edItem(100,100);
+    @include showFrom(m)
+}
+.admin-title{
+    @include edItem;
+    @include to(m){
+        text-align: center;
+       h1{
+           font-weight: $normal
+       }
+    }
+}
+.admin-main{
+    @include edItem
+}

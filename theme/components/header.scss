@@ -41,10 +41,10 @@ header{
             text-align: center
         }
     }
-    .header-title-admin{
-        @include edItem(55)
+    .header-title{
+        @include showFrom(m)
     }
-    .header-nav, .header-nav-admin{
+    .header-nav{
         @include edItem(100,100,45);
         line-height: 2.5;
         text-align: right;
