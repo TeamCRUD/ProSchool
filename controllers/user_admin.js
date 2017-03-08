@@ -8,6 +8,10 @@ exports.renderSingupUser = function(req, res, next) {
   res.render('admin/user/new', { title: 'Admin - Proschool' });
 }
 
+exports.renderProfile = function(req, res, next){
+    res.render("admin/profile", {title: res.locals.user.username})
+}
+
 exports.allUser = function(req, res, next){
     Admin.find({}, function(err,admins){
         if(err){return res.redirect("/admin")}

@@ -17,3 +17,15 @@
 .admin-main{
     @include edItem
 }
+.admin-school-links, .admin-user-links{
+    @include edItem;
+    @include showFrom(m)
+}
+.admin-school-main, .admin-user-main {
+    @include edItem;
+    border-bottom: 1px solid $border;
+    p{
+        padding: .5em;
+        margin: 0
+    }
+}

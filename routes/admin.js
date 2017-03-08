@@ -27,7 +27,10 @@ router.route("/school")
   .get(SchoolCtrl.allSchool)
   .post(SchoolCtrl.addSchool)
 
-router.route("/:typeuser")
+router.route("/school/:typeuser")
   .get(user_find, AdminCtrl.renderSingleTypeuser)
+
+router.route("/profile/:username")
+  .get(AdminCtrl.renderProfile)
 
 module.exports = router;

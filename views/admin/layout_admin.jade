@@ -9,7 +9,10 @@ block content
                 a(href="/admin") 
                     h1 Proschool
             .header-nav
-                a(href="/admin") Inicio
-                a(href="/admin/school") Escuelas
-                a(href="/admin/user") Administradores
+                a(href="/admin")
+                    b.icon-home
+                    s Inicio
+                a(href="/admin/profile/#{user.username}") 
+                    b.icon-user
+                    s Perfil
     block content_admin

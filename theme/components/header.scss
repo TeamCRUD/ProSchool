@@ -1,5 +1,4 @@
 header{
-    padding: .5em 0;
     border-bottom: 1px solid rgba(0,0,0,0.15);
     .header-content{
         @include edContainer;
@@ -10,10 +9,10 @@ header{
             text-decoration: none
         }
         .title-school{
+            line-height: 1.6;
             margin: 0;
             font-size: 1.5em;
             font-weight: 200;
-            line-height: 1.6;
             color: $favorite;
             font-family: "roboto";
         }
@@ -25,8 +24,8 @@ header{
             font-family: "pacifico",cursive;
         }
     }
-    .header-title, .header-title-admin{
-        @include edItem(100,100,10);
+    .header-title{
+        @include edItem(100,50,10);
         a{
             text-decoration: none
         }
@@ -45,9 +44,17 @@ header{
         @include showFrom(m)
     }
     .header-nav{
-        @include edItem(100,100,45);
-        line-height: 2.5;
+        @include edItem(100,50,45);
+        margin: .7em 0;
         text-align: right;
+        @include to(m){
+            line-height: 1;
+            text-align: center;
+            font-size: 24px;
+            s{
+                display: none
+            }
+        }
         a{
             text-decoration: none;
             color: $favorite;
@@ -56,6 +63,10 @@ header{
                 color: $light;
                 transition: .2s all
             }
+        }
+        s{
+            text-decoration: none; 
+            margin-left: .2em
         }
         @include to(l){
             text-align: center

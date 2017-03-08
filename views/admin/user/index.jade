@@ -1,6 +1,9 @@
 extends ../layout_admin
 
 block content_admin
-    a(href="/admin/user/new") Nuevo admin
+    .admin-content
+        .admin-user-links
+            include ../../includes/admin/links_user
     for admin in admins
-        p=admin.username
+        .admin-user-main
+            p=admin.username

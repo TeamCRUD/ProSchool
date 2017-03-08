@@ -1,9 +1,9 @@
 extends ../layout_admin
 
 block content_admin
-    a(href="/admin/school/new") Nueva escuela
-    - var typeuser = ["Estudiante", "Profesor", "Acudiente"]
-    each item in typeuser
-        a(href="/admin/"+item)=item
-    for school in schools
-        p=school.school
+     .admin-content
+        .admin-school-links
+            include ../../includes/admin/links_school
+        for school in schools
+            .admin-school-main
+                p=school.school

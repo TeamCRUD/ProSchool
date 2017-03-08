@@ -3,12 +3,6 @@ extends layout_admin
 block content_admin
     .admin-content
         .admin-avatar
-            b=user.fullname
-            s #{user.username}#[br]
-            s=user.typeuser
-            .admin-button
-                a(href="/logout") Cerrar session 
+            include ../includes/admin/avatar
         .admin-title
-            h1 Adminstradores
-        .admin-main
-            p= user.username
+            h1 Bienvenidos
