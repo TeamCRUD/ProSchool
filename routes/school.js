@@ -5,7 +5,7 @@ var SchoolCtrl = require("../controllers/school")
 var user_find = require("../middlewares/find_user")
 
 router.get('/', function(req, res, next) {
-  res.render('school/index', { title: 'Proschool'});
+    res.render('school/index', { title: 'Proschool'});
 });
 
 router.route("/:typeuser")

@@ -1,11 +1,14 @@
 extends ../layout_admin
 
 block content_admin
-    h1 Crear Usuario
-    form(action="/admin/user" method="POST")
-        .input
-            input(type="text" name="username")
-        .input
-            input(type="text" name="password")
-        .input
-            input(type="submit")
+    .signup-content
+        .signup-title
+            h2 Nuevo usuario
+        .signup-form
+            form(action="/admin/user" method="POST")
+                .signup-input
+                    input(type="text" name="username" placeholder="Nombre de usuario")
+                .signup-input
+                    input(type="text" name="password" placeholder="Contraseña")
+                .signup-button
+                    input.signup-button-1(type="submit" value="Crear usuario")

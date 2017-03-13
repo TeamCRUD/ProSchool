@@ -6,10 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var cookieSession = require('cookie-session');
 var session = require('express-session')
+var methodOverride = require("method-override")
+
 var session_middleware = require('./middlewares/session')
 var session_admin = require('./middlewares/session_admin')
 var session_school = require('./middlewares/session_school')
-var methodOverride = require("method-override")
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -43,18 +44,12 @@ app.use(session({
 
 }))
 
-/**app.use(cookieSession({
-  name: "session",
-  keys: ["llave-1, llave-2"]
-}))**/
-
-app.use('/', index);
-app.use('/users', session_middleware)
-app.use('/users', users);
 app.use('/signup', signup);
 app.use('/sessions', sessions);
 app.use('/logout', logout);
-app.use('/app', session_middleware)
+app.use('/', index);
+app.use(['/users',"app"], session_middleware)
+app.use('/users', users);
 app.use('/app', route_app);
 app.use("/admin", session_admin)
 app.use("/admin", admin)

@@ -36,7 +36,7 @@ header{
             color: $primary;
             font-family: "pacifico",cursive;
         }
-        @include to(l){
+        @include to(m){
             text-align: center
         }
     }
@@ -67,9 +67,6 @@ header{
         s{
             text-decoration: none; 
             margin-left: .2em
-        }
-        @include to(l){
-            text-align: center
         }
     }
 }
