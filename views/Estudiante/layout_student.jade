@@ -14,6 +14,10 @@ block content
                     a(href="/app") 
                         h1 Proschool
             .header-nav
-                a(href="/app").icon-home Inicio 
-                a(href="/app/#{user.username}").icon-user Perfil
+                a(href="/app")
+                    b.icon-home
+                    s Inicio
+                a(href="/app/#{user.username}")
+                    b.icon-user
+                    s Perfil
     block content_student

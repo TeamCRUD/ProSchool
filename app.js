@@ -44,12 +44,13 @@ app.use(session({
 
 }))
 
+app.use('/', index);
+app.use('/users', session_middleware)
+app.use('/users', users);
 app.use('/signup', signup);
 app.use('/sessions', sessions);
 app.use('/logout', logout);
-app.use('/', index);
-app.use(['/users',"app"], session_middleware)
-app.use('/users', users);
+app.use('/app', session_middleware)
 app.use('/app', route_app);
 app.use("/admin", session_admin)
 app.use("/admin", admin)
