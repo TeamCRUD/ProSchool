@@ -13,7 +13,7 @@ var session_admin = require('./middlewares/session_admin')
 var session_school = require('./middlewares/session_school')
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var user = require('./routes/user');
 var signup = require('./routes/signup');
 var sessions = require('./routes/sessions');
 var logout = require('./routes/logout');
@@ -45,12 +45,12 @@ app.use(session({
 }))
 
 app.use('/', index);
-app.use(['/users',"/admin",'/app',"/school"], session_middleware)
-app.use('/users', users);
 app.use('/signup', signup);
 app.use('/sessions', sessions);
 app.use('/logout', logout);
+app.use(['/users',"/admin",'/app',"/school",'/user'], session_middleware)
 app.use('/app', route_app);
+app.use('/user', user);
 app.use("/school", school)
 app.use("/admin", admin)
 

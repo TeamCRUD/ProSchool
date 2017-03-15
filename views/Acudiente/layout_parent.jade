@@ -4,15 +4,17 @@ block content
     header
         .header-content
            .header-school.hideL
-                if(user.school != undefined)
-                    h1.title-school Logo | #{user.school}
                 if(user.school == undefined)
                     a(href="/app") 
                         h1.title-logo Proschool
+                else
+                    h1.title-school Logo | #{user.school}
+
             .header-title
                 if(user.school != undefined)
                     a(href="/app") 
                         h1 Proschool
             .header-nav
                 a(href="/app") Inicio 
+                a(href="/user") Perfil
     block content_parent

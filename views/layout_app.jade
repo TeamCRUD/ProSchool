@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    header
+         .header-content
+            if user.typeuser
+                if user.typeuser == "admin"
+                    include includes/header/admin
+                else
+                    include includes/header/default
+            else
+                p No eres usuario
+    block content_app
