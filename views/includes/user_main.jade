@@ -1,18 +1,28 @@
-include avatar/default
-if user.typeuser != "admin" || user.typeuser != "school"
-    include avatar/info
-if user.typeuser
-    include links/default
-    if user.typeuser == "admin"
-        include links/admin
-        include links/school
-    if user.typeuser == "school"
-        include links/school
-    if user.typeuser == "Profesor"
-        include links/teacher
-    if user.typeuser == "Estudiante"
-        include links/student
-    if user.typeuser == "Acudiente"
-        include links/student
-else
-    p no soy user
+.avatar-content
+    .avatar-main
+        include avatar/default
+    if user.typeuser != "admin" || user.typeuser != "school"
+        .avatar-main
+            include avatar/info
+    if user.typeuser
+        .avatar-links
+            include links/default
+        if user.typeuser == "admin"
+            .avatar-links
+                include links/admin
+            .avatar-links
+                include links/school
+        if user.typeuser == "school"
+            .avatar-links
+                include links/school
+        if user.typeuser == "Profesor"
+            .avatar-links
+                include links/teacher
+        if user.typeuser == "Estudiante"
+            .avatar-links
+                include links/student
+        if user.typeuser == "Acudiente"
+            .avatar-links
+                include links/student
+    else
+        p no soy user

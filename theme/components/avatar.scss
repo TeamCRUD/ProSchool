@@ -1,0 +1,46 @@
+.avatar-content{
+    @include edItem(100,25,20);
+}
+.avatar-main, .avatar-links{
+    padding: .5em;
+    margin: .5em 0;
+    border: 1px solid $border;
+    text-align: center;
+    a{
+        color: $favorite
+    }
+    s{
+        text-decoration: none
+    }
+    p{
+        margin: .2em 0
+    }
+    .links-title, .links-item, .links-danger{
+        margin: 0;
+        h4{
+            margin: 0
+        }
+    }
+    .links-title{
+        margin-bottom: .3em;
+        padding-bottom: .5em;
+        border-bottom: 1px solid $border
+    }
+    .links-item, .links-danger{
+        color: $favorite;
+        h4{
+            padding: .2em;
+            font-weight: $normal;
+        }
+        &:hover{
+            color: $light;
+            transition: .4s all
+        }
+    }
+    .links-danger{
+         &:hover{
+            color: $danger;
+            transition: .4s all
+        }
+    }
+}
