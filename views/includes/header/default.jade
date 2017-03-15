@@ -2,16 +2,16 @@
     if user.school != undefined
         h1.title-school Logo | #{user.school}
     if user.school == undefined
-        a(href="/app") 
+        a(href="/home") 
             h1.title-logo Proschool
 .header-title
     if user.school != undefined
-        a(href="/app") 
+        a(href="/home") 
             h1 Proschool
 .header-nav
-    a(href="/app")
+    a(href="/home")
         b.icon-home
         s Inicio
-    a(href="/app/#{user.username}")
+    a(href="/user")
         b.icon-user
         s Perfil

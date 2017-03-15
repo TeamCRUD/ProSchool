@@ -1,0 +1,16 @@
+h1 Tareas
+p Todas las tareas de tus profesores
+if user.grade
+    - var new_task = false
+    for task in tasks
+        if task.note == null
+            if typeof task.profesor != "undefined"
+                b #{task.teacher.fullname} 
+                s #[a(href="/app/#{task.teacher.username}") @#{task.teacher.username}] 
+                br
+            a(href='/app/task/#{task._id}')= task.task
+            - new_task = true
+    if !new_task
+        p Ningun profesor ha subido tarea
+else
+    p No has asignado tu grado
