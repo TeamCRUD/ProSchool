@@ -7,8 +7,8 @@ var SchoolCtrl = require("../controllers/school_admin")
 var user_find = require("../middlewares/find_user")
 
 /* GET signup page. */
-router.get('/',function(req, res, next) {
-  res.render('admin/index', { title: 'Admin - Proschool' });
+router.get('/', function(req, res, next) {
+    res.render('admin/index', { title: 'Admin - Proschool' });
 })
 
 router.get("/user/new", function(req, res){

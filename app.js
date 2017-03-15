@@ -45,17 +45,14 @@ app.use(session({
 }))
 
 app.use('/', index);
-app.use('/users', session_middleware)
+app.use(['/users',"/admin",'/app',"/school"], session_middleware)
 app.use('/users', users);
 app.use('/signup', signup);
 app.use('/sessions', sessions);
 app.use('/logout', logout);
-app.use('/app', session_middleware)
 app.use('/app', route_app);
-app.use("/admin", session_admin)
-app.use("/admin", admin)
-app.use("/school", session_school)
 app.use("/school", school)
+app.use("/admin", admin)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

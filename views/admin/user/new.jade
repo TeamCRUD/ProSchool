@@ -7,8 +7,12 @@ block content_admin
         .signup-form
             form(action="/admin/user" method="POST")
                 .signup-input
+                    input(type="text" name="fullname" placeholder="Nombre completo")
+                .signup-input
+                    input(type="text" name="email" placeholder="Correo electronico")
+                .signup-input
                     input(type="text" name="username" placeholder="Nombre de usuario")
                 .signup-input
-                    input(type="text" name="password" placeholder="Contraseña")
+                    input(type="password" name="password" placeholder="Contraseña")
                 .signup-button
                     input.signup-button-1(type="submit" value="Crear usuario")
