@@ -1,0 +1,19 @@
+.task-item{
+    padding: .5em;
+    padding-top: .8em;
+    border-bottom: 1px solid $border; 
+    .username-task,.task-main{
+        text-decoration: none;
+        color: #333 ;
+        a{
+            color: $favorite
+        }
+    }
+    .task-main{
+        font-size: 18px
+    }
+    .task-note{
+        width: 100%;
+        text-align: right;
+    }
+}

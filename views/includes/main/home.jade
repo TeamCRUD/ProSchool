@@ -1,12 +1,9 @@
 .home-main
     if user.typeuser
         if user.typeuser == "admin"
-            h1 Bienvenidos
+            h1.title Bienvenidos
+            p.subtitle Aparecera tu lista de tareas
         else
-            if user.typeuser == "school" || user.typeuser == "Profesor" 
-                h1 Mejores notas
-                p Apareceran notas superiores a 4.8
-            else 
-                include task
+            include task
     else
         p no soy user

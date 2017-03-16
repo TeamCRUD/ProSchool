@@ -4,7 +4,8 @@ header{
         @include edContainer;
     }
     .header-school{
-        @include edItem(100,100,45);
+        @include edItem(100,50,45);
+        @include showFrom(l);
         a{
             text-decoration: none
         }

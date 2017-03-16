@@ -1,6 +1,26 @@
 // App =================
 .main-content{
     @include edContainer;
+    .home-main{
+        @include edItem(100,100,60);
+        margin: .5em 0; 
+        padding: .5em;
+        border-top: 1px solid $border;
+    }
+    .title,.subtitle{
+        text-align: center;
+        margin: 0;
+    }
+    .subtitle{
+        padding-bottom: .8em;
+        color: $favorite;
+        border-bottom: 1px solid $border
+    }
+    .description{
+        @include to(m){
+            text-align: center
+        }
+    }
     .main-data{
         @include edItem(100,100,20);
         .data-avatar, .data-links{
