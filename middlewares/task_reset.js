@@ -45,6 +45,7 @@ exports.addTask = function(req, res){
         grade: req.body.grade,
         task: req.body.task,
         porcentage: req.body.porcentage,
+        matter: res.locals.user.matter,
         teacher: {
             fullname: res.locals.user.fullname,
             username: res.locals.user.username

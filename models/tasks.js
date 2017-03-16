@@ -7,6 +7,7 @@ var task_schema = new Schema({
     grade: {type: String, require: true},
     note: {type: Number, require: true},
     porcentage: {type: Number, require: true},
+    matter: {type: String, require: true},
     student: {type: String, require: true},
     teacher: {
         fullname: {type: String, require: true},

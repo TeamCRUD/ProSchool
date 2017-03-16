@@ -15,8 +15,7 @@ if user.grade || user.typeuser == "school"
                             s.username-task #[a(href="/app/#{task.teacher.username}") @#{task.teacher.username}] #[br] 
                     a.task-main(href='/app/task/#{task._id}') #{task.task} #{br}
                     .task-note
-                        b #{task.student} - 
-                        b Nota: #{task.note} 
+                        b #{task.student} - Nota: #{task.note} 
         else
             if task.note == null
                 .task-item
@@ -24,6 +23,8 @@ if user.grade || user.typeuser == "school"
                         b.fullname-task #{task.teacher.fullname} 
                         s.username-task #[a(href="/app/#{task.teacher.username}") @#{task.teacher.username}] #[br] 
                     a.task-main(href='/app/task/#{task._id}')= task.task
+                    .task-matter
+                        b #{task.matter} / #{task.grade}
         - new_task = true
             
     if !new_task

@@ -43,6 +43,7 @@ exports.addNote = function(req, res){
         student: req.body.student,
         note: req.body.note,
         porcentage: res.locals.task.porcentage,
+        matter: res.locals.task.matter,
         teacher: {
             fullname: res.locals.user.fullname,
             username: res.locals.user.username
