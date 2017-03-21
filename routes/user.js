@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.render('user');
-});
+var UserCtrl = require("../controllers/user")
+
+/* GET user page. */
+router.get('/', UserCtrl.renderUser);
 
 module.exports = router;

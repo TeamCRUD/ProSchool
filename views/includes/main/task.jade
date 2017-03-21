@@ -1,4 +1,4 @@
-if user.typeuser == "school" || user.typeuser == "Profesor" 
+if user.typeuser == "school" || user.typeuser == "Profesor"
     h1.title Mejores notas
     p.subtitle Apareceran notas superiores a 4.8
 else
@@ -13,7 +13,7 @@ if user.grade || user.typeuser == "school"
                     if typeof task.profesor != "undefined"
                             b.fullname-task #{task.teacher.fullname} 
                             s.username-task #[a(href="/app/#{task.teacher.username}") @#{task.teacher.username}] #[br] 
-                    a.task-main(href='/task/#{task._id}') #{task.task} #{br}
+                    a.task-main #{task.task} #{br}
                     .task-note
                         b #{task.student} - Nota: #{task.note} 
         else
@@ -26,7 +26,11 @@ if user.grade || user.typeuser == "school"
                     .task-matter
                         b #{task.matter} / #{task.grade}
         - new_task = true
-            
+        if task.note == null && task.teacher.username == user.username
+            .task-item
+                b.fullname-task #{task.teacher.fullname} 
+                s.username-task #[a(href="/app/#{task.teacher.username}") @#{task.teacher.username}] #[br]
+                a.task-main(href="/app/task/#{task.id}")= task.task
     if !new_task
         p.description Ningun profesor ha subido tarea
 else

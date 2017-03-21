@@ -1,0 +1,9 @@
+.home-main
+    if user.typeuser
+        if user.typeuser == "admin"
+            h1.title Bienvenidos
+            p.subtitle Aparecera tu lista de tareas
+        else
+            include task
+    else
+        p no soy user
