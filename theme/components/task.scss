@@ -10,10 +10,70 @@
         }
     }
     .task-main{
-        font-size: 18px
+        font-size: 18px;
     }
     .task-note, .task-matter{
         width: 100%;
+        font-weight: 300;
         text-align: right;
+        @include to(m){
+            margin: .2em 0
+        }
+    }
+}
+
+// Show task
+.show-content{
+    @include edContainer;
+    .show-main{
+        @include edItem(100,50,40);
+        margin-top: .8em;
+        border-bottom: 1px solid $border
+    }
+    .show-teacher{
+        s{
+            text-decoration: none;
+            a{
+                color: $favorite
+            }
+        }
+    }
+    .show-description{
+        margin-bottom: .8em;
+        p{
+            font-size: 20px;
+            margin: .5em 0
+        }
+        b,s{
+            text-decoration: none;
+            color: $favorite;
+            font-weight: 300
+        }
+    }
+    .show-button{
+        padding: .5em 0;
+        border-top: 1px solid $border;
+        a,input{
+            color: $favorite;
+            border: none;
+            background: #fff;
+        }
+        a{
+            margin: 0;
+            font-weight: 300;
+            &:hover{
+                color: $light
+            }
+        }
+        input{
+            cursor: pointer;
+            &:hover{
+                color: $danger;
+                text-decoration: underline
+            }
+        }
+        .show-button-1, .show-button-2{
+            margin-right: 2em
+        }
     }
 }

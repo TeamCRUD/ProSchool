@@ -16,15 +16,7 @@ router.post('/', function(req, res, next) {
             return res.status(404).send()
         }else{
                 req.session.user_id = user._id
-                if(user.typeuser == "admin"){
-                    return res.redirect('/admin')
-                }
-                if(user.typeuser == "school"){
-                    return res.redirect('/school')
-                }
-                if(user.typeuser != "school" || user.typeuser != "admin" ){
-                    return res.redirect("/app")
-                }
+                return res.redirect('/home')
         }  
     })
 });

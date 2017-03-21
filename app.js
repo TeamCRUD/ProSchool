@@ -19,6 +19,7 @@ var sessions = require('./routes/sessions');
 var logout = require('./routes/logout');
 var route_app = require('./routes/route_app');
 var home = require('./routes/home');
+var task = require('./routes/task');
 var school = require("./routes/school")
 var admin = require("./routes/admin")
 
@@ -49,10 +50,11 @@ app.use('/', index);
 app.use('/signup', signup);
 app.use('/sessions', sessions);
 app.use('/logout', logout);
-app.use(['/users',"/admin",'/app',"/school",'/user',"/home"], session_middleware)
+app.use('/*', session_middleware)
 app.use('/app', route_app);
 app.use('/home', home);
 app.use('/user', user);
+app.use('/task', task);
 app.use("/school", school)
 app.use("/admin", admin)
 

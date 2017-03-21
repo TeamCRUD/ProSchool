@@ -2,18 +2,18 @@ var mongoose = require("mongoose")
 var Schema = mongoose.Schema
 
 var task_schema = new Schema({
-    period:{type: String, require: true},
-    task:{type: String, require: true},
-    grade: {type: String, require: true},
-    note: {type: Number, require: true},
-    porcentage: {type: Number, require: true},
-    matter: {type: String, require: true},
-    student: {type: String, require: true},
+    period:{type: String, required: true},
+    task:{type: String, required: true},
+    grade: {type: String, required: true},
+    porcentage: {type: Number, required: true},
+    matter: {type: String, required: true},
     teacher: {
-        fullname: {type: String, require: true},
-        username: {type: String, require: true}
+        fullname: {type: String, required: true},
+        username: {type: String, required: true}
     },
-    profesor:{type: Schema.Types.ObjectId, ref:'User'}
+    profesor:{type: Schema.Types.ObjectId, ref:'User'},
+    student: String,
+    note: Number,
 })
 
 var Task = mongoose.model("Task", task_schema)
