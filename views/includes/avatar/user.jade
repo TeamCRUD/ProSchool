@@ -1,28 +1,28 @@
 .avatar-content
     .avatar-main
-        include avatar/default
+        include default
     if user.typeuser != "admin" || user.typeuser != "school"
         .avatar-main
-            include avatar/info
+            include info
     if user.typeuser
         .avatar-links
-            include links/default
+            include ../links/default
         if user.typeuser == "admin"
             .avatar-links
-                include links/admin
+                include ../links/admin
             .avatar-links
-                include links/school
+                include ../links/school
         if user.typeuser == "school"
             .avatar-links
-                include links/school
+                include ../links/school
         if user.typeuser == "Profesor"
             .avatar-links
-                include links/teacher
+                include ../links/teacher
         if user.typeuser == "Estudiante"
             .avatar-links
-                include links/student
+                include ../links/student
         if user.typeuser == "Acudiente"
             .avatar-links
-                include links/student
+                include ../links/student
     else
         p no soy user

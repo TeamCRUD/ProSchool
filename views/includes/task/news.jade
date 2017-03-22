@@ -1,0 +1,16 @@
+.task-item
+    if typeof task.profesor != "undefined"
+         b.fullname-task #{task.teacher.fullname} 
+         s.username-task #[a(href="/app/#{task.teacher.username}") @#{task.teacher.username}] #[br]
+    if user.typeuser == "school"  || user.typeuser == "Profesor"
+        a.task-main #{task.task} #{br}
+        .task-note
+            b #{task.student} - Nota: #{task.note}
+    else
+        a.task-main(href='/task/#{task._id}')= task.task
+        if profile && task.student == user.username
+            .task-note
+                b #{task.student} - Nota: #{task.note}
+        else
+            .task-matter
+                b #{task.matter} / #{task.grade}

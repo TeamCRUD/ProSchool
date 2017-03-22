@@ -1,0 +1,17 @@
+if !profile
+    if user.typeuser == "school"  || user.typeuser == "Profesor" 
+        h1.title Mejores notas
+        p.subtitle Apareceran notas superiores a 4.8
+    else
+        h1.title Tareas
+        p.subtitle Todas las tareas de tus profesores
+else
+    if user.typeuser == "school"
+        h1.title Noticias #{user.school}
+        p.subtitle Apareceran informaciones sobre la escuela
+    if user.typeuser == "Profesor"
+        h1.title Tareas
+        p.subtitle Todas las tareas que has subido
+    if user.typeuser == "Estudiante" || user.typeuser == "Acudiente"
+        h1.title Tareas realizadas
+        p.subtitle Apareceran todas las tareas y sus notas

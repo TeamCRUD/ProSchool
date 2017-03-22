@@ -1,17 +1,17 @@
 .avatar-content.hideL
     .avatar-main
-        include avatar/default
+        include default
     .avatar-links
         if user.typeuser
             if user.typeuser == "admin"
-                include links/admin
+                include ../links/admin
             if user.typeuser == "school"
-                include links/school
+                include ../links/school
             if user.typeuser == "Profesor"
-                include links/teacher
+                include ../links/teacher
             if user.typeuser == "Estudiante"
-                include links/student
+                include ../links/student
             if user.typeuser == "Acudiente"
-                include links/student
+                include ../links/student
         else
             p no soy user

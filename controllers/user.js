@@ -6,7 +6,7 @@ exports.renderUser = function(req, res, next) {
           if(err){
               return res.redirect('/app')
           }
-          res.render('user', { title: 'Inicio', tasks: tasks });
+          res.render('user', { title: 'Inicio', tasks: tasks, profile: true });
       })
   }else{
       if(res.locals.user.typeuser == 'Profesor' || res.locals.user.typeuser == 'school'){
@@ -17,7 +17,7 @@ exports.renderUser = function(req, res, next) {
                 res.render('user', { title: 'Inicio', tasks: tasks , profile: true});
             })
       }else{
-          res.render('user', { title: 'Inicio - admin'});
+          res.render('user', { title: 'Inicio - admin', profile: true});
       }
   }
   
