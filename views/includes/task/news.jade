@@ -1,16 +1,27 @@
 .task-item
     if typeof task.profesor != "undefined"
          b.fullname-task #{task.teacher.fullname} 
-         s.username-task #[a(href="/app/#{task.teacher.username}") @#{task.teacher.username}] #[br]
+         s.username-task #[a(href="/user") @#{task.teacher.username}] #[br]
     if user.typeuser == "school"  || user.typeuser == "Profesor"
         a.task-main #{task.task} #{br}
         .task-note
             b #{task.student} - Nota: #{task.note}
     else
-        a.task-main(href='/task/#{task._id}')= task.task
+        a.task-main= task.task
         if profile && task.student == user.username
             .task-note
-                b #{task.student} - Nota: #{task.note}
+                if user.typeuser == "Estudiante"
+                    if task.note <= 3.25 
+                        b #{task.matter},  #[span.low Nota: #{task.note}]
+                    if task.note >= 3.25 && task.note < 4
+                        b #{task.matter},  #[span.medium Nota: #{task.note}]
+                    if task.note > 4
+                        b #{task.matter}, #[span.high Nota: #{task.note}]
+                else
+                    b #{task.student} - Nota: #{task.note}
         else
             .task-matter
-                b #{task.matter} / #{task.grade}
+                if user.typeuser == "Estudiante"
+                    b #{task.matter}
+                else
+                    b #{task.matter} / #{task.grade}

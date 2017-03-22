@@ -14,9 +14,20 @@
     }
     .task-note, .task-matter{
         width: 100%;
-        font-weight: 300;
         text-align: right;
         color: $favorite;
+        .low{
+            color: $low
+        }
+        .medium{
+            color: $medium
+        }
+        .high{
+            color: $high
+        }
+        b{
+            font-weight: 300;
+        }
         @include to(m){
             margin: .2em 0
         }
