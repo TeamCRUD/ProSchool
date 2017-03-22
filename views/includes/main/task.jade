@@ -1,6 +1,10 @@
-if user.typeuser == "school" || user.typeuser == "Profesor"
-    h1.title Mejores notas
-    p.subtitle Apareceran notas superiores a 4.8
+if user.typeuser == "school"  || user.typeuser == "Profesor"
+    if !profile
+        h1.title Mejores notas
+        p.subtitle Apareceran notas superiores a 4.8
+    else
+        h1.title Tareas
+        p.subtitle Apareceran todas las tareas
 else
     h1.title Tareas
     p.subtitle Todas las tareas de tus profesores
@@ -8,7 +12,7 @@ if user.grade || user.typeuser == "school"
     - var new_task = false
     for task in tasks
         if user.typeuser == "school" || user.typeuser == "Profesor" 
-            if task.note > 4.8 
+            if task.note > 4.8 && !profile
                  .task-item
                     if typeof task.profesor != "undefined"
                             b.fullname-task #{task.teacher.fullname} 
@@ -17,7 +21,7 @@ if user.grade || user.typeuser == "school"
                     .task-note
                         b #{task.student} - Nota: #{task.note} 
         else
-            if task.note == null
+            if task.note == null 
                 .task-item
                     if typeof task.profesor != "undefined"
                         b.fullname-task #{task.teacher.fullname} 
@@ -25,12 +29,13 @@ if user.grade || user.typeuser == "school"
                     a.task-main(href='/task/#{task._id}')= task.task
                     .task-matter
                         b #{task.matter} / #{task.grade}
+        if profile
+            if task.note == null && task.teacher.username == user.username 
+                .task-item
+                    b.fullname-task #{task.teacher.fullname} 
+                    s.username-task #[a(href="/app/#{task.teacher.username}") @#{task.teacher.username}] #[br]
+                    a.task-main(href="/app/task/#{task.id}")= task.task
         - new_task = true
-        if task.note == null && task.teacher.username == user.username
-            .task-item
-                b.fullname-task #{task.teacher.fullname} 
-                s.username-task #[a(href="/app/#{task.teacher.username}") @#{task.teacher.username}] #[br]
-                a.task-main(href="/app/task/#{task.id}")= task.task
     if !new_task
         p.description Ningun profesor ha subido tarea
 else

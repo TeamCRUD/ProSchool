@@ -20,9 +20,9 @@
             "args": ["run", "test"]
         },
         {
-            "taskName": "watch:all",
+            "taskName": "w:a",
             "isBuildCommand": true,
-            "args": ["run", "watch:all"]
+            "args": ["run", "w:a"]
         }
     ]
 }

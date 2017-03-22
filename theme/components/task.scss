@@ -16,6 +16,7 @@
         width: 100%;
         font-weight: 300;
         text-align: right;
+        color: $favorite;
         @include to(m){
             margin: .2em 0
         }

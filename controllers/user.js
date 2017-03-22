@@ -14,7 +14,7 @@ exports.renderUser = function(req, res, next) {
             .populate('profesor')
             .exec(function(err,tasks){
                 if(err) console.log(err)
-                res.render('user', { title: 'Inicio', tasks: tasks });
+                res.render('user', { title: 'Inicio', tasks: tasks , profile: true});
             })
       }else{
           res.render('user', { title: 'Inicio - admin'});
