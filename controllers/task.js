@@ -54,6 +54,19 @@ exports.findAll = function (req,res,next){
     }
 }
 
+exports.updateTask = function(req,res){
+    res.locals.task.period = req.body.period
+    res.locals.task.task = req.body.task
+    res.locals.task.grade = req.body.grade
+    res.locals.task.save(function(err){
+        if(!err){
+            res.redirect('/task/'+req.params.id)
+        }else{
+            res.render('task/edit')
+        }
+    })
+}
+
 exports.deleteTask = function(req,res){
     Task.findOneAndRemove({_id: req.params.id}, function(err){
         if(!err){
@@ -64,6 +77,7 @@ exports.deleteTask = function(req,res){
         }
     })
 }
+
 //Render views
 
 exports.renderShowTask = function(req, res){
@@ -80,7 +94,7 @@ exports.renderNewTask = function(req, res){
 
 exports.renderEditTask = function(req, res){
     if(res.locals.user.typeuser == 'Profesor'){
-        res.render('task/new',{title: 'Nueva tarea'})
+        res.render('task/edit',{title: 'Editar tarea'})
     }else{
         res.redirect('/home')
     }

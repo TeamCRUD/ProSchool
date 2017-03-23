@@ -3,10 +3,10 @@ extends ../layout_app
 block content_app
     .edit-content 
         .edit-title
-            h2 Editar nota
+            h2 Editar tarea
             p Puedes cambiar la nota, tarea o periodo 
         .edit-form
-            form(action="/app/task/#{task._id}?_method=PUT", method="POST")
+            form(action="/task/#{task._id}?_method=PUT", method="POST")
                 .edit-select
                     label Periodo 
                     select(name="period")
@@ -14,7 +14,7 @@ block content_app
                         option(value="Segundo") Segundo
                         option(value="Tercero") Tercero
                         option(value="Cuarto") Cuarto
-                .new-select-grade
+                .edit-select-grade
                     label Grado
                     select(name="grade")
                         option(value="#{user.grade}") #{user.grade}
@@ -23,4 +23,4 @@ block content_app
                 .edit-button
                     input.edit-button-1(type="submit" value="Cambiar")
                 .edit-button
-                    a.edit-button-2(href="/app") Cancelar
+                    a.edit-button-2(href="/home") Cancelar

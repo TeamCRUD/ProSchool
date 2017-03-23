@@ -14,6 +14,7 @@ router.all('/:id*', task_find)
 router.get('/:id/edit', TaskCtrl.renderEditTask)
 router.route('/:id')
      .get(TaskCtrl.renderShowTask)
+     .put(TaskCtrl.updateTask)
      .delete(TaskCtrl.deleteTask)
 
 module.exports = router;

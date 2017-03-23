@@ -5,13 +5,13 @@ block content_app
         .show-main
             .show-teacher
                 b #{task.teacher.fullname} #[br]
-                s #[a(href="/app/#{task.teacher.username}") @#{task.teacher.username}] 
+                s #[a(href="/user") @#{task.teacher.username}] 
             .show-description
                 p= task.task
                 b #{task.matter}   #{task.porcentage}%, Grado: #{task.grade}
             if user.typeuser == 'Profesor' && user.username == task.teacher.username
                 .show-button
-                    form(action="/app/task/#{task._id}?_method=DELETE", method="POST")
+                    form(action="/task/#{task._id}?_method=DELETE", method="POST")
                         a.show-button-1(href="/app/note/new/#{task._id}") Calificar 
                         a.show-button-2(href="/task/#{task._id}/edit") Editar 
                         input.show-button-3(type="submit", value="Eliminar")
