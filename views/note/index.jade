@@ -1,4 +1,4 @@
-extends ../layout/default
+extends ../layout_app
 
 block content_app
     .note-content
@@ -12,9 +12,9 @@ block content_app
                     .main-note-title
                         p.note-description #{task.task}, Nota: #{task.note}, #{task.porcentage}%
                     .main-note-button
-                        a.note-button-1(href="/app/task/note/#{task._id}/edit") Editar
+                        a.note-button-1(href="/note/#{task._id}/edit") Editar
                     .main-note-button
-                        form(action="/task/#{task._id}?_method=DELETE", method="POST")
+                        form(action="/note/#{task._id}?_method=DELETE", method="POST")
                             input.note-button-2(type="submit", value="Eliminar")   
                         - note = true
         if !note

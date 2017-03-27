@@ -1,4 +1,4 @@
-extends ../layout/default
+extends ../layout_app
 
 block content_app
     .edit-content 
@@ -16,4 +16,4 @@ block content_app
                 .edit-button
                     input.edit-button-1(type="submit" value="Cambiar")
                 .edit-button
-                    a.edit-button-2(href="/app/task") Cancelar
+                    a.edit-button-2(href="/note/"+task.student) Cancelar

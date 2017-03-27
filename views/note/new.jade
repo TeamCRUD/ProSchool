@@ -1,4 +1,4 @@
-extends ../layout/default
+extends ../layout_app
 
 block content_app
     .new-content 
@@ -6,7 +6,7 @@ block content_app
             h2 Tarea / #{task.task}
             p Asigna una nota
         .new-form
-            form(action="/app/note/#{task._id}", method="POST")
+            form(action="/note/#{task._id}", method="POST")
                 .new-select
                     label Periodo 
                     select(name="period")
@@ -26,4 +26,4 @@ block content_app
                 .new-button
                     input.new-button-1(type="submit" value="Subir")
                 .new-button
-                    a.new-button-2(href="/app") Cancelar
+                    a.new-button-2(href="/task/#{task._id}") Cancelar

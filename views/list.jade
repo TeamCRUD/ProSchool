@@ -14,7 +14,7 @@ block content_app
                             if(student.typeuser == 'Estudiante')
                                 a(href="/app/#{student.username}/")=student.fullname
                         .list-main-button
-                            a(href="/app/task/note/#{student.username}") Ver mas
+                            a(href="note/#{student.username}") Ver mas
                     - flag = true
             if !flag
                 p No hay estudiantes registrados en el curso
