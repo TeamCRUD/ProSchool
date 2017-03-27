@@ -1,13 +1,13 @@
 include titles
-if user.grade || user.typeuser == "school" 
+if user.grade || user.typeuser == "school"
     - var new_task = false
     for task in tasks
         if user.typeuser == "school"  || user.typeuser == "Profesor"
             if task.note > 4.8 && !profile
                 include ../task/news
         else
-                if task.note == null && !profile
-                    include ../task/news
+            if task.note == null && !profile
+                include ../task/news
         if profile
             if task.note == null && task.teacher.username == user.username
                 include ../task/default
@@ -26,7 +26,11 @@ if user.grade || user.typeuser == "school"
         else
             p.description Ningun profesor ha subido tarea
 else
-    if user.typeuser != 'Acudiente'
-        p.description No has asignado tu grado
+    if user.typeuser == 'Acudiente'
+        if user.son
+            for task in tasks
+                include ../task/news
+        else
+            p.description No has asignado a tu hijo 
     else
-        p.description No has asignado tu hijo
+        p.description No has asignado tu grado

@@ -7,13 +7,13 @@
         .task-note
             b #{task.student} - Nota: #{task.note}
     else
-        if !profile
+        if !profile 
             a.task-main.task-main(href="/task/#{task.id}")= task.task
         else
             a.task-main.task-main= task.task
-        if profile && task.student == user.username
+        if profile && task.student == user.username || profile && task.student == user.son
             .task-note
-                if user.typeuser == "Estudiante"
+                if user.typeuser == "Estudiante" || user.typeuser == "Acudiente"
                     if task.note <= 3.25 
                         b #{task.matter},  #[span.low Nota: #{task.note}]
                     if task.note >= 3.25 && task.note < 4
@@ -26,5 +26,7 @@
             .task-matter
                 if user.typeuser == "Estudiante"
                     b #{task.matter}
-                else
+                if user.typeuser == "Profesor"
                     b #{task.matter} / #{task.grade}
+                if user.typeuser == "Acudiente"
+                    b #{task.student}, #{task.matter}

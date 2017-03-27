@@ -3,4 +3,3 @@ if user.typeuser == "Profesor"
         b.fullname-task #{task.teacher.fullname} 
         s.username-task #[a(href="/user") @#{task.teacher.username}] #[br]
         a.task-main(href="/task/#{task.id}")= task.task
-else

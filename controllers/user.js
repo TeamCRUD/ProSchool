@@ -2,26 +2,33 @@ var Task = require('../models/tasks');
 var School = require('../models/schools');
 
 exports.renderUser = function(req, res, next) {
-  if(res.locals.user.typeuser == 'Estudiante' || res.locals.user.typeuser == 'Acudiente'){
-      Task.find({grade: res.locals.user.grade},function(err,tasks){
-          if(err){
-              return res.redirect('/app')
-          }
-          res.render('user/default', { title: 'Inicio', tasks: tasks, profile: true });
-      })
-  }else{
-      if(res.locals.user.typeuser == 'Profesor' || res.locals.user.typeuser == 'school'){
+    if(res.locals.user.typeuser == 'Acudiente'){
+       Task.find({student: res.locals.user.son},function(err,tasks){
+            if(err){
+                return res.redirect('/app')
+            }
+            res.render('user/default', { title: 'Inicio', tasks: tasks, profile: true });
+        }) 
+    }
+    if(res.locals.user.typeuser == 'Estudiante'){
+        Task.find({grade: res.locals.user.grade},function(err,tasks){
+            if(err){
+                return res.redirect('/app')
+            }
+            res.render('user/default', { title: 'Inicio', tasks: tasks, profile: true });
+        })
+    }
+    if(res.locals.user.typeuser == 'Profesor' || res.locals.user.typeuser == 'school'){
         Task.find({})
             .populate('profesor')
             .exec(function(err,tasks){
                 if(err) console.log(err)
                 res.render('user', { title: 'Inicio', tasks: tasks , profile: true});
             })
-      }else{
-          res.render('user/default', { title: 'Inicio - admin', profile: true});
-      }
-  }
-  
+        }
+    if(res.locals.user.typeuser == 'admin'){
+        res.render('user/default', { title: 'Inicio - admin', profile: true});
+    }
 }
 
 exports.renderEditUser = function(req,res){
