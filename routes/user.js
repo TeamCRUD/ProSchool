@@ -4,6 +4,10 @@ var router = express.Router();
 var UserCtrl = require("../controllers/user")
 
 /* GET user page. */
-router.get('/', UserCtrl.renderUser);
+router.route('/')
+    .get(UserCtrl.renderUser)
+    .put(UserCtrl.updateUser)
+
+router.get('/edit', UserCtrl.renderEditUser);
 
 module.exports = router;

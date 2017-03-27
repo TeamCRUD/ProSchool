@@ -26,4 +26,7 @@ if user.grade || user.typeuser == "school"
         else
             p.description Ningun profesor ha subido tarea
 else
-    p.description No has asignado tu grado
+    if user.typeuser != 'Acudiente'
+        p.description No has asignado tu grado
+    else
+        p.description No has asignado tu hijo

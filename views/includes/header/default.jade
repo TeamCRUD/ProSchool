@@ -4,10 +4,10 @@
     else
         a(href="/home") 
             h1.title-logo Proschool
-if user.school != undefined
-    .header-title
-        a(href="/home") 
-            h1 Proschool
+.header-title
+    if user.school != undefined
+            a(href="/home") 
+                h1 Proschool
 .header-nav
     a(href="/home")
         b.ion-home

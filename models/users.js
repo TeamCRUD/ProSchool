@@ -32,6 +32,7 @@ var user_schema = new Schema({
     school: String,
     matter: String, 
     grade: String,
+    son: String,
     username: {type: String , required: true},
     password: {type: String, required: true},
 })
