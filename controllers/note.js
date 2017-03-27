@@ -19,7 +19,7 @@ exports.findAll = function (req,res){
         Task.find({grade: res.locals.user.grade, student: res.locals.user.username}, function(err, tasks){
             var profesor = req.params.username
             if(err){ res.redirect('/app'); return}
-            res.render(res.locals.user.typeuser + '/note/index', {title: 'Mis notas - Proschool', tasks: tasks, profesor: profesor})
+            res.render('note/index', {title: 'Mis notas - Proschool', tasks: tasks, profesor: profesor})
         })
     }else{
         Task.find({student: req.params.username}, function(err, tasks){
@@ -30,10 +30,18 @@ exports.findAll = function (req,res){
 }
 
 exports.findStudentNote = function(req, res){
-    Task.find({student: req.params.username}, function(err, tasks){
-        if(err){ res.redirect('/home'); return}
-        res.render('note/index', {title: 'Historial - Proschool', tasks: tasks})
-    })
+    if(res.locals.user.typeuser != 'Profesor'){
+        Task.find({grade: res.locals.user.grade, student: res.locals.user.username}, function(err, tasks){
+            var profesor = req.params.username
+            if(err){ res.redirect('/app'); return}
+            res.render('note/index', {title: 'Mis notas - Proschool', tasks: tasks, profesor: profesor})
+        })
+    }else{
+        Task.find({student: req.params.username}, function(err, tasks){
+            if(err){ res.redirect('/app'); return}
+            res.render('note/index', {title: 'Historial - Proschool', tasks: tasks})
+        })
+    }
 } 
 
 exports.addNote = function(req, res){

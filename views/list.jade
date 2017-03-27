@@ -1,22 +1,35 @@
 extends layout_app
 
 block content_app
-    .list-content
-        .list-title
-            h1 Lista de estudiantes #[b.title-grade.hideL #{user.grade}]
-        if user.grade
-            - var flag = false
-            .list-main
-            for student in students
-                if student.typeuser == 'Estudiante' && user.grade != null
-                    .list-main
-                        .list-main-title
-                            if(student.typeuser == 'Estudiante')
-                                a(href="/app/#{student.username}/")=student.fullname
-                        .list-main-button
-                            a(href="note/#{student.username}") Ver mas
-                    - flag = true
-            if !flag
-                p No hay estudiantes registrados en el curso
-        else
-            p No has asignado tu grado
+    if user.typeuser == 'Profesor'
+        .list-content
+            .list-title
+                h1 Lista de estudiantes #[b.title-grade.hideL #{user.grade}]
+            if user.grade
+                - var flag = false
+                .list-main
+                for student in students
+                    if student.typeuser == 'Estudiante' && user.grade != null
+                        .list-main
+                            .list-main-title
+                                if(student.typeuser == 'Estudiante')
+                                    a(href="/app/#{student.username}/")=student.fullname
+                            .list-main-button
+                                a(href="note/#{student.username}") Ver mas
+                        - flag = true
+                if !flag
+                    p No hay estudiantes registrados en el curso
+            else
+                p No has asignado tu grado
+    else
+        .list-content
+            .list-title
+                h1.title-list Lista de Notas
+                b.subtitle-list Apareceran notas de todo tus profesores
+            if user.grade
+                for teacher in teachers
+                    if teacher.typeuser == 'Profesor'
+                        .list-teacher
+                            p #{teacher.matter} | #[a(href="/app/#{teacher.username}/")=teacher.fullname] | #[a(href="/note/#{teacher.username}") Ver notas]
+            else
+                p No has asignado tu grado

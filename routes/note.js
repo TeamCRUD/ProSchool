@@ -5,7 +5,8 @@ var NoteCtrl = require('../controllers/note')
 var task_find = require('../middlewares/find_task')
 
 router.route('/')
-
+    .get(NoteCtrl.findAll)
+    
 router.route('/:username')
     .get(NoteCtrl.findStudentNote)
     

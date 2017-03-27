@@ -24,3 +24,12 @@ a {
 .hideL{
   @include showFrom(l);
 }
+.low{
+    color: $low
+}
+.medium{
+    color: $medium
+}
+.high{
+    color: $high
+}
