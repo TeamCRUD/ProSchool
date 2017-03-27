@@ -8,11 +8,15 @@ exports.allStudent = function(req,res){
             res.render('list', {title: 'Historial - Proschool', students: students})
         })
     }else{
-        User.find({grade: res.locals.user.grade}, function(err,teachers){
-            if(err){
-                return res.redirect('/home')
-            }
-            res.render('list', {title: 'Mis notas - Proschool', teachers: teachers})
-        })
+        if(res.locals.user.typeuser == 'Acudiente'){
+            res.render('list', {title: 'Mis notas - Proschool'})
+        }else{
+            User.find({grade: res.locals.user.grade}, function(err,teachers){
+                if(err){
+                    return res.redirect('/home')
+                }
+                res.render('list', {title: 'Mis notas - Proschool', teachers: teachers})
+            })
+        }
     }
 }

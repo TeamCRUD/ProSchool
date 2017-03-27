@@ -40,4 +40,13 @@ block content_app
                                     p Tarea: #{task.task}, #[b.high Nota: #{task.note}]
                                 - profe = true
                         if !profe
-                            p No ha subido notas refentes a ti
+                            if user.typeuser == 'Acudiente' && user.son
+                                 for task in tasks
+                                        if task.note <= 3.25 
+                                            p Tarea: #{task.task}, #[b.low Nota: #{task.note}]
+                                        if task.note >= 3.25 && task.note < 4
+                                            p Tarea: #{task.task}, #[b.medium Nota: #{task.note}]
+                                        if task.note > 4
+                                            p Tarea: #{task.task}, #[b.high Nota: #{task.note}]
+                            else
+                                p No ha subido notas refentes a ti

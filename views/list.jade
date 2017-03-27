@@ -32,7 +32,9 @@ block content_app
                         .list-teacher
                             p #{teacher.matter} | #[a(href="/app/#{teacher.username}/")=teacher.fullname] | #[a(href="/note/#{teacher.username}") Ver notas]
             else
-                if user.typeuser != 'Acudiente'
-                    p.description No has asignado tu grado
+                if user.typeuser == 'Acudiente' 
+                    if user.son
+                        .list-teacher
+                            p #[a(href="/user/#{user.son}/")=user.son] | #[a(href="/note/#{user.son}") Ver notas]
                 else
                     p.description No has asignado tu hijo

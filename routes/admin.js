@@ -3,6 +3,7 @@ var router = express.Router();
 
 var AdminCtrl = require("../controllers/user_admin")
 var SchoolCtrl = require("../controllers/school_admin")
+var NewCtrl = require("../controllers/admin")
 
 var user_find = require("../middlewares/find_user")
 
@@ -16,7 +17,7 @@ router.get("/user/new", function(req, res){
 })
 
 router.route('/user') 
-  .get(AdminCtrl.allUser)
+  .get(NewCtrl.allUser)
   .post(AdminCtrl.addUser)
 
 router.get("/school/new", function(req, res){
@@ -24,8 +25,8 @@ router.get("/school/new", function(req, res){
 })
 
 router.route("/school")
-  .get(SchoolCtrl.allSchool)
-  .post(SchoolCtrl.addSchool)
+  .get(NewCtrl.allSchool)
+  .post(NewCtrl.addSchool)
 
 router.route("/school/:typeuser")
   .get(user_find, AdminCtrl.renderSingleTypeuser)

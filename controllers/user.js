@@ -23,7 +23,7 @@ exports.renderUser = function(req, res, next) {
             .populate('profesor')
             .exec(function(err,tasks){
                 if(err) console.log(err)
-                res.render('user', { title: 'Inicio', tasks: tasks , profile: true});
+                res.render('user/default', { title: 'Inicio', tasks: tasks , profile: true});
             })
         }
     if(res.locals.user.typeuser == 'admin'){

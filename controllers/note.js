@@ -15,13 +15,21 @@ exports.renderEditNote = function(req, res){
 
 /** RESET */
 exports.findAll = function (req,res){
-    if(res.locals.user.typeuser != 'Profesor'){
+    if(res.locals.user.typeuser == 'Estudiante'){
         Task.find({grade: res.locals.user.grade, student: res.locals.user.username}, function(err, tasks){
             var profesor = req.params.username
             if(err){ res.redirect('/app'); return}
             res.render('note/index', {title: 'Mis notas - Proschool', tasks: tasks, profesor: profesor})
         })
-    }else{
+    }
+    if(res.locals.user.typeuser == 'Acudiente'){
+        Task.find({student: res.locals.user.son}, function(err, tasks){
+            if(err){ res.redirect('/app'); return}
+            res.render('note/index', {title: 'Mis notas - Proschool', tasks: tasks})
+            console.log(tasks)
+        })
+    }
+    if(res.locals.user.typeuser == 'Profesor'){
         Task.find({student: req.params.username}, function(err, tasks){
             if(err){ res.redirect('/home'); return}
             res.render('Profesor/note/index', {title: 'Historial - Proschool', tasks: tasks})
@@ -30,16 +38,24 @@ exports.findAll = function (req,res){
 }
 
 exports.findStudentNote = function(req, res){
-    if(res.locals.user.typeuser != 'Profesor'){
+    if(res.locals.user.typeuser == 'Estudiante'){
         Task.find({grade: res.locals.user.grade, student: res.locals.user.username}, function(err, tasks){
             var profesor = req.params.username
             if(err){ res.redirect('/app'); return}
             res.render('note/index', {title: 'Mis notas - Proschool', tasks: tasks, profesor: profesor})
         })
-    }else{
-        Task.find({student: req.params.username}, function(err, tasks){
+    }
+    if(res.locals.user.typeuser == 'Acudiente'){
+        Task.find({student: res.locals.user.son}, function(err, tasks){
             if(err){ res.redirect('/app'); return}
-            res.render('note/index', {title: 'Historial - Proschool', tasks: tasks})
+            res.render('note/index', {title: 'Mis notas - Proschool', tasks: tasks})
+            console.log(tasks)
+        })
+    }
+    if(res.locals.user.typeuser == 'Profesor'){
+        Task.find({student: req.params.username}, function(err, tasks){
+            if(err){ res.redirect('/home'); return}
+            res.render('Profesor/note/index', {title: 'Historial - Proschool', tasks: tasks})
         })
     }
 } 
