@@ -1,0 +1,14 @@
+extends ../layout/default
+
+block content_app
+    .show-content 
+        .show-main
+            h1= nota.task + ' : ' + nota.note
+            if(typeof nota.profesor != "undefined")
+                p Por @#{nota.profesor.username} | Estudiante: @#{nota.student}
+            
+                //.list-button
+                    a.list-button-1(href="/app/notas/#{nota._id}/edit") Editar 
+                //.list-button
+                    form(action="/app/notas/#{nota._id}?_method=DELETE", method="POST")
+                        input.list-button-2(type="submit", value="Eliminar")

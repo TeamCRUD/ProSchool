@@ -5,8 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "scss": "node-sass --include-path node_modules --output-style compressed -o public/stylesheets/ theme/style.scss",
-    "autoprefixer": "postcss -u autoprefixer   -b \"last 2 versions\" --autoprefixer.browsers \"&gt; 5%, ie 9\" -r public/stylesheets/*",
-    "reload": "browser-sync start --proxy localhost:3000 --port 7000 --files \"./**/*.js\", \"views/**/*.jade\", \"public/stylesheets/style.css\"",
+    "autoprefixer": "postcss -u autoprefixer   -b \"last 2 versions\" -r public/stylesheets/*",
+    "reload": "browser-sync start --proxy localhost:3000 --port 7000 --files  \"views/**/*.jade\", \"public/stylesheets/style.css\"",
     "build:css": "npm run scss && npm run autoprefixer",
     "watch:css": "onchange \"theme/**/*.scss\" -- npm run build:css",
     "watch:css-dev": "onchange \"theme/**/*.scss\" -- npm run scss",

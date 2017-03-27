@@ -1,0 +1,29 @@
+extends ../layout/default
+
+block content_app
+    .new-content 
+        .new-title
+            h2 Tarea / #{task.task}
+            p Asigna una nota
+        .new-form
+            form(action="/app/note/#{task._id}", method="POST")
+                .new-select
+                    label Periodo 
+                    select(name="period")
+                        option(value="#{task.period}" , selected) #{task.period}
+                if students.length == 0
+                    p No hay estudiantes en #{user.grade}
+                    input(type="hidden", name="student")
+                else
+                    .new-select
+                        label.s-label Estudainte
+                        select.s-select(name="student")
+                            option(value="vacio" selected) Selecinar estudiante
+                            for student in students
+                                option(value="#{student.username}") #{student.username}
+                .new-input
+                    input(type="text", name="note", placeholder="Asignar nota")
+                .new-button
+                    input.new-button-1(type="submit" value="Subir")
+                .new-button
+                    a.new-button-2(href="/app") Cancelar

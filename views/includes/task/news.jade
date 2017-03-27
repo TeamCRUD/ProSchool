@@ -7,7 +7,10 @@
         .task-note
             b #{task.student} - Nota: #{task.note}
     else
-        a.task-main= task.task
+        if !profile
+            a.task-main.task-main(href="/task/#{task.id}")= task.task
+        else
+            a.task-main.task-main= task.task
         if profile && task.student == user.username
             .task-note
                 if user.typeuser == "Estudiante"

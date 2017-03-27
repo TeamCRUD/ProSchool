@@ -12,6 +12,6 @@ block content_app
             if user.typeuser == 'Profesor' && user.username == task.teacher.username
                 .show-button
                     form(action="/task/#{task._id}?_method=DELETE", method="POST")
-                        a.show-button-1(href="/app/note/new/#{task._id}") Calificar 
+                        a.show-button-1(href="/note/new/#{task._id}") Calificar 
                         a.show-button-2(href="/task/#{task._id}/edit") Editar 
                         input.show-button-3(type="submit", value="Eliminar")
