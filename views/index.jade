@@ -1,18 +1,21 @@
 extends layout
 
 block content
+  .index-header
+      .index-logo
+        a(href='/') Proschool
+      .index-nav
+        a(href='/login') Inicia sesión
+        a(href='/signup') Registrate
   .index-content
-    .index-header
-      a(href='/') Proschool
-      a(href='/login') Inicia sesión
-      span o
-      a(href='/signup') Registrate
     .index-title
-      h1 Construido para escuelas
+      h1 Construido para instituciones
       p 
-        | Proschool es una pltaforma tipo red social realizada para la organizacion de las escuelas, hecha principalmente para la optimizacion,
-        | puedes alojar y revisar tarea o notas en tiempo real, la gestion del personal de la intstucion y entre otras funciones
+        | Proschool es una pltaforma tipo red social, hecha principalmente para la organizacion,
+        | puedes alojar y revisar tarea o notas en tiempo real, gestion del personal de la intstucion y entre otras funciones
     .index-form
+      a(href='/signup') Registrate en Proschool
+      p 
       form(action="/signup", method="POST")
           .index-input
               input(type="text", name="fullname", placeholder="Nombre completo")
@@ -20,7 +23,7 @@ block content
               input(type="text", name="email", placeholder="Correo electronico")
           .index-select
               select(name="typeuser")
-                  option(value="Estudiante") Tipo de usuario
+                  option(value="select") Tipo de usuario
                   option(value="Estudiante") Estudiante
                   option(value="Profesor") Profesor
                   option(value="Acudiente") Acudiente
@@ -32,20 +35,46 @@ block content
               input.signup-button-1(type="submit" value="Registrarse")
     .index-section
       h6 Proschool para profesores
-      h2 Gestiona tus tareas y notas
-      p 
+      h2 Tus tareas y nota, en un solo lugar
+      b 
         | Proschool organiza tus tareas con sus respectivas notas de una forma facil y sencilla en tiempo real, 
         | para asi hacerlas llegar a los estudiantes y acudientes, tambien la escuela tendra un segimiento de ellas
-      a(href='/signup') Registrate como profesor
+      .index-button
+        a.button-1(href='/signup') Registrate como profesor
       h3 Haste un maestro pro
       p 
         | Sube tus tareas asignales detalles como el periodo, porcentaje y su nota de la forma mas sencilla
-      h3 Organiza tus estudiantes, Proschool te birndara un seguimeinto de ellas
+        | Organiza tus estudiantes, Proschool te birndara un seguimeinto de 
+      h3 Lista de estudiantes
       p 
         | Manten la calma, todos tus estudiantes en un solo lugar. En Proschool tendras la lista detallada de tus estudiantes sin mover un solo dedo
     .index-section
       h6 Seguirdad y administracion
-      h2 Gestion de la institucion
-      p 
+      h2 Admin. Escuela
+      b 
         | Hemos encotrado la forma de organizar los estudiantes, profesores y acudientes, 
-        | como prioriad la seguridad y multpiles funciones administrativas
+        | como prioriadad la seguridad y multpiles funciones administrativas
+      h3 Noticias y notificaciones
+      p 
+        | Manten al tanto a los estudiantes, profesores y acudientes sobre fechas importantes
+        | entre otros tipos de informacion por medio de publicaciones 
+      h3 Todos en un solo lugar
+      p 
+        | la organizacion completa de todos los integrantes de la institucion incluyendo padres de familia,
+        | obteniendo mas informacion sobre ellos 
+      h3 Filtro de usuarios
+      p 
+        | Solo la institucion puede administrar a los usuarios determinando quien pertenece a dicha institucion,
+        | para asi filtrar y mantener la organizacion
+      .index-button
+        a.button-2(href='/signup') Soy una escuela
+    .index-section
+      h6 Integracion
+      h2 Ayudanos a pefeccionar
+      b 
+        | Integrate y comenta cual a sido tu expericencia con nustras herramientas y
+        | encontra la forma mas eficente de trabajar
+      .index-button
+        a.button-2(href='/signup') Quiero ser parte de Proschool
+    .index-footer
+      p Proschool &copy 2017 

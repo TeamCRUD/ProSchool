@@ -1,0 +1,129 @@
+.index-header{
+    @include edContainer;   
+}
+.index-logo{
+    @include edItem(30);
+}
+.index-nav{
+    @include edItem(70);
+    text-align: right;
+    a{
+        color: $favorite;
+        margin-left: .5em
+    }
+}
+.index-content{
+    @include edContainer
+}
+.index-title{
+    @include edItem(100,50);
+    h1{
+        font-size: 48px;
+        font-weight: 300;
+        line-height: 1
+    }
+    p{
+        color: #24292e;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 1.5
+    }
+}
+.index-form{
+    @include edItem(100,50);
+    @include to(m){
+        border-bottom: 1px solid $border;
+        text-align: center;
+        padding: 1em;
+    }
+    @include from(m){
+        text-align: right;
+    }
+    p{
+        margin: 0;
+        margin-bottom: 2em
+    }
+    a{
+        color: #fff;
+        background: $secondary;
+        text-decoration: none;
+        border-radius: 6px;
+        padding: .8em;
+        text-align: center;
+        @include hideFrom(m)
+    }
+    input{
+        margin: 3px 0;
+        padding: 10px;
+        width: 22em;
+        font-size: 18px;
+        border: 1px solid #E1E8ED;
+        border-radius: 3px;
+        &:focus{
+            border: 1px solid $light
+        }
+    }
+    select{
+        padding: .3em .5em;
+        font-size: 1em;
+        width: 25em;
+        background: white;
+        color: #333;
+        border: 1px solid #E1E8ED;
+        cursor: pointer;
+    }
+    form{
+        @include showFrom(m)
+    }
+}
+.index-section{
+    @include edItem;
+    @include to(m){
+        text-align: center
+    }
+    h6{
+        font-size: 16px;
+        color: #586069 !important;
+        font-weight: 500
+    }
+    h2{
+        font-weight: 300;
+        font-size: 36px;
+    }
+    p,b{
+        font-size: 18px;
+        color: #24292e;
+        line-height: 1.6
+    }
+    b{
+        font-weight: 400
+    }
+    a{
+        color: #fff;
+        text-decoration: none;
+        border-radius: 6px;
+        padding: .8em;
+    }
+    .index-button{
+        padding: 2em 0
+    }
+    h3{
+        font-size: 18px;
+        font-weight: 500;
+    }
+    p{
+        font-size: 16px;
+        color: #24292e
+    }
+    .button-1{
+        background: $light;
+    }
+    .button-2{
+        border: 1px solid $border;
+        color: $light
+    }
+}
+.index-footer{
+    @include edItem;
+    text-align: center
+}
