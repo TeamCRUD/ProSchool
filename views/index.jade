@@ -1,16 +1,51 @@
 extends layout
 
 block content
-  .login-content
-    .login-title
-      a(href="/")= title
-    .login-form
-      form(action="/sessions", method="POST")
-        .login-input
-          input(type="text", name="username", placeholder="Usuario", id="username")
-        .login-input
-          input(type="password", name="password", placeholder="Contraseña", id="password")
-        .login-button
-          input.login-button-1(type="submit" value="Iniciar sesión")  
-        .login-button
-          a.login-button-2(href="/signup") No tengo cuenta
+  .index-content
+    .index-header
+      a(href='/') Proschool
+      a(href='/login') Inicia sesión
+      span o
+      a(href='/signup') Registrate
+    .index-title
+      h1 Construido para escuelas
+      p 
+        | Proschool es una pltaforma tipo red social realizada para la organizacion de las escuelas, hecha principalmente para la optimizacion,
+        | puedes alojar y revisar tarea o notas en tiempo real, la gestion del personal de la intstucion y entre otras funciones
+    .index-form
+      form(action="/signup", method="POST")
+          .index-input
+              input(type="text", name="fullname", placeholder="Nombre completo")
+          .index-input
+              input(type="text", name="email", placeholder="Correo electronico")
+          .index-select
+              select(name="typeuser")
+                  option(value="Estudiante") Tipo de usuario
+                  option(value="Estudiante") Estudiante
+                  option(value="Profesor") Profesor
+                  option(value="Acudiente") Acudiente
+          .index-input
+              input(type="text", name="username", placeholder="Nombre de usuario")
+          .index-input
+              input(type="password", name="password", placeholder="Contraseña")
+          .index-button
+              input.signup-button-1(type="submit" value="Registrarse")
+    .index-section
+      h6 Proschool para profesores
+      h2 Gestiona tus tareas y notas
+      p 
+        | Proschool organiza tus tareas con sus respectivas notas de una forma facil y sencilla en tiempo real, 
+        | para asi hacerlas llegar a los estudiantes y acudientes, tambien la escuela tendra un segimiento de ellas
+      a(href='/signup') Registrate como profesor
+      h3 Haste un maestro pro
+      p 
+        | Sube tus tareas asignales detalles como el periodo, porcentaje y su nota de la forma mas sencilla
+      h3 Organiza tus estudiantes, Proschool te birndara un seguimeinto de ellas
+      p 
+        | Manten la calma, todos tus estudiantes en un solo lugar. En Proschool tendras la lista detallada de tus estudiantes sin mover un solo dedo
+    .index-section
+      h6 Seguirdad y administracion
+      h2 Gestion de la institucion
+      p 
+        | Hemos encotrado la forma de organizar los estudiantes, profesores y acudientes, 
+        | como prioriad la seguridad y multpiles funciones administrativas

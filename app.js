@@ -13,6 +13,7 @@ var session_middleware = require('./middlewares/session')
 var index = require('./routes/index');
 var user = require('./routes/user');
 var signup = require('./routes/signup');
+var login = require('./routes/login');
 var sessions = require('./routes/sessions');
 var logout = require('./routes/logout');
 var home = require('./routes/home');
@@ -47,6 +48,7 @@ app.use(session({
 
 app.use('/', index);
 app.use('/signup', signup);
+app.use('/login', login);
 app.use('/sessions', sessions);
 app.use('/logout', logout);
 app.use('/*', session_middleware)

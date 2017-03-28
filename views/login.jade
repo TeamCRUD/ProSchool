@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .login-content
+    .login-title
+      a(href="/")= title
+    .login-form
+      form(action="/sessions", method="POST")
+        .login-input
+          input(type="text", name="username", placeholder="Usuario", id="username")
+        .login-input
+          input(type="password", name="password", placeholder="Contraseña", id="password")
+        .login-button
+          input.login-button-1(type="submit" value="Iniciar sesión")  
+        .login-button
+          a.login-button-2(href="/signup") No tengo cuenta
