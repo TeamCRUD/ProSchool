@@ -9,15 +9,12 @@ var session = require('express-session')
 var methodOverride = require("method-override")
 
 var session_middleware = require('./middlewares/session')
-var session_admin = require('./middlewares/session_admin')
-var session_school = require('./middlewares/session_school')
 
 var index = require('./routes/index');
 var user = require('./routes/user');
 var signup = require('./routes/signup');
 var sessions = require('./routes/sessions');
 var logout = require('./routes/logout');
-var route_app = require('./routes/route_app');
 var home = require('./routes/home');
 var list = require('./routes/list');
 var task = require('./routes/task');
@@ -53,7 +50,6 @@ app.use('/signup', signup);
 app.use('/sessions', sessions);
 app.use('/logout', logout);
 app.use('/*', session_middleware)
-app.use('/app', route_app);
 app.use('/home', home);
 app.use('/list', list);
 app.use('/user', user);

@@ -7,8 +7,8 @@ if !profile
         p.subtitle Todas las tareas de tus profesores
 else
     if user.typeuser == "school"
-        h1.title Noticias #{user.school}
-        p.subtitle Apareceran informaciones sobre la escuela
+        h1.title Noticias #[span.hideL #{user.school}]
+        p.subtitle Apareceran informaciones sobre la I.E
     if user.typeuser == "Profesor"
         h1.title Tareas
         p.subtitle Todas las tareas que has subido

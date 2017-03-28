@@ -1,4 +1,5 @@
 var User = require('../models/users');
+
 //CRUD
 exports.addSchool = function(req, res, next) {
     var data = {
@@ -18,6 +19,23 @@ exports.addSchool = function(req, res, next) {
     })
 }
 
+exports.addUser = function(req, res, next) {
+    var data = {
+        fullname: req.body.fullname,
+        email: req.body.email,
+        username: req.body.username,
+        password: req.body.password,
+        typeuser: "admin"
+    }
+
+    var user = new User(data)
+    user.save().then(function(us){
+        res.redirect('/admin/user')
+    }), function(err){
+        res.redirect('/home')
+    }
+}
+
 exports.allSchool = function(req, res, next) {
     User.find({typeuser: 'school'},function(err,schools){
         if(err){
@@ -34,3 +52,7 @@ exports.allUser = function(req, res, next){
     })
 }
 
+//RENDER
+exports.renderSingupUser = function(req, res, next) {
+  res.render('admin/user/new', { title: 'Admin - Proschool' });
+}
