@@ -1,6 +1,9 @@
 .avatar-content.hideL
     .avatar-main
         include default
+    if user.typeuser == 'admin'
+        .avatar-links
+            include ../links/new
     .avatar-links
         if user.typeuser
             if user.typeuser == "admin"

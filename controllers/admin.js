@@ -13,9 +13,9 @@ exports.addSchool = function(req, res, next) {
 
     var user = new User(data)
     user.save().then(function(us){
-        res.send("Guardamos el Admin")
+        res.redirect('/admin/school')
     }, function(err){
-        res.send("No Guardamos")
+        res.redirect('/home')
     })
 }
 
