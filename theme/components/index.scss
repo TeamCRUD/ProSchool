@@ -1,38 +1,67 @@
+section{
+    background: $primary;
+}
+.section-main{
+    margin-bottom: 3em;
+}
 .index-header{
-    @include edContainer;   
+    @include edContainer;
+    padding: 1em 0;
 }
 .index-logo{
     @include edItem(30);
+    a{
+        color: #fff;
+        font-size: 16px;
+        text-decoration: none;
+    }
 }
 .index-nav{
     @include edItem(70);
     text-align: right;
     a{
-        color: $favorite;
-        margin-left: .5em
+        color: #fff;
+        font-weight: 600;
+        font-size: 16px
+    }
+    span{
+        margin: 0 .5em;
+        font-size: 16px;
+        color: $favorite
     }
 }
 .index-content{
     @include edContainer
+}
+.section-main{
+    @include to(m){
+    }
+    @include from(m){
+        padding-top: 50px;
+        padding-bottom: 100px
+    }
 }
 .index-title{
     @include edItem(100,50);
     h1{
         font-size: 48px;
         font-weight: 300;
-        line-height: 1
+        color: #fff;
+        line-height: 1;
+        margin-bottom: 16px 
     }
     p{
-        color: #24292e;
+        padding: 0;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.6);
         font-size: 20px;
         font-weight: 300;
         line-height: 1.5
     }
 }
 .index-form{
-    @include edItem(100,50);
+    @include edItem(100,50);   
     @include to(m){
-        border-bottom: 1px solid $border;
         text-align: center;
         padding: 1em;
     }
@@ -52,11 +81,15 @@
         text-align: center;
         @include hideFrom(m)
     }
+    form{
+        @include showFrom(m)
+    }
     input{
         margin: 3px 0;
         padding: 10px;
-        width: 22em;
-        font-size: 18px;
+        font-size: 20px;
+        width: 20em;
+        color:#24292e;
         border: 1px solid #E1E8ED;
         border-radius: 3px;
         &:focus{
@@ -64,22 +97,75 @@
         }
     }
     select{
-        padding: .3em .5em;
+        margin: 3px 0;
+        padding: 10px;
         font-size: 1em;
-        width: 25em;
+        font-size: 20px;
+        width: 20em;
         background: white;
         color: #333;
         border: 1px solid #E1E8ED;
         cursor: pointer;
     }
-    form{
-        @include showFrom(m)
+    .signup-button-1{
+        font-size: 20px;
+        width: 20em;
+        @include button($secondary, white, radius)
+    }
+    .index-button-form{
+        @include hideFrom(m);
+        padding-top: 1em;
+        padding-bottom: 2em
     }
 }
+.index-main{
+    @include edContainer
+}
 .index-section{
-    @include edItem;
+    @include edItem(100);
+    margin-bottom: 8em;
+    .hideL{
+        @include showFrom(l);
+    }
+    .hideM{
+        @include hideFrom(m)
+    }
     @include to(m){
-        text-align: center
+        text-align: center;
+        h2{
+           font-size: 36px;
+        }
+        h3{
+            font-weight: 500;
+            font-size: 18px;
+        }
+        p,b{
+            font-size: 18px;
+        }
+    }
+    @include from(m){
+        h6,h2,.index-description,.index-button{
+            text-align: center
+        }  
+        .index-button{
+            width: 100%;
+        }
+        h2{
+            font-size: 54px;
+            margin: 0
+        }
+        h3{
+            font-weight: 400;
+            font-size: 22px;
+        }
+        .index-description{
+            margin: auto;
+            width: 60%;
+            margin-bottom: 10px
+        }
+        p,b{
+            font-size: 20px;
+        }
     }
     h6{
         font-size: 16px;
@@ -88,15 +174,14 @@
     }
     h2{
         font-weight: 300;
-        font-size: 36px;
+        margin-bottom: 8px
     }
     p,b{
-        font-size: 18px;
         color: #24292e;
         line-height: 1.6
     }
     b{
-        font-weight: 400
+        font-weight: 300
     }
     a{
         color: #fff;
@@ -105,13 +190,15 @@
         padding: .8em;
     }
     .index-button{
-        padding: 2em 0
+        padding: 2em 0;
+        margin-top: 3em;
     }
     h3{
-        font-size: 18px;
-        font-weight: 500;
+        margin-bottom: 4px
     }
     p{
+        padding: 0;
+        margin: 0;
         font-size: 16px;
         color: #24292e
     }
@@ -122,6 +209,37 @@
         border: 1px solid $border;
         color: $light
     }
+}
+.index-section-small{
+    @include edContainer
+}
+.index-small-main{
+    @include edItem(100,50);
+    padding: 0;
+    padding-top: 5em;
+}
+.index-small-image{
+    @include edItem(100,50);
+    display: flex;
+    @include flexCenter;
+    img{
+        width: 300px;
+        height: 300px;
+    }
+}
+.index-item,.index-item-image{
+    @include edItem(100,50);
+    img{
+        height: 350px;
+        margin: auto
+    }
+    p{
+        margin-bottom: 32px
+    }
+}
+.index-item-image{
+    display: flex;
+    @include flexCenter
 }
 .index-footer{
     @include edItem;
